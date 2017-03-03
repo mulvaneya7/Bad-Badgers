@@ -58,3 +58,8 @@ void Member::setId(int newId)
 {
   id = newId;
 }
+
+//ACCESSORS
+void Member::printMember()
+{
+}
