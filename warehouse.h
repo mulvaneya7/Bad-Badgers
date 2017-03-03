@@ -2,7 +2,7 @@
 #define WAREHOUSE_H
 
 #include <QVector>
-#include <Member.h>
+#include "RegularandDate.h"
 
 
 struct TransactionNode
