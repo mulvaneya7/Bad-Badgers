@@ -62,6 +62,11 @@ bool Date::Set(Month newMonth,	//New month to be assigned
 	return valid;
 }
 
+Date::Date(QString dateString)
+{
+    Set(dateString);
+}
+
 bool Date::Set(string dateString)
 {
 	bool valid;

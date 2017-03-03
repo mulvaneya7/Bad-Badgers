@@ -25,10 +25,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    warehouse.cpp
+    warehouse.cpp \
+    date.cpp \
+    member.cpp
 
 HEADERS  += mainwindow.h \
     warehouse.h \
-    RegularandDate.h
+    RegularandDate.h \
+    date.h \
+    member.h
 
 FORMS    += mainwindow.ui

@@ -74,11 +74,12 @@ public:
 	/*** Constructors ***/
 	Date();
 	Date(Month initMonth, int initDay, int initYear);
+    Date(QString dateString);
 
 	//Change the date stored in the object. Error checks input and only assigns
 	//if valid. Returns if input is valid
 	bool Set(Month newMonth, int newDay, int newYear);
-	bool Set(string dateString);
+    bool Set(string dateString);
 
 	//Checks if a given day is valid for a time in the year. Compatible with
 	//leap years
