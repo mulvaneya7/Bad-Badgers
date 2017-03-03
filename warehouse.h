@@ -13,7 +13,7 @@ struct TransactionNode
 	//quantity
 	//price
 	
-}
+};
 class Warehouse
 {
 Public:
@@ -22,6 +22,7 @@ Public:
 	Warehouse(ifstream& input);
 	~Warehouse();
 	
+    void LoadMember(Qstring fileName);
 	//Automatic Appending Memberlist
 	void AddMember(Member newMember);
 	//Front end Appending to Memberlist
