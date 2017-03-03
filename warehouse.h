@@ -55,7 +55,6 @@ Public:
 	Qstring reportExecutiveRebate();
 	//Checks if member should convert to Executive or an Executive member should convert to regular member
 	bool CheckForConvert(Member member);
-
 	
 Private:
 	// Helper Functions

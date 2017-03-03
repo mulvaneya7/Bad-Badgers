@@ -7,7 +7,7 @@
 #include <iomanip>
 #include <stdlib.h>
 #include <sstream>
-using namespacestd;
+using namespace std;
 
 //enum to define what the current member is
 enum class MemType {
@@ -45,3 +45,5 @@ Date exDate;		//Expiration date of the member
 MemType membership;	//enum declaring what type of member this member is
 
 };
+
+#endif /* MEMBER_H_ */
