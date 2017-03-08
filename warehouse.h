@@ -61,7 +61,7 @@ Private:
 	// Sorts TransactionList by date via DateClass
 	void sortTransactionList();
 	// Sorts Quantity and Revenue by item name
-	void sortQ&R(string inputName);
+	void sortQR(string inputName);
 	// 
 	void sortRebate(int inputID);
 	//Searchs the memberList for an instance of member
