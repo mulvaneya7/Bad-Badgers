@@ -41,3 +41,37 @@ Warehouse::LoadMember(Qstring fileName)
         memberList.back() = new Member(tmpName, tmpID, tmpDate, tmpType);
     }
 }
+Member Warehouse::SearchID(int inputID)
+{
+    int i = 0;
+    bool found = false;
+    while (i < memberList.size() && found == false)
+    {
+        if (memberList[i]->GetId() == inputID)
+        {
+            found = true;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return *memberList[i]; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
+}
+Member Warehouse::SearchName(string inputName)
+{
+    int i = 0;
+    bool found = false;
+    while (i < memberList.size() && found == false)
+    {
+        if (memberList[i]->GetName() == inputName)
+        {
+            found = true;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return *memberList[i]; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
+}
