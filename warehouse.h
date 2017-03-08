@@ -60,7 +60,7 @@ Private:
 	// Helper Functions
 	// Sorts TransactionList by date via DateClass
 	void sortTransactionList();
-	// Sorts Quantity and Revanue by item name
+	// Sorts Quantity and Revenue by item name
 	void sortQ&R(string inputName);
 	// 
 	void sortRebate(int inputID);
