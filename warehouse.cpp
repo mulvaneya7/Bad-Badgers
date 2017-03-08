@@ -15,30 +15,31 @@ Warehouse::~Warehouse()
 
 }
 
-Warehouse::LoadMember(Qstring fileName)
+void Warehouse::LoadMember(QString fileName)
 {
-    QFile inFile(fileName.c_str());
-    inFile.open();
-    Qstring tmpName;
+    QFile inFile(fileName);
+    inFile.open(QFile::ReadOnly|QFile::Text);
+    QDataStream in(&inFile);
+    QString tmpName;
     int tmpId;
-    Qstring tmpType;
-    Qstring tmpDate;
+    QString tmpType;
+    QString tmpDate;
 
+    //Deletes the list before we reinitialize it
     while(!memberList.empty())
     {
         delete memberList.back();
         memberList.pop_back();
     }
 
-    while(inFile)
+    //reads from the stream
+    while(!in.atEnd())
     {
-        memberList.push_back();
-        inFile.getline(tmpName);
-        inFile >> tmpId;
-        inFile.ignore('\n');
-        inFile.getline(tmpType);
-        inFile.getline(tmpDate);
-        memberList.back() = new Member(tmpName, tmpID, tmpDate, tmpType);
+        in >> tmpName;
+        in >> tmpId;
+        in >>tmpType;
+        in >>tmpDate;
+        memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpType);
     }
 }
 Member Warehouse::SearchID(int inputID)
