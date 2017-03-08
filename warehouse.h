@@ -22,7 +22,7 @@ Public:
 	Warehouse(ifstream& input);
 	~Warehouse();
 	
-    void LoadMember(Qstring fileName);
+    	void LoadMember(Qstring fileName);
 	//Automatic Appending Memberlist
 	void AddMember(Member newMember);
 	//Front end Appending to Memberlist
@@ -33,9 +33,9 @@ Public:
 	void AddItem();
 	//Deleting the member from the memberList
 	void DeleteMember(int id);
-	void DeleteMember(string name);
+	void DeleteMember(string inputName);
 	//Turns off the sold bool in the item list when an item is no longer needing to be sold
-	void DeleteMember(string name);
+	void DeleteMember(string inputName);
 	//Front end Appending to TransactionList
 	void ReportSales();
 	//Automatic Appending to TransactionList
@@ -49,8 +49,8 @@ Public:
 	//Reports the Quantity and total revanue of the items sold. Sorted by item name.(alphabetical)
 	Qstring reportItemSales();
 	//Reports the Member's total spending at the warehouse by Id number
-	Qstring reportMemberPurchases(string name);
-	Qstring reportMemberPurchases(int iD);
+	Qstring reportMemberPurchases(string inputName);
+	Qstring reportMemberPurchases(int inputID);
 	//Reports the Executive member's rebates and sorts the list by Id Number
 	Qstring reportExecutiveRebate();
 	//Checks if member should convert to Executive or an Executive member should convert to regular member
@@ -61,12 +61,12 @@ Private:
 	// Sorts TransactionList by date via DateClass
 	void sortTransactionList();
 	// Sorts Quantity and Revanue by item name
-	void sortQ&R(string name);
+	void sortQ&R(string inputName);
 	// 
-	void sortRebate(int id);
+	void sortRebate(int inputID);
 	//Searchs the memberList for an instance of member
-	Member SearchID(int id);
-	Member SearchName(string name);
+	Member SearchID(int inputID);
+	Member SearchName(string inputName);
 
 
 	//Pointers to members
