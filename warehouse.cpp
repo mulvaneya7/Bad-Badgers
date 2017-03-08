@@ -17,9 +17,10 @@ Warehouse::~Warehouse()
 
 void Warehouse::LoadMember(QString fileName)
 {
-    QFile inFile(fileName);
-    inFile.open(QFile::ReadOnly|QFile::Text);
-    QDataStream in(&inFile);
+    QFile inFile(fileName);//Direct the filestream to the correct file.
+    inFile.open(QFile::ReadOnly|QFile::Text);//Tell the filestream that the file is READ ONLY and read as ASCII text
+    QDataStream in(&inFile); //Set the QdataStream to the Filestream
+    //temporary dataholders
     QString tmpName;
     int tmpId;
     QString tmpType;
@@ -35,6 +36,8 @@ void Warehouse::LoadMember(QString fileName)
     //reads from the stream
     while(!in.atEnd())
     {
+        //As we can see no need to .ignore due to the fact that reading from QDatastream text leaves no
+        //Null terminating characters in the inputbufer.
         in >> tmpName;
         in >> tmpId;
         in >>tmpType;
