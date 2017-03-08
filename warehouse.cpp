@@ -75,3 +75,15 @@ Member Warehouse::SearchName(string inputName)
     }
     return *memberList[i]; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
 }
+
+void Warehouse::SortQR()
+{
+    sort(itemList.begin(), itemList.end(), itemList.name);
+}
+
+
+
+
+
+
+
