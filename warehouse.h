@@ -65,8 +65,8 @@ Private:
 	// 
 	void sortRebate(int id);
 	//Searchs the memberList for an instance of member
-	Member SearchList(int id);
-	Member SearchList(string name);
+	Member SearchID(int id);
+	Member SearchName(string name);
 
 
 	//Pointers to members
