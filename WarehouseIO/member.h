@@ -34,6 +34,8 @@ void printPurchaseHistory();
 void printOutstandingCharges();
 void printTotalPurchases();
 void gettotalSpent();
+QString getName() {return name};
+int getId() {return id};
 //MUTATORS
 void setName(QString newName);
 void setId(int newId);
