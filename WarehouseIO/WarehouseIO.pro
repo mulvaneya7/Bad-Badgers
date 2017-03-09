@@ -13,14 +13,24 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
     createuser.cpp \
-    mainprogram.cpp
+    mainprogram.cpp \
+    warehouse.cpp \
+    date.cpp \
+    member.cpp \
+    executive.cpp \
+    LoginScreen.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += \
     createuser.h \
-    mainprogram.h
+    mainprogram.h \
+    warehouse.h \
+    date.h \
+    member.h \
+    executive.h \
+    LoginScreen.h
 
-FORMS    += mainwindow.ui \
+FORMS    += \
     createuser.ui \
-    mainprogram.ui
+    mainprogram.ui \
+    LoginScreen.ui
