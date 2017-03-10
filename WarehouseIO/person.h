@@ -23,8 +23,8 @@ public:
     virtual int getId() = 0;
 
 private:
-    QString name;		//name of person
-    int id;				//id of person
+    QString name;   //name of person
+    int id;         //id of person
 };
 
 #endif // PERSON_H
