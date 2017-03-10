@@ -17,7 +17,7 @@ enum class MemType {
     EXECUTIVE
 };
 
-class Member
+class Member:public Person
 {
 public:
 //CONSTRUCTOR
