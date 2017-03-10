@@ -69,3 +69,26 @@ void Member::printMember()
 {
 
 }
+
+QString Member::getId()
+{
+    return Qstring(id);
+}
+
+QString Member::getName()
+{
+    return name;
+}
+
+QString Member::getTotalSpent()
+{
+    return QString(totalSpent);
+}
+MemType Member::getMembership()
+{
+    return membership;
+}
+const float Member::getRebate()
+{
+    return rebate;
+}
