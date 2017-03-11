@@ -48,6 +48,7 @@ MemType getMembership();
 QString getMembershipQString();
 float getRebate();
 QString getDate();
+QString getRebateQString();
 
 //MUTATORS
 void setName(QString newName);
