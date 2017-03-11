@@ -49,7 +49,7 @@ const TransactionNode MainProgram::GetTransaction(QVector<TransactionNode> Trans
 {
     return TransactionList[index];
 }
-void MainProgram::OutputToMemberTableName(QVector<Member*> memberList)
+void MainProgram::OutputToMemberTable(QVector<Member*> memberList)
 {
     QTableWidgetItem* item;
     for (unsigned col = 0; col < MEMBER_TABLE_COL_SIZE; col++)
@@ -58,6 +58,7 @@ void MainProgram::OutputToMemberTableName(QVector<Member*> memberList)
         {
             switch(col)
             {
+                         // Creates and outputs QTableWidgetItem Name of member
                 case 0 : item = new QTableWidgetItem(memberList[row]->getName());
                     break;
                          // Creates and outputs QTableWidgetItem ID of member

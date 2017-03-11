@@ -25,7 +25,6 @@ public:
     const TransactionNode GetTransaction(QVector<TransactionNode> TransactionList, int index);
     // Prints the enntire memberList vector into the QTableWidget
     void OutputToMemberTable(QVector<Member*> memberList);
-    void OutputToMemberTableName(QVector<Member*> memberList);
 
 private slots:
 

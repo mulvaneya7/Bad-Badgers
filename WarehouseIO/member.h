@@ -47,7 +47,6 @@ MemType getMembership();
 // Returns QString of enum type
 QString getMembershipQString();
 float getRebate();
-QString getMemberShipQString();
 QString getDate();
 
 //MUTATORS

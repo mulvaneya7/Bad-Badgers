@@ -141,3 +141,7 @@ float Member::getRebate()
 {
     return totalSpent*rebate;
 }
+QString Member::getDate()
+{
+    return exDate.DateSimple();
+}
