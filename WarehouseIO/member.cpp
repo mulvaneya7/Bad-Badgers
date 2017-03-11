@@ -122,6 +122,21 @@ MemType Member::getMembership()
 {
     return membership;
 }
+QString Member::getMembershipQString() // Returns QString of enum type
+{
+    QString temp;
+    switch(membership)
+    {
+    case INACTIVE : temp = "Inactive";
+        break;
+    case REGULAR : temp = "Regular";
+        break;
+    case EXECUTIVE : temp = "Executive";
+        break;
+    default : temp = "Error";
+    }
+    return temp;
+}
 float Member::getRebate()
 {
     return totalSpent*rebate;
