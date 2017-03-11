@@ -161,10 +161,10 @@ string Date::DateSimple() const
  * _______________________________________________________________________
  * This method formats the date into a string with format Month Day, Year
  *************************************************************************/
-string Date::DateFull() const
+QString Date::DateFull() const
 {
 
     ostringstream oString; //Output string to be created
     oString << MONTH_NAMES[int(month)] << ' ' << day << ", " << year;
-    return oString.str();
+    return fromStdString(oString.str());
 }

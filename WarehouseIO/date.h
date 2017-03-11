@@ -79,7 +79,7 @@ public:
     bool CheckYear(int newYear);
 
     //Formats the date into a string with format MM/DD/YYY
-    string DateSimple() const;
+    QString DateSimple() const;
     //Formats the date into a string with format Month day, Year
     string DateFull() const;
 
