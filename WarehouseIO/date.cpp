@@ -155,7 +155,6 @@ QString Date::DateSimple() const
 
     return QString::fromStdString(oString.str());
 }
-}
 
 
 /**************************************************************************
