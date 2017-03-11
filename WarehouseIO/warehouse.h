@@ -73,6 +73,10 @@ public:
     //Checks if member should convert to Executive or an Executive member should convert to regular member
     bool CheckForConvert(Member member);
     int memberListSize();
+    
+    QVector<Member*> GetMemberList();
+    QVector<itemStruct> GetItemList();
+    QVector<TransactionNode> GetTransactionList();
 
 private:
     // Helper Functions
