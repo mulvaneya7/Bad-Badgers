@@ -11,33 +11,44 @@ Warehouse::~Warehouse()
 void Warehouse::LoadMember(QString fileName)
 {
     QFile inFile(fileName);
-    inFile.open(QFile::ReadOnly|QFile::Text);
+    qDebug() << fileName;
+    if(inFile.open(QIODevice::ReadOnly))
+    {
+         qDebug()<<"Can open file\n";
+    }
     QTextStream in(&inFile);
                //|   -name-    ||-id-||
     QString tmpName;
     int tmpId;
     QString tmpType;
     QString tmpDate;
-
+    QString temp;
+    qDebug()<<"Call the LoadMember\n";
     //Deletes the list before we reinitialize it
     while(!memberList.empty())
     {
+        qDebug()<<"Clear the list\n";
         delete memberList.back();
         memberList.pop_back();
     }
-
+     qDebug()<<"before the read\n";
     //reads from the stream
-    while(!in.atEnd())
+    while(!(in.atEnd()))
     {
         tmpName = in.readLine();
+        qDebug()<<tmpName;
         in >> tmpId;
+        qDebug()<<tmpId;
         in >>tmpType;
+        qDebug() <<tmpType;
         in >>tmpDate;
+        qDebug() << tmpDate;
+        temp = in.readLine();
         memberList.push_back(NULL);
         memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpType);
     }
-}
 
+}
 void Warehouse::SaveMembers(QString fileName)
 {
     QFile outFile(fileName);
