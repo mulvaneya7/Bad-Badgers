@@ -66,25 +66,21 @@ void MainProgram::OutputToMemberTableName(QVector memberList)
             {
                          // Creates and outputs QTableWidgetItem Name of member
                 case 0 : QTableWidgetItem *item = new QTableWidgetItem(*memberList[row].getName());
-                         Ui::MemberTable->setItem(row, col, item);
                     break;
                          // Creates and outputs QTableWidgetItem ID of member
                 case 1 : QTableWidgetItem *item = new QTableWidgetItem(*memberList[row].getID());
-                         Ui::MemberTable->setItem(row, col, item);
                     break;
                          // Creates and outputs QTableWidgetItem Membership Type of member
                 case 2 : QTableWidgetItem *item = new QTableWidgetItem(*memberList[row].getMembershipQString());
-                         Ui::MemberTable->setItem(row, col, item);
                     break;
                          // Creates and outputs QTableWidgetItem Rebate of member
                 case 3 : QTableWidgetItem *item = new QTableWidgetItem(*memberList[row].getRebate());
-                         Ui::MemberTable->setItem(row, col, item);
                     break;
                          // Creates and outputs QTableWidgetItem Expiration Date of member
                 case 4 : QTableWidgetItem *item = new QTableWidgetItem(*memberList[row].DateSimple());
-                         Ui::MemberTable->setItem(row, col, item);
                     break;
             }
+            Ui::MemberTable->setItem(row, col, item);
         }
     }
 }
