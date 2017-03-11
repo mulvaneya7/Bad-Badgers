@@ -38,15 +38,16 @@ void gettotalSpent();
 QString getName();
 int getId();
 float getTotalSpent();
-MemType getMembership();    //returns enum type(membership)
+// Returns enum type(membership)
+MemType getMembership();
+// Returns QString of enum type
+QString getMembershipQString();
 float getRebate();
 
 //MUTATORS
 void setName(QString newName);
 void setId(int newId);
-void setMemberShip(QString newMembership);
-void setExpiration(QString newExp);
-void addTotalSpend(float addSpend);
+
 private:
 QString name;		//name of said regularMember
 int id;				//id to identify member
