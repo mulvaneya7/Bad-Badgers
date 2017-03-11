@@ -33,7 +33,8 @@ void Warehouse::LoadMember(QString fileName)
         in >> tmpId;
         in >>tmpType;
         in >>tmpDate;
-        memberList.push_back(new Member(tmpName, tmpId, tmpDate, tmpType));
+        memberList.push_back(NULL);
+        memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpType);
     }
 }
 
