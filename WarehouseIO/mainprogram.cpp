@@ -29,13 +29,6 @@ void MainProgram::on_pushButton_3_clicked()
     }
 
 }
-//void MainProgram::LoadMemberTable()
-//{
-//    QLabel* temp = new QLabel();
-
-//    ui->MemberDataTable;
-//}
-
 void MainProgram::on_GenerateReport_clicked()
 {
     Date salesReportdate;
