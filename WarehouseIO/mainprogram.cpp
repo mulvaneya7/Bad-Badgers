@@ -52,26 +52,31 @@ const TransactionNode MainProgram::GetTransaction(QVector<TransactionNode> Trans
 void MainProgram::OutputToMemberTable(QVector<Member*> memberList)
 {
     QTableWidgetItem* item;
-    for (unsigned col = 0; col < MEMBER_TABLE_COL_SIZE; col++)
+    for (int col = 0; col < MEMBER_TABLE_COL_SIZE; col++)
     {
-        for (unsigned row = 0; row < memberList.size(); row++)
+        for (int row = 0; row < memberList.size(); row++)
         {
             switch(col)
             {
                          // Creates and outputs QTableWidgetItem Name of member
-                case 0 : item = new QTableWidgetItem(memberList[row]->getName());
+                case 0 : item = new QTableWidgetItem();
+                         item->setText(memberList[row]->getName());
                     break;
                          // Creates and outputs QTableWidgetItem ID of member
-                case 1 : item = new QTableWidgetItem(memberList[row]->getId());
+                case 1 : item = new QTableWidgetItem();
+                         item->setText(QString::number(memberList[row]->getId()));
                     break;
                          // Creates and outputs QTableWidgetItem Membership Type of member
-                case 2 : item = new QTableWidgetItem(memberList[row]->getMembershipQString());
+                case 2 : item = new QTableWidgetItem();
+                         item->setText(memberList[row]->getMembershipQString());
                     break;
                          // Creates and outputs QTableWidgetItem Rebate of member
-                case 3 : item = new QTableWidgetItem(memberList[row]->getRebate());
+                case 3 : item = new QTableWidgetItem();
+                         item->setText(memberList[row]->getRebateQString());
                     break;
                          // Creates and outputs QTableWidgetItem Expiration Date of member
-                case 4 : item = new QTableWidgetItem(memberList[row]->getDate());
+                case 4 : item = new QTableWidgetItem();
+                         item->setText(memberList[row]->getDate());
                     break;
             }
             ui->MemberTable->setItem(row, col, item);
