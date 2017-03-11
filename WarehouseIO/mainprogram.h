@@ -17,7 +17,6 @@ class MainProgram : public QDialog
 public:
     explicit MainProgram(QWidget *parent = 0);
     ~MainProgram();
-    void LoadMemberTable();
     // Returns member from memberList vector at given index
     const Member GetMember(QVector memberList, int index);
     // Returns itemStruct from itemList vector at given index
