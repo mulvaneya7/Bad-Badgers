@@ -45,11 +45,12 @@ const TransactionNode MainProgram::GetTransaction(QVector<TransactionNode> Trans
 }
 void MainProgram::OutputToMemberTable(QVector<Member*> memberList)
 {
-    QTableWidgetItem* item = new QTableWidgetItem();
+    QTableWidgetItem* item;
     for (int col = 0; col < MEMBER_TABLE_COL_SIZE; col++)
     {
         for (int row = 0; row < memberList.size(); row++)
         {
+            item = new QTableWidgetItem();
             switch(col)
             {
                          // Creates and outputs QTableWidgetItem Name of member
