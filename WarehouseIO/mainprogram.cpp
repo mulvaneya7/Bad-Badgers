@@ -52,9 +52,9 @@ const TransactionNode MainProgram::GetTransaction(QVector<TransactionNode> Trans
 void MainProgram::OutputToMemberTable(QVector<Member*> memberList)
 {
     QTableWidgetItem* item;
-    for (unsigned col = 0; col < MEMBER_TABLE_COL_SIZE; col++)
+    for (int col = 0; col < MEMBER_TABLE_COL_SIZE; col++)
     {
-        for (unsigned row = 0; row < memberList.size(); row++)
+        for (int row = 0; row < memberList.size(); row++)
         {
             switch(col)
             {
