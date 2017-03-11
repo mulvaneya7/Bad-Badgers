@@ -22,7 +22,7 @@ public:
     // Returns itemStruct from itemList vector at given index
     const itemStruct GetItem(QVector<itemStruct> itemList, int index);
     // Returns TransactionNode from transactionList vector at given index
-    const TransactionNode GetTransaction(QVector<TransactionNode> transactionList, int index);
+    const TransactionNode GetTransaction(QVector<TransactionNode> TransactionList, int index);
     // Prints the enntire memberList vector into the QTableWidget
     void OutputToMemberTable(QVector<Member*> memberList);
 
