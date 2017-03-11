@@ -18,6 +18,10 @@ enum class MemType {
     EXECUTIVE
 };
 
+const QString MemNames[] = {"Inactive",
+                            "Regular",
+                            "Executive"};
+
 class Member:public Person
 {
 public:
@@ -30,7 +34,7 @@ Member(Member & Instance);
 ~Member();
 
 //ACCESSORS
-void printMember();
+QString printMember();
 void printPurchaseHistory();
 void printOutstandingCharges();
 void printTotalPurchases();
@@ -38,16 +42,15 @@ void gettotalSpent();
 QString getName();
 int getId();
 float getTotalSpent();
-// Returns enum type(membership)
-MemType getMembership();
-// Returns QString of enum type
-QString getMembershipQString();
+MemType getMembership();    //returns enum type(membership)
 float getRebate();
 
 //MUTATORS
 void setName(QString newName);
 void setId(int newId);
-
+void setMemberShip(QString newMembership);
+void setExpiration(QString newExp);
+void addTotalSpend(float addSpend);
 private:
 QString name;		//name of said regularMember
 int id;				//id to identify member

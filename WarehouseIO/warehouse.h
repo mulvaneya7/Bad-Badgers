@@ -11,6 +11,7 @@
 #include <QRegExp>
 #include "member.h"
 #include <iostream>
+#include<QTextStream>
 struct TransactionNode
 {
     QString productName;
@@ -34,9 +35,9 @@ public:
     Warehouse();
     //Member initialization "literally"
     ~Warehouse();
-    int memberListSize();
     //Vector Creation through external file
     void LoadMember(QString fileName);
+    void SaveMembers(QString fileName);
     void loadSalesReport(QString fileName);
     //Automatic Appending Memberlist
     void AddMember(Member newMember);

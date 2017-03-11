@@ -36,9 +36,23 @@ void Warehouse::LoadMember(QString fileName)
         memberList.push_back(new Member(tmpName, tmpId, tmpDate, tmpType));
     }
 }
-int Warehouse::memberListSize()
+
+void Warehouse::SaveMembers(QString fileName)
 {
-    return memberList.size();
+    QFile outFile(fileName);
+    outFile.remove();
+    outFile.open(QFile::WriteOnly|QFile::Text);
+
+    QTextStream out(&outFile);
+
+    for (int i = 0; i < memberList.size(); i++)
+    {
+        out << memberList[i]->printMember();
+        if (i != memberList.size() -1)
+        {
+            out << endl;
+        }
+    }
 }
 
 Member Warehouse::SearchID(int inputID)
