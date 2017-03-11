@@ -18,13 +18,13 @@ public:
     explicit MainProgram(QWidget *parent = 0);
     ~MainProgram();
     // Returns member from memberList vector at given index
-    const Member GetMember(QVector memberList, int index);
+    const Member GetMember(QVector<Member*> memberList, int index);
     // Returns itemStruct from itemList vector at given index
-    const itemStruct GetItem(QVector itemList, int index);
+    const itemStruct GetItem(QVector<itemStruct> itemList, int index);
     // Returns TransactionNode from transactionList vector at given index
-    const TransactionNode GetTransaction(QVector transactionList, int index);
+    const TransactionNode GetTransaction(QVector<TransactionNode> transactionList, int index);
     // Prints the enntire memberList vector into the QTableWidget
-    void OutputToMemberTable(QVector memberList);
+    void OutputToMemberTable(QVector<Member*> memberList);
 
 private slots:
 
