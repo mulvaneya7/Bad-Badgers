@@ -34,6 +34,7 @@ public:
     Warehouse();
     //Member initialization "literally"
     ~Warehouse();
+    int memberListSize();
     //Vector Creation through external file
     void LoadMember(QString fileName);
     void loadSalesReport(QString fileName);
