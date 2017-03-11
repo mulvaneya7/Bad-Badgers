@@ -81,7 +81,7 @@ public:
     //Formats the date into a string with format MM/DD/YYY
     QString DateSimple() const;
     //Formats the date into a string with format Month day, Year
-    string DateFull() const;
+    QString DateFull() const;
 
 private:
     Month   month; //Month of the year

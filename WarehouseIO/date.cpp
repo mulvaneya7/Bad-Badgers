@@ -146,14 +146,14 @@ bool Date::CheckYear (int newYear)
  * _______________________________________________________________________
  * This method formats the date into a string with format MM/DD/YYYY
  *************************************************************************/
-string Date::DateSimple() const
+QString Date::DateSimple() const
 {
     ostringstream oString; //Output string to be created
 
     oString << right << setfill('0');
     oString << setw(2) << int(month) + 1 << '/' << setw(2) << day << '/' << year;
 
-    return oString.str();
+    return QString::fromStdString(oString.str());
 }
 
 /**************************************************************************
@@ -166,5 +166,5 @@ QString Date::DateFull() const
 
     ostringstream oString; //Output string to be created
     oString << MONTH_NAMES[int(month)] << ' ' << day << ", " << year;
-    return fromStdString(oString.str());
+    return QString::fromStdString(oString.str());
 }
