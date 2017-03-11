@@ -35,21 +35,21 @@ void MainProgram::on_GenerateReport_clicked()
     salesReportdate.Set(ui->DateInput->text());
 }
 // Returns member from memberList vector at given index
-const Member MainProgram::GetMember(QVector memberList, int index)
+const Member MainProgram::GetMember(QVector<Member*> memberList, int index)
 {
     return *memberList[index];
 }
 // Returns itemStruct from itemList vector at given index
-const itemStruct MainProgram::GetItem(QVector itemList, int index)
+const itemStruct MainProgram::GetItem(QVector<itemStruct> itemList, int index)
 {
     return itemList[index];
 }
 // Returns TransactionNode from transactionList vector at given index
-const TransactionNode MainProgram::GetTransaction(QVector transactionList, int index)
+const TransactionNode MainProgram::GetTransaction(QVector<TransactionNode> TransactionList, int index)
 {
-    return transactionList[index];
+    return TransactionList[index];
 }
-void MainProgram::OutputToMemberTableName(QVector memberList)
+void MainProgram::OutputToMemberTableName(QVector<Member*> memberList)
 {
     for (unsigned col = 0; col < MEMBER_TABLE_COL_SIZE; col++)
     {
