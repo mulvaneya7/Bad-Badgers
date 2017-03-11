@@ -46,7 +46,7 @@ void Warehouse::SaveMembers(QString fileName)
 {
     QFile outFile(fileName);
     outFile.remove();
-    outFile.open(QFile::WriteOnly|QFile::Text);
+    outFile.open(QFile::WriteOnly);
 
     QTextStream out(&outFile);
 
