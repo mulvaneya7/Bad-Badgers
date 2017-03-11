@@ -210,7 +210,7 @@ void Warehouse::loadSalesReport(QString fileName)
 {
     QFile infile(fileName);
     infile.open(QFile::ReadOnly|QFile::Text);
-    QDataStream in(&infile);
+    QTextStream in(&infile);
     QString tempDate;
     int id;
     QString itemName;
@@ -223,12 +223,18 @@ void Warehouse::loadSalesReport(QString fileName)
     while(!in.atEnd())
     {
         //get the inputs
-        in >> tempDate;
+        tempDate = in.readLine();
+        qDebug() << tempDate;
         in >> id;
-        in >>itemName;
+        in.readLine();
+        qDebug() << id;
+        itemName = in.readLine();
+        qDebug() << itemName;
         in >>cost;
+        qDebug() << cost;
         in >>amtSold;
-
+        qDebug() << amtSold;
+        in.readLine();
 
         //if we have time implement error checking if not code continues below;
         // Construct the transactionHistory node
