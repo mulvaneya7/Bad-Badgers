@@ -23,7 +23,7 @@ public:
     const itemStruct GetItem(QVector itemList, int index);
     // Returns TransactionNode from transactionList vector at given index
     const TransactionNode GetTransaction(QVector transactionList, int index);
-
+    // Prints the enntire memberList vector into the QTableWidget
     void OutputToMemberTable(QVector memberList);
 
 private slots:
