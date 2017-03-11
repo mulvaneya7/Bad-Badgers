@@ -72,6 +72,7 @@ public:
     int ItemIndex(QString searchItem);
     //Checks if member should convert to Executive or an Executive member should convert to regular member
     bool CheckForConvert(Member member);
+    int memberListSize();
 
 private:
     // Helper Functions
