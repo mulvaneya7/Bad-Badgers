@@ -25,6 +25,12 @@ private slots:
 
     void on_GenerateReport_clicked();
 
+    void on_Filebrowser_clicked();
+
+    void on_ReportFileContents_clicked();
+
+    void on_Exit_clicked();
+
 private:
     Ui::MainProgram *ui;
     Warehouse database;

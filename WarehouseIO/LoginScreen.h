@@ -24,6 +24,8 @@ private slots:
     void on_CreateNewBadger_clicked();
 
 
+    void on_Exit_clicked();
+
 private:
     Ui::MainWindow *ui;
     MainProgram mainUI;

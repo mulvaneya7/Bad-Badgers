@@ -1,5 +1,5 @@
 #include "LoginScreen.h"
-#include "ui_mainwindow.h"
+#include "ui_LoginScreen.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -26,8 +26,6 @@ void MainWindow::on_LoginButton_clicked()
     {
         ui->ErrorLabel->setText("Username: Dave \t Passwork: Done");
     }
-
-
 }
 
 void MainWindow::on_UsernameInput_returnPressed()
@@ -47,4 +45,9 @@ void MainWindow::on_UsernameInput_returnPressed()
 void MainWindow::on_CreateNewBadger_clicked()
 {
    userCreation.show();
+}
+
+void MainWindow::on_Exit_clicked()
+{
+
 }

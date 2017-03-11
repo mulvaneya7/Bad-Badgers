@@ -26,7 +26,7 @@
     <enum>Qt::PreventContextMenu</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>4</number>
    </property>
    <widget class="QWidget" name="Transaction">
     <attribute name="title">
@@ -370,7 +370,7 @@
     <attribute name="title">
      <string>Report Sales</string>
     </attribute>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="ManualProductName">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -380,7 +380,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="ReportTransactionsLabel">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -419,7 +419,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="ManualReportLalel">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -432,7 +432,7 @@
       <string>Manual Report</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="RepoerfileFile">
      <property name="geometry">
       <rect>
        <x>380</x>
@@ -458,7 +458,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="label_4">
+    <widget class="QLabel" name="Productsold">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -471,7 +471,7 @@
       <string>Name of Product sold</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_5">
+    <widget class="QLabel" name="CostofProductLabel">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -484,7 +484,7 @@
       <string>Cost of Product</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="CostProdcutInpit">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -494,7 +494,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_6">
+    <widget class="QLabel" name="productSoldLabel">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -517,7 +517,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="IDofBuyer">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -527,7 +527,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_7">
+    <widget class="QLabel" name="IDInputReportSales">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -540,7 +540,7 @@
       <string>ID of Buyer</string>
      </property>
     </widget>
-    <widget class="QDateEdit" name="dateEdit">
+    <widget class="QDateEdit" name="Manualreportbutton">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -550,7 +550,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_8">
+    <widget class="QLabel" name="DateBoughtLabel">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -563,12 +563,12 @@
       <string>Date Bought</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
+    <widget class="QLineEdit" name="FileDiectoryReportSales">
      <property name="geometry">
       <rect>
        <x>390</x>
        <y>120</y>
-       <width>113</width>
+       <width>311</width>
        <height>20</height>
       </rect>
      </property>
@@ -576,7 +576,7 @@
       <string/>
      </property>
     </widget>
-    <widget class="QLabel" name="label_9">
+    <widget class="QLabel" name="FileNameInput">
      <property name="geometry">
       <rect>
        <x>390</x>
@@ -602,7 +602,7 @@
       <string>Complete Manual Report</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="ReportFileContents">
      <property name="geometry">
       <rect>
        <x>554</x>
@@ -613,6 +613,19 @@
      </property>
      <property name="text">
       <string>Report File Contents</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Filebrowser">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>150</y>
+       <width>101</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Browse:</string>
      </property>
     </widget>
    </widget>

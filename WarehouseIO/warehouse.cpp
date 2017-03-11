@@ -40,6 +40,7 @@ void Warehouse::LoadMember(QString fileName)
         memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpType);
     }
 }
+
 Member Warehouse::SearchID(int inputID)
 {
     int i = 0;

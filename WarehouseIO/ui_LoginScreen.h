@@ -112,7 +112,7 @@ public:
 };
 
 namespace Ui {
-    class LoginScreen: public Ui_LoginScreen {};
+    class MainWindow: public Ui_LoginScreen {};
 } // namespace Ui
 
 QT_END_NAMESPACE

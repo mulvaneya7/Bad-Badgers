@@ -19,14 +19,7 @@ void MainProgram::on_pushButton_3_clicked()
                                                         tr("Open Member Info File"),
                                                         "C://",
                                                         "All files(*x*);;Text File(*.txt)");
-    try{
-        database.LoadMember(fileDirectory);
-    }
-    catch(string& e)
-    {
-        QString error = error.fromStdString(e);
-        ui->MemberListError->setText(error);
-    }
+    database.LoadMember(fileDirectory);
 
 }
 //void MainProgram::LoadMemberTable()
@@ -40,5 +33,22 @@ void MainProgram::on_GenerateReport_clicked()
 {
     Date salesReportdate;
     salesReportdate.Set(ui->DateInput->text());
+}
 
+void MainProgram::on_Filebrowser_clicked()
+{
+    QString fileDirectory = QFileDialog::getOpenFileName(this,
+                                                         tr("Open Member Info File"),
+                                                         "C://",
+                                                         "All files(*x*)::Text File(*.txt)");
+    ui->FileDiectoryReportSales->setText(fileDirectory);
+}
+
+void MainProgram::on_ReportFileContents_clicked()
+{
+    database.loadSalesReport(ui->FileDiectoryReportSales->text());
+}
+
+void MainProgram::on_Exit_clicked()
+{
 }
