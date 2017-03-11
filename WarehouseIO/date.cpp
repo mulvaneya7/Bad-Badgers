@@ -163,7 +163,7 @@ QString Date::DateSimple() const
 
     return output;
 }
-}
+
 
 /**************************************************************************
  * DateFull
