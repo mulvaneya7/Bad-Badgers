@@ -275,3 +275,15 @@ void Warehouse::loadSalesReport(QString fileName)
 //{
 //    sort(itemList.begin(), itemList.end(), itemList.name);
 //}
+QVector<Member*> Warehouse::GetMemberList()
+{
+    return memberList;
+}
+QVector<itemStruct> Warehouse::GetItemList()
+{
+    return itemList;
+}
+QVector<TransactionNode> Warehouse::GetTransactionList()
+{
+    return TransactionList;
+}
