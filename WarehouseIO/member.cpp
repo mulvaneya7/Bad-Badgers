@@ -33,6 +33,7 @@ Member::Member(QString mName, int mID, QString mDate, QString mMembership)
   {
     membership = MemType::EXECUTIVE;
   }
+  totalSpent = 0.0;
 }
 
 //COPY CONSTRUCTOR
@@ -63,6 +64,31 @@ void Member::setName(QString newName)
 void Member::setId(int newId)
 {
   id = newId;
+}
+void Member::setMemberShip(QString mMembership)
+{
+    if(mMembership == "Inactive")
+    {
+      membership =MemType::INACTIVE;
+    }
+    else if(mMembership == "Regular")
+    {
+      membership = MemType::REGULAR;
+    }
+    else if(mMembership == "Executive")
+    {
+      membership = MemType::EXECUTIVE;
+    }
+}
+
+void Member::setExpiration(QString newExp)
+{
+    Date *newD = new Date(newExp);
+    exDate = *newD;
+}
+void Member::addTotalSpend(float addSpend)
+{
+    totalSpent+=addSpend;
 }
 
 //ACCESSORS

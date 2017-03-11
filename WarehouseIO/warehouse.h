@@ -36,16 +36,11 @@ public:
     ~Warehouse();
     //Vector Creation through external file
     void LoadMember(QString fileName);
-
     void loadSalesReport(QString fileName);
     //Automatic Appending Memberlist
     void AddMember(Member newMember);
-    //Front end Appending to Memberlist
-    void AddMember();
     //Adds an itemStruct node to the itemList vector
     void AddItem(itemStruct input);
-    //Front end item addition to the itemList vector
-    void AddItem();
     //Deleting the member from the memberList
     void DeleteMember(int id);
     void DeleteMember(QString name);
@@ -67,15 +62,14 @@ public:
     QString reportMemberPurchases(int iD);
     //Reports the Executive member's rebates and sorts the list by Id Number
     QString reportExecutiveRebate();
+
     //Checks if the item exists on the itemList variable if so it returns by reference
     bool isItem(QString searchItem);
+    bool isMember(int id);
+    bool isMember(QString name);
     int ItemIndex(QString searchItem);
     //Checks if member should convert to Executive or an Executive member should convert to regular member
     bool CheckForConvert(Member member);
-
-    memberList GetMemberList();
-    itemList GetItemList();
-    transactionList GetTransactionList();
 
 private:
     // Helper Functions
@@ -83,12 +77,13 @@ private:
     void sortTransactionList();
     // Sorts Quantity and Revanue by item name
     void sortQR();
-    //
     void sortRebate(int id);
     //Searchs the memberList for an instance of member
     Member SearchID(int id);
     Member SearchName(QString name);
-
+    int SearchIDindex(int id);
+    int SearchNameindex(QString name);
+    void upDateMemberlist();
     //Pointers to members
     QVector<Member*> memberList;
 
@@ -96,6 +91,6 @@ private:
     QVector<itemStruct> itemList;
 
     //For daily sales report.
-    QVector<TransactionNode> transactionList;
+    QVector<TransactionNode> TransactionList;
 };
 #endif // WAREHOUSE_H

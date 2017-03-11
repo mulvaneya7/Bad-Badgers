@@ -44,7 +44,9 @@ float getRebate();
 //MUTATORS
 void setName(QString newName);
 void setId(int newId);
-
+void setMemberShip(QString newMembership);
+void setExpiration(QString newExp);
+void addTotalSpend(float addSpend);
 private:
 QString name;		//name of said regularMember
 int id;				//id to identify member

@@ -40,6 +40,7 @@ void Warehouse::LoadMember(QString fileName)
         memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpType);
     }
 }
+
 Member Warehouse::SearchID(int inputID)
 {
     int i = 0;
@@ -57,7 +58,6 @@ Member Warehouse::SearchID(int inputID)
     }
         return *memberList[i]; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
 }
-
 Member Warehouse::SearchName(QString inputName)
 {
     int i = 0;
@@ -74,7 +74,42 @@ Member Warehouse::SearchName(QString inputName)
         }
     }
     return *memberList[i]; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
-
+}
+int Warehouse::SearchIDindex(int inputID)
+{
+    {
+        int i = 0;
+        bool found = false;
+        while (i < memberList.size() && found == false)
+        {
+            if (memberList[i]->getId() == inputID)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+            return i; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
+    }
+}
+int Warehouse::SearchNameindex(QString inputName)
+{
+    int i = 0;
+    bool found = false;
+    while (i < memberList.size() && found == false)
+    {
+        if (memberList[i]->getName() == inputName)
+        {
+            found = true;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return i; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
 }
 bool  Warehouse::isItem(QString searchItem)
 {
@@ -83,6 +118,40 @@ bool  Warehouse::isItem(QString searchItem)
     while (i < itemList.size() && found == false)
     {
         if (itemList[i].itemName == searchItem)
+        {
+            found = true;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return found;
+}
+bool Warehouse::isMember(int id)
+{
+    int i = 0;
+    bool found = false;
+    while (i < memberList.size() && found == false)
+    {
+        if ((memberList.at(i))->getId()==id)
+        {
+            found = true;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return found;
+}
+bool Warehouse::isMember(QString name)
+{
+    int i = 0;
+    bool found = false;
+    while (i < memberList.size() && found == false)
+    {
+        if ((memberList.at(i))->getName()==name)
         {
             found = true;
         }
@@ -146,6 +215,12 @@ void Warehouse::loadSalesReport(QString fileName)
         tempTransaction.price = cost;
         tempTransaction.quantity = amtSold;
         TransactionList.push_back(tempTransaction);
+        //updates members running totals
+        if(this->isMember(id))
+        {
+            memberList.at(this->SearchIDindex(id))->addTotalSpend(cost*amtSold);
+        }
+
         //Construct the itemlist node
         //if the item exists all file inputs set it to true
         //if the item exists the price and the name are already known
@@ -165,23 +240,9 @@ void Warehouse::loadSalesReport(QString fileName)
             itemList.push_back(tempItemNode);
         }
     }
-}
 
+}
 //void Warehouse::SortQR()
 //{
 //    sort(itemList.begin(), itemList.end(), itemList.name);
 //}
-memberList Warehouse::GetMemberList()
-{
-    return memberList;
-}
-
-itemList Warehouse::GetItemList()
-{
-    return itemList;
-}
-
-transactionList Warehouse::GetTransactionList()
-{
-    return transactionList;
-}
