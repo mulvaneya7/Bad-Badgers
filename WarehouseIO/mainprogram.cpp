@@ -47,12 +47,12 @@ const Member Mainprogram::GetMember(QVector memberList, int index)
     return *memberList[index];
 }
 // Returns itemStruct from itemList vector at given index
-const itemStruct GetItem(QVector itemList, int index)
+const itemStruct Mainprogram::GetItem(QVector itemList, int index)
 {
     return itemList[index];
 }
 // Returns TransactionNode from transactionList vector at given index
-const TransactionNode GetTransaction(QVector transactionList, int index)
+const TransactionNode Mainprogram::GetTransaction(QVector transactionList, int index)
 {
     return transactionList[index];
 }
