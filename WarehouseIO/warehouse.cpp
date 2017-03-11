@@ -12,7 +12,7 @@ void Warehouse::LoadMember(QString fileName)
 {
     QFile inFile(fileName);
     inFile.open(QFile::ReadOnly|QFile::Text);
-    QDataStream in(&inFile);
+    QTextStream in(&inFile);
                //|   -name-    ||-id-||
     QString tmpName;
     int tmpId;
@@ -29,15 +29,11 @@ void Warehouse::LoadMember(QString fileName)
     //reads from the stream
     while(!in.atEnd())
     {
-        in >> tmpName;
+        tmpName = in.readLine();
         in >> tmpId;
-        if(tmpId/100000 !=0)
-        {
-            throw "Bad Date";
-        }
         in >>tmpType;
         in >>tmpDate;
-        memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpType);
+        memberList.push_back(new Member(tmpName, tmpId, tmpDate, tmpType));
     }
 }
 
