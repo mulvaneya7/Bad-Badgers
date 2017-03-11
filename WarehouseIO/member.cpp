@@ -134,3 +134,11 @@ QString Member::getDate()
 {
     return exDate.DateSimple();
 }
+QString Member::getRebateQString()
+{
+  ostringstream output;
+  output << setprecision(2) << fixed;
+  output << getRebate();
+  
+  return QString::fromStdString(output.str());
+}
