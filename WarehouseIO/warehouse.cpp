@@ -36,6 +36,10 @@ void Warehouse::LoadMember(QString fileName)
         memberList.push_back(new Member(tmpName, tmpId, tmpDate, tmpType));
     }
 }
+int Warehouse::memberListSize()
+{
+    return memberList.size();
+}
 
 Member Warehouse::SearchID(int inputID)
 {
