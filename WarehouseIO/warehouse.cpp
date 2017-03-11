@@ -224,16 +224,11 @@ void Warehouse::loadSalesReport(QString fileName)
     {
         //get the inputs
         tempDate = in.readLine();
-        qDebug() << tempDate;
         in >> id;
         in.readLine();
-        qDebug() << id;
         itemName = in.readLine();
-        qDebug() << itemName;
         in >>cost;
-        qDebug() << cost;
         in >>amtSold;
-        qDebug() << amtSold;
         in.readLine();
 
         //if we have time implement error checking if not code continues below;
