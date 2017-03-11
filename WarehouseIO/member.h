@@ -42,7 +42,10 @@ void gettotalSpent();
 QString getName();
 int getId();
 float getTotalSpent();
-MemType getMembership();    //returns enum type(membership)
+// Returns enum type(membership)
+MemType getMembership();
+// Returns QString of enum type
+QString getMembershipQString();
 float getRebate();
 
 //MUTATORS
