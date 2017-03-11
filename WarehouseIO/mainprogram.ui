@@ -199,6 +199,19 @@
       <string>Open Memberlist File</string>
      </property>
     </widget>
+    <widget class="QLabel" name="MemberListError">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>430</y>
+       <width>141</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="ItemInfo">
     <attribute name="title">

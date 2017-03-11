@@ -42,6 +42,7 @@ public:
     QLabel *DisplayLabel;
     QComboBox *DisplayOption;
     QPushButton *pushButton_3;
+    QLabel *MemberListError;
     QWidget *ItemInfo;
     QTableWidget *ItemStatstable;
     QLabel *ItemSalesStats;
@@ -141,6 +142,9 @@ public:
         pushButton_3 = new QPushButton(MemberList);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         pushButton_3->setGeometry(QRect(474, 430, 171, 23));
+        MemberListError = new QLabel(MemberList);
+        MemberListError->setObjectName(QStringLiteral("MemberListError"));
+        MemberListError->setGeometry(QRect(320, 430, 141, 21));
         TabMenu->addTab(MemberList, QString());
         ItemInfo = new QWidget();
         ItemInfo->setObjectName(QStringLiteral("ItemInfo"));
@@ -305,6 +309,7 @@ public:
          << QApplication::translate("MainProgram", "Normal Members", Q_NULLPTR)
         );
         pushButton_3->setText(QApplication::translate("MainProgram", "Open Memberlist File", Q_NULLPTR));
+        MemberListError->setText(QString());
         TabMenu->setTabText(TabMenu->indexOf(MemberList), QApplication::translate("MainProgram", "MemberList", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem11 = ItemStatstable->horizontalHeaderItem(0);
         ___qtablewidgetitem11->setText(QApplication::translate("MainProgram", "Item", Q_NULLPTR));
@@ -347,9 +352,8 @@ public:
 
 };
 
-namespace Ui
-{
-class MainProgram: public Ui_MainProgram {};
+namespace Ui {
+    class MainProgram: public Ui_MainProgram {};
 } // namespace Ui
 
 QT_END_NAMESPACE

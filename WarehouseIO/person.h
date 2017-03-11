@@ -20,11 +20,11 @@ public:
 
     //ACCESSORS
     virtual QString getName() = 0;
-    virtual QString getId() = 0;
+    virtual int getId() = 0;
 
 private:
     QString name;   //name of person
-    QString id;         //id of person
+    int id;         //id of person
 };
 
 #endif // PERSON_H

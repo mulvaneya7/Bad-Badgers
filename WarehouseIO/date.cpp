@@ -64,17 +64,17 @@ bool Date::Set(Month newMonth,	//New month to be assigned
 
 Date::Date(QString dateString)
 {
-    Set(dateString.toStdString());
+    Set(dateString);
 }
 
-bool Date::Set(string dateString)
+bool Date::Set(QString dateStringIn)
 {
     bool valid;
     //Temporary values to store date information to check
     int tmpMonth;
     int tmpDay;
     int tmpYear;
-
+    string dateString = dateStringIn.toStdString();
     //Checks if string is correct length, if not rest of code is skipped
     valid = (dateString.size() == 10);
 

@@ -25,7 +25,14 @@ void MainProgram::on_pushButton_3_clicked()
                                                         tr("Open Member Info File"),
                                                         "C://",
                                                         "All files(*x*);;Text File(*.txt)");
-    database.LoadMember(fileDirectory);
+    try{
+        database.LoadMember(fileDirectory);
+    }
+    catch(string& e)
+    {
+        QString error = error.fromStdString(e);
+        ui->MemberListError->setText(error);
+    }
 
 }
 void MainProgram::LoadMemberTable()

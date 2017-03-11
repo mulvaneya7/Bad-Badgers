@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <sstream>
 #include "date.h"
+#include "person.h"
 using namespace std;
 
 //enum to define what the current member is
@@ -35,8 +36,8 @@ void printOutstandingCharges();
 void printTotalPurchases();
 void gettotalSpent();
 QString getName();
-QString getId();
-QString getTotalSpent();
+int getId();
+float getTotalSpent();
 MemType getMembership();    //returns enum type(membership)
 const float getRebate();
 

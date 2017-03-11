@@ -3,24 +3,29 @@
 
 
 #include "date.h"
-#include "executive.h"
 #include <QString>
 #include <QVector>
 #include <QDataStream>
 #include <QFile>
 #include <string>
+#include <QRegExp>
+#include "member.h"
+#include <iostream>
 struct TransactionNode
 {
-    string productName;
+    QString productName;
     Date purchaseDate;
     int iD;
     int quantity;
     float price;
-
+    Date date;
 };
 struct itemStruct
 {
-
+    QString itemName;
+    float cost;
+    int quanSold;
+    bool forSale;
 };
 
 class Warehouse
@@ -30,8 +35,10 @@ public:
     //Member initialization "literally"
     Warehouse(ifstream& input);
     ~Warehouse();
-
+    //Vector Creation through external file
     void LoadMember(QString fileName);
+
+    void loadSalesReport(QString fileName);
     //Automatic Appending Memberlist
     void AddMember(Member newMember);
     //Front end Appending to Memberlist
@@ -61,6 +68,9 @@ public:
     QString reportMemberPurchases(int iD);
     //Reports the Executive member's rebates and sorts the list by Id Number
     QString reportExecutiveRebate();
+    //Checks if the item exists on the itemList variable if so it returns by reference
+    bool isItem(QString searchItem);
+    int ItemIndex(QString searchItem);
     //Checks if member should convert to Executive or an Executive member should convert to regular member
     bool CheckForConvert(Member member);
 

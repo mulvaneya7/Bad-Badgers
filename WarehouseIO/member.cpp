@@ -1,6 +1,7 @@
 #include "member.h"
 //Alex Mulvaney
 //CONSTRUCTOR (defualt)
+Person::~Person(){}
 
 Member::Member()
 {
@@ -70,9 +71,9 @@ void Member::printMember()
 
 }
 
-QString Member::getId()
+int Member::getId()
 {
-    return Qstring(id);
+    return (id);
 }
 
 QString Member::getName()
@@ -80,9 +81,9 @@ QString Member::getName()
     return name;
 }
 
-QString Member::getTotalSpent()
+float Member::getTotalSpent()
 {
-    return QString(totalSpent);
+    return totalSpent;
 }
 MemType Member::getMembership()
 {

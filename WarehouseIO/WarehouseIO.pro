@@ -18,8 +18,8 @@ SOURCES += main.cpp\
     warehouse.cpp \
     date.cpp \
     member.cpp \
-    executive.cpp \
-    LoginScreen.cpp
+    LoginScreen.cpp \
+    person.cpp
 
 HEADERS  += \
     createuser.h \
@@ -27,8 +27,8 @@ HEADERS  += \
     warehouse.h \
     date.h \
     member.h \
-    executive.h \
-    LoginScreen.h
+    LoginScreen.h \
+    person.h
 
 FORMS    += \
     createuser.ui \
