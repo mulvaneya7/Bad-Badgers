@@ -51,6 +51,7 @@ const TransactionNode MainProgram::GetTransaction(QVector<TransactionNode> Trans
 }
 void MainProgram::OutputToMemberTableName(QVector<Member*> memberList)
 {
+    QTableWidgetItem *item;
     for (unsigned col = 0; col < MEMBER_TABLE_COL_SIZE; col++)
     {
         for (unsigned row = 0; row < memberList.size(); row++)
@@ -58,19 +59,19 @@ void MainProgram::OutputToMemberTableName(QVector<Member*> memberList)
             switch(col)
             {
                          // Creates and outputs QTableWidgetItem Name of member
-                case 0 : QTableWidgetItem *item = new QTableWidgetItem(*memberList[row].getName());
+                case 0 : *item = new QTableWidgetItem(memberList[row]->getName());
                     break;
                          // Creates and outputs QTableWidgetItem ID of member
-                case 1 : QTableWidgetItem *item = new QTableWidgetItem(*memberList[row].getID());
+                case 1 : *item = new QTableWidgetItem(memberList[row]->.getId());
                     break;
                          // Creates and outputs QTableWidgetItem Membership Type of member
-                case 2 : QTableWidgetItem *item = new QTableWidgetItem(*memberList[row].getMembershipQString());
+                case 2 : *item = new QTableWidgetItem(memberList[row]->getMembershipQString());
                     break;
                          // Creates and outputs QTableWidgetItem Rebate of member
-                case 3 : QTableWidgetItem *item = new QTableWidgetItem(*memberList[row].getRebate());
+                case 3 : *item = new QTableWidgetItem(memberList[row]->getRebate());
                     break;
                          // Creates and outputs QTableWidgetItem Expiration Date of member
-                case 4 : QTableWidgetItem *item = new QTableWidgetItem(*memberList[row].DateSimple());
+                case 4 : *item = new QTableWidgetItem(memberList[row]->getDate());
                     break;
             }
             Ui::MemberTable->setItem(row, col, item);
