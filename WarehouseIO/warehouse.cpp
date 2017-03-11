@@ -54,6 +54,10 @@ void Warehouse::SaveMembers(QString fileName)
         }
     }
 }
+int Warehouse::memberListSize()
+{
+    return memberList.size();
+}
 
 Member Warehouse::SearchID(int inputID)
 {
