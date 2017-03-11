@@ -5,6 +5,7 @@
 #include "warehouse.h"
 #include <QFileDialog>
 #include <QLabel>
+#include "date.h"
 namespace Ui {
 class MainProgram;
 }
@@ -18,9 +19,11 @@ public:
     ~MainProgram();
     void LoadMemberTable();
 private slots:
-    void on_DateInput_userDateChanged(const QDate &date);
+
 
     void on_pushButton_3_clicked();
+
+    void on_GenerateReport_clicked();
 
 private:
     Ui::MainProgram *ui;

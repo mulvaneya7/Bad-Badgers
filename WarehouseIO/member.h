@@ -39,7 +39,7 @@ QString getName();
 int getId();
 float getTotalSpent();
 MemType getMembership();    //returns enum type(membership)
-const float getRebate();
+float getRebate();
 
 //MUTATORS
 void setName(QString newName);

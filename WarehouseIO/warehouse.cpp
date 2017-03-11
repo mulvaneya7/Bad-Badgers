@@ -4,17 +4,10 @@ Warehouse::Warehouse()
 {
 
 }
-
-Warehouse::Warehouse(ifstream& input)
-{
-
-}
-
 Warehouse::~Warehouse()
 {
 
 }
-
 void Warehouse::LoadMember(QString fileName)
 {
     QFile inFile(fileName);
@@ -121,10 +114,6 @@ int Warehouse::ItemIndex(QString searchItem)
     }
     return i;
 }
-
-
-
-
 void Warehouse::loadSalesReport(QString fileName)
 {
     QFile infile(fileName);
@@ -156,7 +145,7 @@ void Warehouse::loadSalesReport(QString fileName)
         tempTransaction.productName = itemName;
         tempTransaction.price = cost;
         tempTransaction.quantity = amtSold;
-
+        TransactionList.push_back(tempTransaction);
         //Construct the itemlist node
         //if the item exists all file inputs set it to true
         //if the item exists the price and the name are already known

@@ -33,7 +33,6 @@ class Warehouse
 public:
     Warehouse();
     //Member initialization "literally"
-    Warehouse(ifstream& input);
     ~Warehouse();
     //Vector Creation through external file
     void LoadMember(QString fileName);

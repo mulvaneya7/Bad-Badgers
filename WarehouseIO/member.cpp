@@ -89,7 +89,7 @@ MemType Member::getMembership()
 {
     return membership;
 }
-const float Member::getRebate()
+float Member::getRebate()
 {
-    return rebate;
+    return totalSpent*rebate;
 }

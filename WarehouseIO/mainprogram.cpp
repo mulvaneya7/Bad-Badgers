@@ -13,12 +13,6 @@ MainProgram::~MainProgram()
 {
     delete ui;
 }
-
-void MainProgram::on_DateInput_userDateChanged(const QDate &date)
-{
-   // ui->DateInput->date();
-}
-
 void MainProgram::on_pushButton_3_clicked()
 {
     QString fileDirectory = QFileDialog::getOpenFileName(this,
@@ -35,9 +29,16 @@ void MainProgram::on_pushButton_3_clicked()
     }
 
 }
-void MainProgram::LoadMemberTable()
-{
-    QLabel* temp = new QLabel();
+//void MainProgram::LoadMemberTable()
+//{
+//    QLabel* temp = new QLabel();
 
-    ui->MemberDataTable;
+//    ui->MemberDataTable;
+//}
+
+void MainProgram::on_GenerateReport_clicked()
+{
+    Date salesReportdate;
+    salesReportdate.Set(ui->DateInput->text());
+
 }

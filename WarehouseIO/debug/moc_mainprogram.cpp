@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainProgram_t {
-    QByteArrayData data[5];
-    char stringdata0[71];
+    QByteArrayData data[4];
+    char stringdata0[63];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,14 +30,13 @@ struct qt_meta_stringdata_MainProgram_t {
 static const qt_meta_stringdata_MainProgram_t qt_meta_stringdata_MainProgram = {
     {
 QT_MOC_LITERAL(0, 0, 11), // "MainProgram"
-QT_MOC_LITERAL(1, 12, 28), // "on_DateInput_userDateChanged"
-QT_MOC_LITERAL(2, 41, 0), // ""
-QT_MOC_LITERAL(3, 42, 4), // "date"
-QT_MOC_LITERAL(4, 47, 23) // "on_pushButton_3_clicked"
+QT_MOC_LITERAL(1, 12, 23), // "on_pushButton_3_clicked"
+QT_MOC_LITERAL(2, 36, 0), // ""
+QT_MOC_LITERAL(3, 37, 25) // "on_GenerateReport_clicked"
 
     },
-    "MainProgram\0on_DateInput_userDateChanged\0"
-    "\0date\0on_pushButton_3_clicked"
+    "MainProgram\0on_pushButton_3_clicked\0"
+    "\0on_GenerateReport_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -55,11 +54,11 @@ static const uint qt_meta_data_MainProgram[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   24,    2, 0x08 /* Private */,
-       4,    0,   27,    2, 0x08 /* Private */,
+       1,    0,   24,    2, 0x08 /* Private */,
+       3,    0,   25,    2, 0x08 /* Private */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QDate,    3,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -71,11 +70,12 @@ void MainProgram::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         MainProgram *_t = static_cast<MainProgram *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_DateInput_userDateChanged((*reinterpret_cast< const QDate(*)>(_a[1]))); break;
-        case 1: _t->on_pushButton_3_clicked(); break;
+        case 0: _t->on_pushButton_3_clicked(); break;
+        case 1: _t->on_GenerateReport_clicked(); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
 const QMetaObject MainProgram::staticMetaObject = {
