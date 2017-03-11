@@ -148,12 +148,21 @@ bool Date::CheckYear (int newYear)
  *************************************************************************/
 QString Date::DateSimple() const
 {
-    ostringstream oString; //Output string to be created
+    QString output;
+    output.clear();
+    if (int(month) < 9)
+    {
+        output = '0';
+    }
+    output += QString::number(int(month) + 1) + '/';
+    if (day < 10)
+    {
+        output += '0';
+    }
+    output += QString::number(day) + '/' + QString::number(year);
 
-    oString << right << setfill('0');
-    oString << setw(2) << int(month) + 1 << '/' << setw(2) << day << '/' << year;
-
-    return QString::fromStdString(oString.str());
+    return output;
+}
 }
 
 /**************************************************************************
