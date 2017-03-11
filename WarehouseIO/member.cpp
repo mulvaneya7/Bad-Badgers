@@ -124,18 +124,7 @@ MemType Member::getMembership()
 }
 QString Member::getMembershipQString() // Returns QString of enum type
 {
-    QString temp;
-    switch(membership)
-    {
-    case INACTIVE : temp = "Inactive";
-        break;
-    case REGULAR : temp = "Regular";
-        break;
-    case EXECUTIVE : temp = "Executive";
-        break;
-    default : temp = "Error";
-    }
-    return temp;
+    return MemNames[int(membership)];
 }
 float Member::getRebate()
 {
