@@ -51,33 +51,13 @@ const TransactionNode MainProgram::GetTransaction(QVector<TransactionNode> Trans
 }
 void MainProgram::OutputToMemberTableName(QVector<Member*> memberList)
 {
-<<<<<<< Updated upstream
-    QTableWidgetItem *item;
-=======
     QTableWidgetItem* item;
->>>>>>> Stashed changes
     for (unsigned col = 0; col < MEMBER_TABLE_COL_SIZE; col++)
     {
         for (unsigned row = 0; row < memberList.size(); row++)
         {
             switch(col)
             {
-                         // Creates and outputs QTableWidgetItem Name of member
-<<<<<<< Updated upstream
-                case 0 : *item = new QTableWidgetItem(memberList[row]->getName());
-                    break;
-                         // Creates and outputs QTableWidgetItem ID of member
-                case 1 : *item = new QTableWidgetItem(memberList[row]->.getId());
-                    break;
-                         // Creates and outputs QTableWidgetItem Membership Type of member
-                case 2 : *item = new QTableWidgetItem(memberList[row]->getMembershipQString());
-                    break;
-                         // Creates and outputs QTableWidgetItem Rebate of member
-                case 3 : *item = new QTableWidgetItem(memberList[row]->getRebate());
-                    break;
-                         // Creates and outputs QTableWidgetItem Expiration Date of member
-                case 4 : *item = new QTableWidgetItem(memberList[row]->getDate());
-=======
                 case 0 : item = new QTableWidgetItem(memberList[row]->getName());
                     break;
                          // Creates and outputs QTableWidgetItem ID of member
@@ -91,10 +71,9 @@ void MainProgram::OutputToMemberTableName(QVector<Member*> memberList)
                     break;
                          // Creates and outputs QTableWidgetItem Expiration Date of member
                 case 4 : item = new QTableWidgetItem(memberList[row]->getDate());
->>>>>>> Stashed changes
                     break;
             }
-            Ui::MemberTable->setItem(row, col, item);
+            ui->MemberTable->setItem(row, col, item);
         }
     }
 }
