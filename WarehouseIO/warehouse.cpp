@@ -40,7 +40,6 @@ void Warehouse::LoadMember(QString fileName)
         memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpType);
     }
 }
-
 Member Warehouse::SearchID(int inputID)
 {
     int i = 0;
@@ -172,3 +171,17 @@ void Warehouse::loadSalesReport(QString fileName)
 //{
 //    sort(itemList.begin(), itemList.end(), itemList.name);
 //}
+memberList Warehouse::GetMemberList()
+{
+    return memberList;
+}
+
+itemList Warehouse::GetItemList()
+{
+    return itemList;
+}
+
+transactionList Warehouse::GetTransactionList()
+{
+    return transactionList;
+}

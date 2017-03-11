@@ -19,7 +19,14 @@ void MainProgram::on_pushButton_3_clicked()
                                                         tr("Open Member Info File"),
                                                         "C://",
                                                         "All files(*x*);;Text File(*.txt)");
-    database.LoadMember(fileDirectory);
+    try{
+        database.LoadMember(fileDirectory);
+    }
+    catch(string& e)
+    {
+        QString error = error.fromStdString(e);
+        ui->MemberListError->setText(error);
+    }
 
 }
 //void MainProgram::LoadMemberTable()
@@ -34,21 +41,18 @@ void MainProgram::on_GenerateReport_clicked()
     Date salesReportdate;
     salesReportdate.Set(ui->DateInput->text());
 }
-
-void MainProgram::on_Filebrowser_clicked()
+// Returns member from memberList vector at given index
+const Member Mainprogram::GetMember(QVector memberList, int index)
 {
-    QString fileDirectory = QFileDialog::getOpenFileName(this,
-                                                         tr("Open Member Info File"),
-                                                         "C://",
-                                                         "All files(*x*)::Text File(*.txt)");
-    ui->FileDiectoryReportSales->setText(fileDirectory);
+    return *memberList[index];
 }
-
-void MainProgram::on_ReportFileContents_clicked()
+// Returns itemStruct from itemList vector at given index
+const itemStruct GetItem(QVector itemList, int index)
 {
-    database.loadSalesReport(ui->FileDiectoryReportSales->text());
+    return itemList[index];
 }
-
-void MainProgram::on_Exit_clicked()
+// Returns TransactionNode from transactionList vector at given index
+const TransactionNode GetTransaction(QVector transactionList, int index)
 {
+    return transactionList[index];
 }

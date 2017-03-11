@@ -73,6 +73,10 @@ public:
     //Checks if member should convert to Executive or an Executive member should convert to regular member
     bool CheckForConvert(Member member);
 
+    memberList GetMemberList();
+    itemList GetItemList();
+    transactionList GetTransactionList();
+
 private:
     // Helper Functions
     // Sorts TransactionList by date via DateClass
@@ -92,6 +96,6 @@ private:
     QVector<itemStruct> itemList;
 
     //For daily sales report.
-    QVector<TransactionNode> TransactionList;
+    QVector<TransactionNode> transactionList;
 };
 #endif // WAREHOUSE_H
