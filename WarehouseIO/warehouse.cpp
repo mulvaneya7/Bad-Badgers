@@ -11,7 +11,7 @@ Warehouse::~Warehouse()
 void Warehouse::LoadMember(QString fileName)
 {
     QFile inFile(fileName);
-    inFile.open(QIODevice::ReadOnly)
+    inFile.open(QIODevice::ReadOnly);
     QTextStream in(&inFile);
     QString tmpName;
     int tmpId;
