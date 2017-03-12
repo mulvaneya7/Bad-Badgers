@@ -29,6 +29,8 @@ public:
     void OutputExecutivesToMemberTable(QVector<Member*> memberList);
     // Prints the regulars of the memberList vector into the QTableWidget
     void OutputRegularsToMemberTable(QVector<Member*> memberList);
+    // Prints the items of the itemList vector into the QTableWidget
+    void OutputToItemsTable(QVector<itemStruct> itemList);
 
 private slots:
 
@@ -42,7 +44,7 @@ private slots:
 
     void on_Filebrowser_clicked();
 
-    //void on_TabMenu_currentChanged(int index, QVector<itemStruct> itemList);
+    void on_RefreshItemSales_clicked();
 
 
 private:
