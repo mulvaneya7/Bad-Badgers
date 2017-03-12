@@ -166,44 +166,45 @@ void MainProgram::on_Filebrowser_clicked()
                                                          "All files(*x*);;Text File(*.txt)");
     ui->FileDiectoryReportSales->setText(fileDirectory);
 }
-/*void MainProgram::on_TabMenu_currentChanged(int index, QVector<itemStruct> itemList)
+void MainProgram::on_RefreshItemSales_clicked()
 {
-    if (index == 2)
+    ui->ItemStatstable->clearContents();
+    ui->ItemStatstable->setRowCount(0);
+    ui->ItemStatstable->setColumnCount(ITEM_TABLE_COL_SIZE);
+    OutputToItemsTable(database.GetItemList());
+}
+void MainProgram::OutputToItemsTable(QVector<itemStruct> itemList)
+{
+    for (int row = 0; row < itemList.size(); row++)
     {
-        ui->ItemStatstable->clearContents();
-        ui->ItemStatstable->setRowCount(0);
-        ui->ItemStatstable->setColumnCount(ITEM_TABLE_COL_SIZE);
-        for (int row = 0; row < itemList.size(); row++)
+        ui->ItemStatstable->insertRow(row);
+        for (int col = 0; col < ITEM_TABLE_COL_SIZE; col++)
         {
-            ui->ItemStatstable->insertRow(row);
-            for (int col = 0; col < ITEM_TABLE_COL_SIZE; col++)
+            switch(col)
             {
-                switch(col)
-                {
-                             // Creates and outputs QTableWidgetItem Name of item
-                    case 0 : ui->ItemStatstable->setItem(row,col,new QTableWidgetItem(itemList[row].itemName));
-                        break;
-                             // Creates and outputs QTableWidgetItem Price of item
-                    case 1 : ui->ItemStatstable->setItem(row,col,new QTableWidgetItem("$"+QString::number(itemList[row].cost)));
-                        break;
-                             // Creates and outputs QTableWidgetItem Quantity of item sold
-                    case 2 : ui->ItemStatstable->setItem(row,col,new QTableWidgetItem(QString::number(itemList[row].quanSold)));
-                        break;
-                             // Creates and outputs QTableWidgetItem Total Revenue of item
-                    case 3 : ui->ItemStatstable->setItem(row,col,new QTableWidgetItem("$"+QString::number(float(itemList[row].quanSold)*(itemList[row].cost))));
-                        break;
-                             // Creates and outputs QTableWidgetItem Availability of sale of item
-                    case 4 : if (itemList[row].forSale == 0)
-                             {
-                                 ui->ItemStatstable->setItem(row,col,new QTableWidgetItem("No"));
-                             }
-                             else if (itemList[row].forSale == 1)
-                             {
-                                 ui->ItemStatstable->setItem(row,col,new QTableWidgetItem("Yes"));
-                             }
-                        break;
-                }
+                         // Creates and outputs QTableWidgetItem Name of item
+                case 0 : ui->ItemStatstable->setItem(row,col,new QTableWidgetItem(itemList[row].itemName));
+                    break;
+                         // Creates and outputs QTableWidgetItem Price of item
+                case 1 : ui->ItemStatstable->setItem(row,col,new QTableWidgetItem("$"+QString::number(itemList[row].cost)));
+                    break;
+                         // Creates and outputs QTableWidgetItem Quantity of item sold
+                case 2 : ui->ItemStatstable->setItem(row,col,new QTableWidgetItem(QString::number(itemList[row].quanSold)));
+                    break;
+                         // Creates and outputs QTableWidgetItem Total Revenue of item
+                case 3 : ui->ItemStatstable->setItem(row,col,new QTableWidgetItem("$"+QString::number(float(itemList[row].quanSold)*(itemList[row].cost))));
+                    break;
+                         // Creates and outputs QTableWidgetItem Availability of sale of item
+                case 4 : if (itemList[row].forSale == 0)
+                         {
+                             ui->ItemStatstable->setItem(row,col,new QTableWidgetItem("No"));
+                         }
+                         else if (itemList[row].forSale == 1)
+                         {
+                             ui->ItemStatstable->setItem(row,col,new QTableWidgetItem("Yes"));
+                         }
+                    break;
             }
         }
     }
-}*/
+}
