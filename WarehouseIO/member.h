@@ -25,6 +25,7 @@ const QString MemNames[] = {"Inactive",
 class Member:public Person
 {
 public:
+
 //CONSTRUCTOR
 Member();
 Member(QString mName, int mID, QString date, QString mMembership);
@@ -56,7 +57,9 @@ void setId(int newId);
 void setMemberShip(QString newMembership);
 void setExpiration(QString newExp);
 void addTotalSpend(float addSpend);
+
 private:
+
 QString name;		//name of said regularMember
 int id;				//id to identify member
 float totalSpent;	//total amount spent by member

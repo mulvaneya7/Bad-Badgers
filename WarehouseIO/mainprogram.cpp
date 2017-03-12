@@ -28,6 +28,21 @@ void MainProgram::on_GenerateReport_clicked()
     Date salesReportdate;
     salesReportdate.Set(ui->DateInput->text());
 }
+void MainProgram::on_DisplayOption_activated(int index)
+{
+    ui->MemberTable->clearContents();
+    ui->MemberTable->setRowCount(0);
+    ui->MemberTable->setColumnCount(MEMBER_TABLE_COL_SIZE);
+    switch(index)
+    {
+        case 0 : OutputToMemberTable(database.GetMemberList());
+            break;
+        case 1 : OutputExecutivesToMemberTable(database.GetMemberList());
+            break;
+        case 2 : OutputRegularsToMemberTable(database.GetMemberList());
+            break;
+    }
+}
 // Returns member from memberList vector at given index
 const Member MainProgram::GetMember(QVector<Member*> memberList, int index)
 {
@@ -43,7 +58,6 @@ const TransactionNode MainProgram::GetTransaction(QVector<TransactionNode> Trans
 {
     return TransactionList[index];
 }
-// Outputs entire memberList vector to MemberTable
 void MainProgram::OutputToMemberTable(QVector<Member*> memberList)
 {
     for (int row = 0; row < memberList.size(); row++)
@@ -69,6 +83,72 @@ void MainProgram::OutputToMemberTable(QVector<Member*> memberList)
                 case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[row]->getDate()));
                     break;
             }
+        }
+    }
+}
+void MainProgram::OutputExecutivesToMemberTable(QVector<Member*> memberList)
+{
+    int row = 0;
+    for (int i = 0; i < memberList.size(); i++)
+    {
+        if (memberList[i]->getMembershipQString() == "Executive")
+        {
+            ui->MemberTable->insertRow(row);
+            for (int col = 0; col < MEMBER_TABLE_COL_SIZE; col++)
+            {
+                switch(col)
+                {
+                             // Creates and outputs QTableWidgetItem Name of member
+                    case 0 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getName()));
+                        break;
+                             // Creates and outputs QTableWidgetItem ID of member
+                    case 1 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(QString::number(memberList[i]->getId())));
+                        break;
+                             // Creates and outputs QTableWidgetItem Membership Type of member
+                    case 2 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getMembershipQString()));
+                        break;
+                             // Creates and outputs QTableWidgetItem Rebate of member
+                    case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getRebateQString()));
+                        break;
+                             // Creates and outputs QTableWidgetItem Expiration Date of member
+                    case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getDate()));
+                        break;
+                }
+            }
+            row++;
+        }
+    }
+}
+void MainProgram::OutputRegularsToMemberTable(QVector<Member*> memberList)
+{
+    int row = 0;
+    for (int i = 0; i < memberList.size(); i++)
+    {
+        if (memberList[i]->getMembershipQString() == "Regular")
+        {
+            ui->MemberTable->insertRow(row);
+            for (int col = 0; col < MEMBER_TABLE_COL_SIZE; col++)
+            {
+                switch(col)
+                {
+                             // Creates and outputs QTableWidgetItem Name of member
+                    case 0 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getName()));
+                        break;
+                             // Creates and outputs QTableWidgetItem ID of member
+                    case 1 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(QString::number(memberList[i]->getId())));
+                        break;
+                             // Creates and outputs QTableWidgetItem Membership Type of member
+                    case 2 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getMembershipQString()));
+                        break;
+                             // Creates and outputs QTableWidgetItem Rebate of member
+                    case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getRebateQString()));
+                        break;
+                             // Creates and outputs QTableWidgetItem Expiration Date of member
+                    case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getDate()));
+                        break;
+                }
+            }
+            row++;
         }
     }
 }

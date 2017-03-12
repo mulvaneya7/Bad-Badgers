@@ -23,14 +23,20 @@ public:
     const itemStruct GetItem(QVector<itemStruct> itemList, int index);
     // Returns TransactionNode from transactionList vector at given index
     const TransactionNode GetTransaction(QVector<TransactionNode> TransactionList, int index);
-    // Prints the enntire memberList vector into the QTableWidget
+    // Prints the entire memberList vector into the QTableWidget
     void OutputToMemberTable(QVector<Member*> memberList);
+    // Prints the executives of the memberList vector into the QTableWidget
+    void OutputExecutivesToMemberTable(QVector<Member*> memberList);
+    // Prints the regulars of the memberList vector into the QTableWidget
+    void OutputRegularsToMemberTable(QVector<Member*> memberList);
 
 private slots:
 
     void on_pushButton_3_clicked();
 
     void on_GenerateReport_clicked();
+
+    void on_DisplayOption_activated(int index);
 
 private:
     Ui::MainProgram *ui;

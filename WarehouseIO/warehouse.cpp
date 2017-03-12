@@ -40,7 +40,7 @@ void Warehouse::LoadMember(QString fileName)
         memberList.push_back(NULL);
         memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpType);
     }
-
+    sortMembers();
 }
 void Warehouse::SaveMembers(QString fileName)
 {
@@ -63,7 +63,21 @@ int Warehouse::memberListSize()
 {
     return memberList.size();
 }
-
+void Warehouse::sortMembers()
+{
+    for(int x=0; x<memberList.size(); x++)
+    {
+        for(int y=0; y<memberList.size()-1; y++)
+        {
+            if(memberList[y]->getId() > memberList[y+1]->getId())
+            {
+                int temp = memberList[y+1]->getId();
+                memberList[y+1]->setId(memberList[y]->getId());
+                memberList[y]->setId(temp);
+            }
+        }
+    }
+}
 Member Warehouse::SearchID(int inputID)
 {
     int i = 0;

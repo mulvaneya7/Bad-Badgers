@@ -33,44 +33,44 @@ class Warehouse
 {
 public:
     Warehouse();
-    //Member initialization "literally"
+    // Member initialization "literally"
     ~Warehouse();
-    //Vector Creation through external file
+    // Vector Creation through external file
     void LoadMember(QString fileName);
     void SaveMembers(QString fileName);
     void loadSalesReport(QString fileName);
-    //Automatic Appending Memberlist
+    // Automatic Appending Memberlist
     void AddMember(Member newMember);
-    //Adds an itemStruct node to the itemList vector
+    // Adds an itemStruct node to the itemList vector
     void AddItem(itemStruct input);
-    //Deleting the member from the memberList
+    // Deleting the member from the memberList
     void DeleteMember(int id);
     void DeleteMember(QString name);
-    //Turns off the sold bool in the item list when an item is no longer needing to be sold
-    //Front end Appending to TransactionList
+    // Turns off the sold bool in the item list when an item is no longer needing to be sold
+    // Front end Appending to TransactionList
     void ReportSales();
-    //Automatic Appending to TransactionList
+    // Automatic Appending to TransactionList
     void ReportSales(ifstream& input);
-    //This method will report all of the purchases sorted by member ID
+    // This method will report all of the purchases sorted by member ID
     QString ReportPurchases();
-    //Reports all of the members that will expire within the month of the date Class
+    // Reports all of the members that will expire within the month of the date Class
     QString CheckExpiration(Date dateClass);
-    //Reports the Sales Report for any givin day.
+    // Reports the Sales Report for any givin day.
     QString getSalesReport(Date dateClass);
-    //Reports the Quantity and total revanue of the items sold. Sorted by item name.(alphabetical)
+    // Reports the Quantity and total revanue of the items sold. Sorted by item name.(alphabetical)
     QString reportItemSales();
-    //Reports the Member's total spending at the warehouse by Id number
+    // Reports the Member's total spending at the warehouse by Id number
     QString reportMemberPurchases(QString name);
     QString reportMemberPurchases(int iD);
-    //Reports the Executive member's rebates and sorts the list by Id Number
+    // Reports the Executive member's rebates and sorts the list by Id Number
     QString reportExecutiveRebate();
 
-    //Checks if the item exists on the itemList variable if so it returns by reference
+    // Checks if the item exists on the itemList variable if so it returns by reference
     bool isItem(QString searchItem);
     bool isMember(int id);
     bool isMember(QString name);
     int ItemIndex(QString searchItem);
-    //Checks if member should convert to Executive or an Executive member should convert to regular member
+    // Checks if member should convert to Executive or an Executive member should convert to regular member
     bool CheckForConvert(Member member);
     int memberListSize();
     
@@ -78,26 +78,29 @@ public:
     QVector<itemStruct> GetItemList();
     QVector<TransactionNode> GetTransactionList();
 
+    // Sorts the memberList by membership number;
+    void sortMembers();
+
 private:
     // Helper Functions
     // Sorts TransactionList by date via DateClass
     void sortTransactionList();
-    // Sorts Quantity and Revanue by item name
+    // Sorts Quantity and Revenue by item name
     void sortQR();
     void sortRebate(int id);
-    //Searchs the memberList for an instance of member
+    // Searchs the memberList for an instance of member
     Member SearchID(int id);
     Member SearchName(QString name);
     int SearchIDindex(int id);
     int SearchNameindex(QString name);
     void upDateMemberlist();
-    //Pointers to members
+    // Pointers to members
     QVector<Member*> memberList;
 
-    //For total reference of item history
+    // For total reference of item history
     QVector<itemStruct> itemList;
 
-    //For daily sales report.
+    // For daily sales report.
     QVector<TransactionNode> TransactionList;
 };
 #endif // WAREHOUSE_H
