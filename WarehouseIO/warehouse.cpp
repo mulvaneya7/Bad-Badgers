@@ -315,10 +315,9 @@ QVector<TransactionNode> Warehouse::GetTransactionList()
 //membership to inactive
 void Warehouse::DeleteMember(int id)
 {
-    bool pred = isMember(id);
-    QVector<Member*>::iterator it = find_if(begin(Member), end(Member), pred) != std::end(Member);
-    if(it.getId() == id)
+    if(isMember(id))
     {
-     it.setMemberShip("Inactive")
+     int index = SearchIDindex(id);
+     memberList[index].setMemberShip("Inactive")
     }
 }
