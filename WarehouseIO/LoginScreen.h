@@ -26,6 +26,8 @@ private slots:
 
     void on_Exit_clicked();
 
+    void on_PasswordInput_returnPressed();
+
 private:
     Ui::MainWindow *ui;
     MainProgram mainUI;
