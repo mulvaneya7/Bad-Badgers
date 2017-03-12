@@ -40,6 +40,8 @@ private slots:
 
     void on_ReportFileContents_clicked();
 
+    void on_Filebrowser_clicked();
+
 private:
     Ui::MainProgram *ui;
     Warehouse database;

@@ -155,9 +155,16 @@ void MainProgram::OutputRegularsToMemberTable(QVector<Member*> memberList)
 
 void MainProgram::on_ReportFileContents_clicked()
 {
+    QString fileDirectory = ui->FileDiectoryReportSales->text();
+    database.loadSalesReport(fileDirectory);
+    ui->FileDiectoryReportSales->clear();
+}
+
+void MainProgram::on_Filebrowser_clicked()
+{
     QString fileDirectory = QFileDialog::getOpenFileName(this,
                                                          tr("Open Member Info File"),
                                                          "C://",
                                                          "All files(*x*);;Text File(*.txt)");
-    database.loadSalesReport(fileDirectory);
+    ui->FileDiectoryReportSales->setText(fileDirectory);
 }
