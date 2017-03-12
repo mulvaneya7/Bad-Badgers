@@ -64,6 +64,8 @@ public:
     QString reportMemberPurchases(int iD);
     // Reports the Executive member's rebates and sorts the list by Id Number
     QString reportExecutiveRebate();
+    int SearchIDindex(int id);
+    int SearchNameindex(QString name);
 
     // Checks if the item exists on the itemList variable if so it returns by reference
     bool isItem(QString searchItem);
@@ -93,8 +95,6 @@ private:
     // Searchs the memberList for an instance of member
     Member SearchID(int id);
     Member SearchName(QString name);
-    int SearchIDindex(int id);
-    int SearchNameindex(QString name);
     void upDateMemberlist();
     // Pointers to members
     QVector<Member*> memberList;
