@@ -78,6 +78,21 @@ void Warehouse::sortMembers()
         }
     }
 }
+void Warehouse::sortItems()
+{
+    for(int x=0; x<itemList.size(); x++)
+    {
+        for(int y=0; y<itemList.size()-1; y++)
+        {
+            if(itemList[y].itemName > itemList[y+1].itemName)
+            {
+                QString temp = itemList[y+1].itemName;
+                itemList[y+1].itemName = itemList[y].itemName;
+                itemList[y].itemName = temp;
+            }
+        }
+    }
+}
 Member Warehouse::SearchID(int inputID)
 {
     int i = 0;
@@ -278,7 +293,7 @@ void Warehouse::loadSalesReport(QString fileName)
             itemList.push_back(tempItemNode);
         }
     }
-
+    sortItems();
 }
 //void Warehouse::SortQR()
 //{

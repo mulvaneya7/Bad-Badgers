@@ -42,11 +42,15 @@ private slots:
 
     void on_Filebrowser_clicked();
 
+    //void on_TabMenu_currentChanged(int index, QVector<itemStruct> itemList);
+
 private:
     Ui::MainProgram *ui;
     Warehouse database;
     // Constant used for outputing to the member table
     const int MEMBER_TABLE_COL_SIZE = 5;
+    // Constant used for outputing to the item table
+    const int ITEM_TABLE_COL_SIZE = 5;
 
 };
 

@@ -80,6 +80,8 @@ public:
 
     // Sorts the memberList by membership number;
     void sortMembers();
+    // Sorts the itemList by item name;
+    void sortItems();
 
 private:
     // Helper Functions
