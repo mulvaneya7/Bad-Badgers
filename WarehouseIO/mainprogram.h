@@ -38,6 +38,8 @@ private slots:
 
     void on_DisplayOption_activated(int index);
 
+    void on_ReportFileContents_clicked();
+
 private:
     Ui::MainProgram *ui;
     Warehouse database;

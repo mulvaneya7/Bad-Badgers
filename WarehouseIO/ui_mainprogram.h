@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainprogram.ui'
 **
-** Created by: Qt User Interface Compiler version 5.6.2
+** Created by: Qt User Interface Compiler version 5.7.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -94,7 +94,7 @@ public:
         MainProgram->resize(826, 564);
         TabMenu = new QTabWidget(MainProgram);
         TabMenu->setObjectName(QStringLiteral("TabMenu"));
-        TabMenu->setGeometry(QRect(40, 30, 732, 491));
+        TabMenu->setGeometry(QRect(40, 30, 733, 491));
         TabMenu->setContextMenuPolicy(Qt::PreventContextMenu);
         Transaction = new QWidget();
         Transaction->setObjectName(QStringLiteral("Transaction"));
@@ -159,8 +159,8 @@ public:
         ItemInfo = new QWidget();
         ItemInfo->setObjectName(QStringLiteral("ItemInfo"));
         ItemStatstable = new QTableWidget(ItemInfo);
-        if (ItemStatstable->columnCount() < 4)
-            ItemStatstable->setColumnCount(4);
+        if (ItemStatstable->columnCount() < 5)
+            ItemStatstable->setColumnCount(5);
         QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
         ItemStatstable->setHorizontalHeaderItem(0, __qtablewidgetitem10);
         QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
@@ -169,8 +169,10 @@ public:
         ItemStatstable->setHorizontalHeaderItem(2, __qtablewidgetitem12);
         QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
         ItemStatstable->setHorizontalHeaderItem(3, __qtablewidgetitem13);
+        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
+        ItemStatstable->setHorizontalHeaderItem(4, __qtablewidgetitem14);
         ItemStatstable->setObjectName(QStringLiteral("ItemStatstable"));
-        ItemStatstable->setGeometry(QRect(30, 30, 411, 421));
+        ItemStatstable->setGeometry(QRect(30, 30, 501, 421));
         ItemSalesStats = new QLabel(ItemInfo);
         ItemSalesStats->setObjectName(QStringLiteral("ItemSalesStats"));
         ItemSalesStats->setGeometry(QRect(30, 10, 101, 16));
@@ -183,19 +185,19 @@ public:
         MemberDataTable = new QTableWidget(SearchMember);
         if (MemberDataTable->rowCount() < 6)
             MemberDataTable->setRowCount(6);
-        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
-        __qtablewidgetitem14->setTextAlignment(Qt::AlignLeading|Qt::AlignBottom);
-        MemberDataTable->setVerticalHeaderItem(0, __qtablewidgetitem14);
         QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
-        MemberDataTable->setVerticalHeaderItem(1, __qtablewidgetitem15);
+        __qtablewidgetitem15->setTextAlignment(Qt::AlignLeading|Qt::AlignBottom);
+        MemberDataTable->setVerticalHeaderItem(0, __qtablewidgetitem15);
         QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
-        MemberDataTable->setVerticalHeaderItem(2, __qtablewidgetitem16);
+        MemberDataTable->setVerticalHeaderItem(1, __qtablewidgetitem16);
         QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
-        MemberDataTable->setVerticalHeaderItem(3, __qtablewidgetitem17);
+        MemberDataTable->setVerticalHeaderItem(2, __qtablewidgetitem17);
         QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
-        MemberDataTable->setVerticalHeaderItem(4, __qtablewidgetitem18);
+        MemberDataTable->setVerticalHeaderItem(3, __qtablewidgetitem18);
         QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
-        MemberDataTable->setVerticalHeaderItem(5, __qtablewidgetitem19);
+        MemberDataTable->setVerticalHeaderItem(4, __qtablewidgetitem19);
+        QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
+        MemberDataTable->setVerticalHeaderItem(5, __qtablewidgetitem20);
         MemberDataTable->setObjectName(QStringLiteral("MemberDataTable"));
         MemberDataTable->setGeometry(QRect(10, 80, 341, 182));
         AddMember = new QPushButton(SearchMember);
@@ -328,101 +330,103 @@ public:
 
     void retranslateUi(QDialog *MainProgram)
     {
-        MainProgram->setWindowTitle(QApplication::translate("MainProgram", "Warehouse Manager 1998", 0));
+        MainProgram->setWindowTitle(QApplication::translate("MainProgram", "Warehouse Manager 1998", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem = TransactionTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("MainProgram", "Date Purchased", 0));
+        ___qtablewidgetitem->setText(QApplication::translate("MainProgram", "Date Purchased", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem1 = TransactionTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QApplication::translate("MainProgram", "ID", 0));
+        ___qtablewidgetitem1->setText(QApplication::translate("MainProgram", "ID", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem2 = TransactionTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QApplication::translate("MainProgram", "Product", 0));
+        ___qtablewidgetitem2->setText(QApplication::translate("MainProgram", "Product", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem3 = TransactionTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QApplication::translate("MainProgram", "Quantity", 0));
+        ___qtablewidgetitem3->setText(QApplication::translate("MainProgram", "Quantity", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem4 = TransactionTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QApplication::translate("MainProgram", "Product Price", 0));
-        GenerateReport->setText(QApplication::translate("MainProgram", "Generate", 0));
-        reportPrompt->setText(QApplication::translate("MainProgram", "Generate Sales Report", 0));
-        TabMenu->setTabText(TabMenu->indexOf(Transaction), QApplication::translate("MainProgram", "Transaction History", 0));
+        ___qtablewidgetitem4->setText(QApplication::translate("MainProgram", "Product Price", Q_NULLPTR));
+        GenerateReport->setText(QApplication::translate("MainProgram", "Generate", Q_NULLPTR));
+        reportPrompt->setText(QApplication::translate("MainProgram", "Generate Sales Report", Q_NULLPTR));
+        TabMenu->setTabText(TabMenu->indexOf(Transaction), QApplication::translate("MainProgram", "Transaction History", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem5 = MemberTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem5->setText(QApplication::translate("MainProgram", "Member Type", 0));
+        ___qtablewidgetitem5->setText(QApplication::translate("MainProgram", "Member Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem6 = MemberTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem6->setText(QApplication::translate("MainProgram", "Member ID", 0));
+        ___qtablewidgetitem6->setText(QApplication::translate("MainProgram", "Member ID", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem7 = MemberTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem7->setText(QApplication::translate("MainProgram", "Member Type", 0));
+        ___qtablewidgetitem7->setText(QApplication::translate("MainProgram", "Member Type", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem8 = MemberTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem8->setText(QApplication::translate("MainProgram", "Rebate", 0));
+        ___qtablewidgetitem8->setText(QApplication::translate("MainProgram", "Rebate", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem9 = MemberTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem9->setText(QApplication::translate("MainProgram", "Expiration Date", 0));
-        DisplayLabel->setText(QApplication::translate("MainProgram", "Display Members:", 0));
+        ___qtablewidgetitem9->setText(QApplication::translate("MainProgram", "Expiration Date", Q_NULLPTR));
+        DisplayLabel->setText(QApplication::translate("MainProgram", "Display Members:", Q_NULLPTR));
         DisplayOption->clear();
         DisplayOption->insertItems(0, QStringList()
-         << QApplication::translate("MainProgram", "All Members", 0)
-         << QApplication::translate("MainProgram", "Executive Members", 0)
-         << QApplication::translate("MainProgram", "Normal Members", 0)
+         << QApplication::translate("MainProgram", "All Members", Q_NULLPTR)
+         << QApplication::translate("MainProgram", "Executive Members", Q_NULLPTR)
+         << QApplication::translate("MainProgram", "Normal Members", Q_NULLPTR)
         );
-        pushButton_3->setText(QApplication::translate("MainProgram", "Open Memberlist File", 0));
+        pushButton_3->setText(QApplication::translate("MainProgram", "Open Memberlist File", Q_NULLPTR));
         MemberListError->setText(QString());
-        SaveButton->setText(QApplication::translate("MainProgram", "Save As:", 0));
-        TabMenu->setTabText(TabMenu->indexOf(MemberList), QApplication::translate("MainProgram", "MemberList", 0));
+        SaveButton->setText(QApplication::translate("MainProgram", "Save As:", Q_NULLPTR));
+        TabMenu->setTabText(TabMenu->indexOf(MemberList), QApplication::translate("MainProgram", "MemberList", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem10 = ItemStatstable->horizontalHeaderItem(0);
-        ___qtablewidgetitem10->setText(QApplication::translate("MainProgram", "Item", 0));
+        ___qtablewidgetitem10->setText(QApplication::translate("MainProgram", "Item", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem11 = ItemStatstable->horizontalHeaderItem(1);
-        ___qtablewidgetitem11->setText(QApplication::translate("MainProgram", "Price ($)", 0));
+        ___qtablewidgetitem11->setText(QApplication::translate("MainProgram", "Price ($)", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem12 = ItemStatstable->horizontalHeaderItem(2);
-        ___qtablewidgetitem12->setText(QApplication::translate("MainProgram", "# of units sold", 0));
+        ___qtablewidgetitem12->setText(QApplication::translate("MainProgram", "# of units sold", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem13 = ItemStatstable->horizontalHeaderItem(3);
-        ___qtablewidgetitem13->setText(QApplication::translate("MainProgram", "Available for Sale", 0));
-        ItemSalesStats->setText(QApplication::translate("MainProgram", "Item sales statistics", 0));
-        TabMenu->setTabText(TabMenu->indexOf(ItemInfo), QApplication::translate("MainProgram", "Item Sales Info", 0));
-        MemberSearchInput->setText(QApplication::translate("MainProgram", "Enter member", 0));
-        QTableWidgetItem *___qtablewidgetitem14 = MemberDataTable->verticalHeaderItem(0);
-        ___qtablewidgetitem14->setText(QApplication::translate("MainProgram", "Name", 0));
-        QTableWidgetItem *___qtablewidgetitem15 = MemberDataTable->verticalHeaderItem(1);
-        ___qtablewidgetitem15->setText(QApplication::translate("MainProgram", "ID", 0));
-        QTableWidgetItem *___qtablewidgetitem16 = MemberDataTable->verticalHeaderItem(2);
-        ___qtablewidgetitem16->setText(QApplication::translate("MainProgram", "Total Spent", 0));
-        QTableWidgetItem *___qtablewidgetitem17 = MemberDataTable->verticalHeaderItem(3);
-        ___qtablewidgetitem17->setText(QApplication::translate("MainProgram", "Membership", 0));
-        QTableWidgetItem *___qtablewidgetitem18 = MemberDataTable->verticalHeaderItem(4);
-        ___qtablewidgetitem18->setText(QApplication::translate("MainProgram", "Rebate", 0));
-        QTableWidgetItem *___qtablewidgetitem19 = MemberDataTable->verticalHeaderItem(5);
-        ___qtablewidgetitem19->setText(QApplication::translate("MainProgram", "MemberShip Reccomendation", 0));
-        AddMember->setText(QApplication::translate("MainProgram", "Add New Member", 0));
+        ___qtablewidgetitem13->setText(QApplication::translate("MainProgram", "Total Revanue ($)", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem14 = ItemStatstable->horizontalHeaderItem(4);
+        ___qtablewidgetitem14->setText(QApplication::translate("MainProgram", "Available for Sale", Q_NULLPTR));
+        ItemSalesStats->setText(QApplication::translate("MainProgram", "Item sales statistics", Q_NULLPTR));
+        TabMenu->setTabText(TabMenu->indexOf(ItemInfo), QApplication::translate("MainProgram", "Item Sales Info", Q_NULLPTR));
+        MemberSearchInput->setText(QApplication::translate("MainProgram", "Enter member", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem15 = MemberDataTable->verticalHeaderItem(0);
+        ___qtablewidgetitem15->setText(QApplication::translate("MainProgram", "Name", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem16 = MemberDataTable->verticalHeaderItem(1);
+        ___qtablewidgetitem16->setText(QApplication::translate("MainProgram", "ID", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem17 = MemberDataTable->verticalHeaderItem(2);
+        ___qtablewidgetitem17->setText(QApplication::translate("MainProgram", "Total Spent", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem18 = MemberDataTable->verticalHeaderItem(3);
+        ___qtablewidgetitem18->setText(QApplication::translate("MainProgram", "Membership", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem19 = MemberDataTable->verticalHeaderItem(4);
+        ___qtablewidgetitem19->setText(QApplication::translate("MainProgram", "Rebate", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem20 = MemberDataTable->verticalHeaderItem(5);
+        ___qtablewidgetitem20->setText(QApplication::translate("MainProgram", "MemberShip Reccomendation", Q_NULLPTR));
+        AddMember->setText(QApplication::translate("MainProgram", "Add New Member", Q_NULLPTR));
         SearchOption->clear();
         SearchOption->insertItems(0, QStringList()
-         << QApplication::translate("MainProgram", "Search Type", 0)
-         << QApplication::translate("MainProgram", "NAME", 0)
-         << QApplication::translate("MainProgram", "ID", 0)
+         << QApplication::translate("MainProgram", "Search Type", Q_NULLPTR)
+         << QApplication::translate("MainProgram", "NAME", Q_NULLPTR)
+         << QApplication::translate("MainProgram", "ID", Q_NULLPTR)
         );
-        SearchLabe->setText(QApplication::translate("MainProgram", "Search By:", 0));
-        SpecificLabel->setText(QApplication::translate("MainProgram", "Specific Member Search", 0));
-        DeleteMember->setText(QApplication::translate("MainProgram", "Change Membership Status", 0));
-        MemberSearchInput_2->setText(QApplication::translate("MainProgram", "Enter member", 0));
-        SearchLabe_2->setText(QApplication::translate("MainProgram", "Search By:", 0));
+        SearchLabe->setText(QApplication::translate("MainProgram", "Search By:", Q_NULLPTR));
+        SpecificLabel->setText(QApplication::translate("MainProgram", "Specific Member Search", Q_NULLPTR));
+        DeleteMember->setText(QApplication::translate("MainProgram", "Change Membership Status", Q_NULLPTR));
+        MemberSearchInput_2->setText(QApplication::translate("MainProgram", "Enter member", Q_NULLPTR));
+        SearchLabe_2->setText(QApplication::translate("MainProgram", "Search By:", Q_NULLPTR));
         SearchOption_2->clear();
         SearchOption_2->insertItems(0, QStringList()
-         << QApplication::translate("MainProgram", "Search Type", 0)
-         << QApplication::translate("MainProgram", "NAME", 0)
-         << QApplication::translate("MainProgram", "ID", 0)
+         << QApplication::translate("MainProgram", "Search Type", Q_NULLPTR)
+         << QApplication::translate("MainProgram", "NAME", Q_NULLPTR)
+         << QApplication::translate("MainProgram", "ID", Q_NULLPTR)
         );
-        label->setText(QApplication::translate("MainProgram", "Change MemberShip to:", 0));
-        TabMenu->setTabText(TabMenu->indexOf(SearchMember), QApplication::translate("MainProgram", "Search Members", 0));
-        ReportTransactionsLabel->setText(QApplication::translate("MainProgram", "Report Transactions", 0));
-        ManualReportLalel->setText(QApplication::translate("MainProgram", "Manual Report", 0));
-        RepoerfileFile->setText(QApplication::translate("MainProgram", "Report via transaction File", 0));
-        Productsold->setText(QApplication::translate("MainProgram", "Name of Product sold", 0));
-        CostofProductLabel->setText(QApplication::translate("MainProgram", "Cost of Product", 0));
-        productSoldLabel->setText(QApplication::translate("MainProgram", "# of Product Sold", 0));
-        IDInputReportSales->setText(QApplication::translate("MainProgram", "ID of Buyer", 0));
-        DateBoughtLabel->setText(QApplication::translate("MainProgram", "Date Bought", 0));
+        label->setText(QApplication::translate("MainProgram", "Change MemberShip to:", Q_NULLPTR));
+        TabMenu->setTabText(TabMenu->indexOf(SearchMember), QApplication::translate("MainProgram", "Search Members", Q_NULLPTR));
+        ReportTransactionsLabel->setText(QApplication::translate("MainProgram", "Report Transactions", Q_NULLPTR));
+        ManualReportLalel->setText(QApplication::translate("MainProgram", "Manual Report", Q_NULLPTR));
+        RepoerfileFile->setText(QApplication::translate("MainProgram", "Report via transaction File", Q_NULLPTR));
+        Productsold->setText(QApplication::translate("MainProgram", "Name of Product sold", Q_NULLPTR));
+        CostofProductLabel->setText(QApplication::translate("MainProgram", "Cost of Product", Q_NULLPTR));
+        productSoldLabel->setText(QApplication::translate("MainProgram", "# of Product Sold", Q_NULLPTR));
+        IDInputReportSales->setText(QApplication::translate("MainProgram", "ID of Buyer", Q_NULLPTR));
+        DateBoughtLabel->setText(QApplication::translate("MainProgram", "Date Bought", Q_NULLPTR));
         FileDiectoryReportSales->setText(QString());
-        FileNameInput->setText(QApplication::translate("MainProgram", "File Name:", 0));
-        pushButton->setText(QApplication::translate("MainProgram", "Complete Manual Report", 0));
-        ReportFileContents->setText(QApplication::translate("MainProgram", "Report File Contents", 0));
-        Filebrowser->setText(QApplication::translate("MainProgram", "Browse:", 0));
+        FileNameInput->setText(QApplication::translate("MainProgram", "File Name:", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("MainProgram", "Complete Manual Report", Q_NULLPTR));
+        ReportFileContents->setText(QApplication::translate("MainProgram", "Report File Contents", Q_NULLPTR));
+        Filebrowser->setText(QApplication::translate("MainProgram", "Browse:", Q_NULLPTR));
         ManualReportError->setText(QString());
-        TabMenu->setTabText(TabMenu->indexOf(ReportSales), QApplication::translate("MainProgram", "Report Sales", 0));
-        Help->setText(QApplication::translate("MainProgram", "Help", 0));
-        Exit->setText(QApplication::translate("MainProgram", "Exit", 0));
+        TabMenu->setTabText(TabMenu->indexOf(ReportSales), QApplication::translate("MainProgram", "Report Sales", Q_NULLPTR));
+        Help->setText(QApplication::translate("MainProgram", "Help", Q_NULLPTR));
+        Exit->setText(QApplication::translate("MainProgram", "Exit", Q_NULLPTR));
     } // retranslateUi
 
 };

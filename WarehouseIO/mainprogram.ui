@@ -18,7 +18,7 @@
     <rect>
      <x>40</x>
      <y>30</y>
-     <width>732</width>
+     <width>733</width>
      <height>491</height>
     </rect>
    </property>
@@ -230,7 +230,7 @@
       <rect>
        <x>30</x>
        <y>30</y>
-       <width>411</width>
+       <width>501</width>
        <height>421</height>
       </rect>
      </property>
@@ -247,6 +247,11 @@
      <column>
       <property name="text">
        <string># of units sold</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Total Revanue ($)</string>
       </property>
      </column>
      <column>
