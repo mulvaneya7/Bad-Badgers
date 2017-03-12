@@ -26,7 +26,7 @@
     <enum>Qt::PreventContextMenu</enum>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="Transaction">
     <attribute name="title">
@@ -229,9 +229,9 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>30</y>
+       <y>40</y>
        <width>501</width>
-       <height>421</height>
+       <height>411</height>
       </rect>
      </property>
      <column>
@@ -271,6 +271,19 @@
      </property>
      <property name="text">
       <string>Item sales statistics</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="RefreshItemSales">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>10</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Refresh</string>
      </property>
     </widget>
    </widget>
