@@ -329,3 +329,9 @@ void Warehouse::DeleteMember(QString name)
      memberList[index]->setMemberShip("Inactive");
     }
 }
+//ADDING ITEM TO ITEM STRUCT VECTOR
+void Warehouse::AddItem(itemStruct input)
+{
+    itemList.push_back(input);
+    sortItems();
+}
