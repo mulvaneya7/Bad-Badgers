@@ -47,6 +47,7 @@ public:
     QWidget *ItemInfo;
     QTableWidget *ItemStatstable;
     QLabel *ItemSalesStats;
+    QPushButton *RefreshItemSales;
     QWidget *SearchMember;
     QLineEdit *MemberSearchInput;
     QTableWidget *MemberDataTable;
@@ -172,10 +173,13 @@ public:
         QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
         ItemStatstable->setHorizontalHeaderItem(4, __qtablewidgetitem14);
         ItemStatstable->setObjectName(QStringLiteral("ItemStatstable"));
-        ItemStatstable->setGeometry(QRect(30, 30, 501, 421));
+        ItemStatstable->setGeometry(QRect(30, 40, 501, 411));
         ItemSalesStats = new QLabel(ItemInfo);
         ItemSalesStats->setObjectName(QStringLiteral("ItemSalesStats"));
         ItemSalesStats->setGeometry(QRect(30, 10, 101, 16));
+        RefreshItemSales = new QPushButton(ItemInfo);
+        RefreshItemSales->setObjectName(QStringLiteral("RefreshItemSales"));
+        RefreshItemSales->setGeometry(QRect(130, 10, 75, 23));
         TabMenu->addTab(ItemInfo, QString());
         SearchMember = new QWidget();
         SearchMember->setObjectName(QStringLiteral("SearchMember"));
@@ -322,7 +326,7 @@ public:
 
         retranslateUi(MainProgram);
 
-        TabMenu->setCurrentIndex(4);
+        TabMenu->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainProgram);
@@ -376,6 +380,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem14 = ItemStatstable->horizontalHeaderItem(4);
         ___qtablewidgetitem14->setText(QApplication::translate("MainProgram", "Available for Sale", Q_NULLPTR));
         ItemSalesStats->setText(QApplication::translate("MainProgram", "Item sales statistics", Q_NULLPTR));
+        RefreshItemSales->setText(QApplication::translate("MainProgram", "Refresh", Q_NULLPTR));
         TabMenu->setTabText(TabMenu->indexOf(ItemInfo), QApplication::translate("MainProgram", "Item Sales Info", Q_NULLPTR));
         MemberSearchInput->setText(QApplication::translate("MainProgram", "Enter member", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem15 = MemberDataTable->verticalHeaderItem(0);

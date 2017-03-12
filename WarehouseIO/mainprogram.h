@@ -44,6 +44,7 @@ private slots:
 
     //void on_TabMenu_currentChanged(int index, QVector<itemStruct> itemList);
 
+
 private:
     Ui::MainProgram *ui;
     Warehouse database;
