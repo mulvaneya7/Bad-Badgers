@@ -318,7 +318,7 @@ void Warehouse::DeleteMember(int id)
     if(isMember(id))
     {
      int index = SearchIDindex(id);
-     memberList[index].setMemberShip("Inactive")
+     memberList[index]->setMemberShip("Inactive");
     }
 }
 void Warehouse::DeleteMember(QString name)
@@ -326,6 +326,6 @@ void Warehouse::DeleteMember(QString name)
     if(isMember(name))
     {
      int index = SearchNameindex(name);
-     memberList[index].setMemberShip("Inactive")
+     memberList[index]->setMemberShip("Inactive");
     }
 }
