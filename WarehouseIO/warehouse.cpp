@@ -321,3 +321,11 @@ void Warehouse::DeleteMember(int id)
      memberList[index].setMemberShip("Inactive")
     }
 }
+void Warehouse::DeleteMember(QString name)
+{
+    if(isMember(name))
+    {
+     int index = SearchNameindex(name);
+     memberList[index].setMemberShip("Inactive")
+    }
+}
