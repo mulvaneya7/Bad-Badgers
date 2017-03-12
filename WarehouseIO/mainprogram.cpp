@@ -208,3 +208,8 @@ void MainProgram::OutputToItemsTable(QVector<itemStruct> itemList)
         }
     }
 }
+
+void MainProgram::on_Exit_clicked()
+{
+    QApplication::quit();
+}
