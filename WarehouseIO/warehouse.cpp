@@ -71,9 +71,9 @@ void Warehouse::sortMembers()
         {
             if(memberList[y]->getId() > memberList[y+1]->getId())
             {
-                int temp = memberList[y+1]->getId();
-                memberList[y+1]->setId(memberList[y]->getId());
-                memberList[y]->setId(temp);
+                Member* temp = memberList[y+1];
+                memberList[y+1] = memberList[y];
+                memberList[y] = temp;
             }
         }
     }
@@ -86,9 +86,9 @@ void Warehouse::sortItems()
         {
             if(itemList[y].itemName > itemList[y+1].itemName)
             {
-                QString temp = itemList[y+1].itemName;
-                itemList[y+1].itemName = itemList[y].itemName;
-                itemList[y].itemName = temp;
+                itemStruct temp = itemList[y+1];
+                itemList[y+1] = itemList[y];
+                itemList[y] = temp;
             }
         }
     }
