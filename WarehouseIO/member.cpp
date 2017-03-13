@@ -53,7 +53,7 @@ Member::~Member()
     name.clear();
     id = 0;
     totalSpent = 0;
-};
+}
 
 //MUTATORS
 void Member::setName(QString newName)
@@ -124,14 +124,7 @@ MemType Member::getMembership()
 }
 QString Member::getMembershipQString() // Returns QString of enum type
 {
-    if(MemNames[int(membership)] == "Executive")
-    {
-        return MemNames[int(membership)];
-    }
-    else
-    {
-        return MemNames[0];
-    }
+    return MemNames[int(membership)];
 }
 float Member::getRebate()
 {
