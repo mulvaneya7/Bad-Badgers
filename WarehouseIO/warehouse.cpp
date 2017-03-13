@@ -41,6 +41,10 @@ void Warehouse::LoadMember(QString fileName)
     }
     sortMembers();
 }
+void Warehouse::ChangeMemberShip(int index, QString newMembership)
+{
+    memberList[index]->setMemberShip(newMembership);
+}
 void Warehouse::SaveMembers(QString fileName)
 {
     QFile outFile(fileName);

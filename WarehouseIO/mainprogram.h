@@ -39,6 +39,8 @@ private slots:
 
     void on_MemberSearchInput_returnPressed();
 
+    void on_ChangeMemberShip_clicked();
+
 private:
     //Private datamembers
     Ui::MainProgram *ui;

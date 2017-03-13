@@ -363,3 +363,53 @@ void MainProgram::on_Exit_clicked()
 {
     QApplication::quit();
 }
+
+void MainProgram::on_ChangeMemberShip_clicked()
+{
+    if (ui->MemberDataTable->item(0,0) != 0)
+    {
+        int i;
+        bool valid;
+        QString tempString = ui->MemberSearchInput->text();
+        int tempInt = tempString.toInt(&valid,10);
+        Member tempMember;
+        ui->ChangeMembershipLabel->setText("Test0");
+        if (valid == 0)
+        {
+            tempMember = database.SearchName(tempString);
+            ui->ChangeMembershipLabel->setText("Test1");
+            i = database.SearchNameindex(tempString);
+            if (tempMember.getMembershipQString() == "Executive")
+            {
+                database.ChangeMemberShip(i,"Regular");
+                ui->ChangeMembershipLabel->setText("Changed "+tempString+" Membership to: Regular");
+            }
+            else if (tempMember.getMembershipQString() == "Regular")
+            {
+                database.ChangeMemberShip(i,"Executive");
+                ui->ChangeMembershipLabel->setText("Changed "+tempString+" Membership to: Executive");
+            }
+        }
+        else if (valid == 0)
+        {
+            tempMember = database.SearchID(tempInt);
+            ui->ChangeMembershipLabel->setText("Test2");
+            i = database.SearchIDindex(tempInt);
+            if (tempMember.getMembershipQString() == "Executive")
+            {
+                database.ChangeMemberShip(i,"Regular");
+                ui->ChangeMembershipLabel->setText("Changed "+tempString+" Membership to: Regular");
+            }
+            else if (tempMember.getMembershipQString() == "Regular")
+            {
+                database.ChangeMemberShip(i,"Executive");
+                ui->ChangeMembershipLabel->setText("Changed "+tempString+" Membership to: Executive");
+            }
+        }
+        ui->MemberDataTable->clearContents();
+        ui->MemberDataTable->setRowCount(MEMBER_SEARCH_TABLE_ROW_SIZE);
+        ui->MemberDataTable->setColumnCount(MEMBER_SEARCH_TABLE_COL_SIZE);
+        OutputSearchedMemberToTable();
+        OutputToMemberTable(database.GetMemberList());
+    }
+}

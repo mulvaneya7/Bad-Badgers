@@ -43,6 +43,8 @@ public:
     void AddMember(Member newMember);
     // Adds an itemStruct node to the itemList vector
     void AddItem(itemStruct input);
+    // Changes the member's membership at index passed
+    void ChangeMemberShip(int index, QString newMembership);
     // Deleting the member from the memberList
     void DeleteMember(int id);
     void DeleteMember(QString name);
