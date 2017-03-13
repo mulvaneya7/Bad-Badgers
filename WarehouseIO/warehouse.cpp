@@ -20,7 +20,6 @@ void Warehouse::LoadMember(QString fileName)
     //Deletes the list before we reinitialize it
     while(!memberList.empty())
     {
-        
         delete memberList.back();
         memberList.pop_back();
     }
@@ -103,12 +102,12 @@ Member Warehouse::SearchID(int id)
         {
             found = true;
         }
-        else
+        else if(i < memberList.size())
         {
             i++;
         }
     }
-        return *memberList[--i]; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
+        return *memberList[i]; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
 }
 Member Warehouse::SearchName(QString name)
 {
@@ -120,12 +119,12 @@ Member Warehouse::SearchName(QString name)
         {
             found = true;
         }
-        else
+        else if(i < memberList.size())
         {
             i++;
         }
     }
-    return *memberList[--i]; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
+    return *memberList[i]; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
 }
 int Warehouse::SearchIDindex(int inputID)
 {
