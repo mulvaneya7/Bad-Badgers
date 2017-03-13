@@ -61,7 +61,7 @@ private:
     const int MEMBER_TABLE_COL_SIZE = 5;
     // Constants used for outputing to the member specific search table
     const int MEMBER_SEARCH_TABLE_ROW_SIZE = 6;
-    const int MEMBER_SEARCH_TABLE_COL_SIZE = 2;
+    const int MEMBER_SEARCH_TABLE_COL_SIZE = 1;
     // Constant used for outputing to the item table
     const int ITEM_TABLE_COL_SIZE = 5;
     // Search option from member specific search combo box

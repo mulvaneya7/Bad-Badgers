@@ -141,6 +141,10 @@ QString Member::getDate()
 {
     return exDate.DateSimple();
 }
+Date Member::getDateClass()
+{
+    return exDate;
+}
 QString Member::getRebateQString()
 {
   ostringstream output;
@@ -148,4 +152,12 @@ QString Member::getRebateQString()
   output << getRebate();
   
   return QString::fromStdString(output.str());
+}
+void Member::operator=(const Member& member)
+{
+    name = member.name;
+    id = member.id;
+    totalSpent = member.totalSpent;
+    exDate = member.exDate;
+    membership = member.membership;
 }

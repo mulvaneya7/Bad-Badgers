@@ -99,7 +99,7 @@ Member Warehouse::SearchID(int id)
     bool found = false;
     while (i < memberList.size() && found == false)
     {
-        if (memberList[i]->getId() == inputID)
+        if (memberList[i]->getId() == id)
         {
             found = true;
         }
@@ -108,7 +108,7 @@ Member Warehouse::SearchID(int id)
             i++;
         }
     }
-        return *memberList[i]; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
+        return *memberList[--i]; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
 }
 Member Warehouse::SearchName(QString name)
 {
@@ -125,7 +125,7 @@ Member Warehouse::SearchName(QString name)
             i++;
         }
     }
-    return *memberList[i]; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
+    return *memberList[--i]; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
 }
 int Warehouse::SearchIDindex(int inputID)
 {

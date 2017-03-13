@@ -49,6 +49,7 @@ MemType getMembership();
 QString getMembershipQString();
 float getRebate();
 QString getDate();
+Date getDateClass();
 QString getRebateQString();
 
 //MUTATORS
@@ -57,6 +58,9 @@ void setId(int newId);
 void setMemberShip(QString newMembership);
 void setExpiration(QString newExp);
 void addTotalSpend(float addSpend);
+
+//OPERATION OVERLOADS
+void operator=(const Member& member);
 
 private:
 
