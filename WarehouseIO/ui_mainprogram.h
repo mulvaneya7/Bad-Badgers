@@ -231,7 +231,7 @@ public:
         line_5->setFrameShadow(QFrame::Sunken);
         ChangeMembershipLabel = new QLabel(SearchMember);
         ChangeMembershipLabel->setObjectName(QStringLiteral("ChangeMembershipLabel"));
-        ChangeMembershipLabel->setGeometry(QRect(80, 390, 201, 16));
+        ChangeMembershipLabel->setGeometry(QRect(50, 390, 261, 20));
         label_2 = new QLabel(SearchMember);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(410, 90, 261, 20));
@@ -320,7 +320,7 @@ public:
 
         retranslateUi(MainProgram);
 
-        TabMenu->setCurrentIndex(3);
+        TabMenu->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MainProgram);

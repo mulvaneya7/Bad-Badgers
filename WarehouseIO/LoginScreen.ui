@@ -142,6 +142,36 @@ p, li { white-space: pre-wrap; }
      <string>Placeholder</string>
     </property>
    </widget>
+   <widget class="QLabel" name="BadgerPicLogin">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>310</y>
+      <width>281</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../badger - Clip 1.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>BadgerPicLogin</zorder>
+   <zorder>ProductTitle</zorder>
+   <zorder>UsernameInput</zorder>
+   <zorder>UserNameLabel</zorder>
+   <zorder>PasswordInput</zorder>
+   <zorder>PasswordLabel</zorder>
+   <zorder>LoginButton</zorder>
+   <zorder>HelpButton</zorder>
+   <zorder>Exit</zorder>
+   <zorder>CreateNewBadger</zorder>
+   <zorder>ErrorLabel</zorder>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
