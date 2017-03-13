@@ -7,6 +7,7 @@
 #include <QVector>
 #include <QDataStream>
 #include <QFile>
+#include <QDebug>
 #include <string>
 #include <QRegExp>
 #include "member.h"
@@ -19,7 +20,6 @@ struct TransactionNode
     int iD;
     int quantity;
     float price;
-    Date date;
 };
 struct itemStruct
 {

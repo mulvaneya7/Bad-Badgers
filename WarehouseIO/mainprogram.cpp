@@ -13,37 +13,6 @@ MainProgram::~MainProgram()
 {
     delete ui;
 }
-void MainProgram::on_pushButton_3_clicked()
-{
-    QString fileDirectory = QFileDialog::getOpenFileName(this,
-                                                        tr("Open Member Info File"),
-                                                        "C://",
-                                                        "All files(*x*);;Text File(*.txt)");
-    database.LoadMember(fileDirectory);
-
-    ui->MemberListError->setText(QString::number(database.memberListSize()));
-    OutputToMemberTable(database.GetMemberList());
-}
-void MainProgram::on_GenerateReport_clicked()
-{
-    Date salesReportdate;
-    salesReportdate.Set(ui->DateInput->text());
-}
-void MainProgram::on_DisplayOption_activated(int index)
-{
-    ui->MemberTable->clearContents();
-    ui->MemberTable->setRowCount(0);
-    ui->MemberTable->setColumnCount(MEMBER_TABLE_COL_SIZE);
-    switch(index)
-    {
-        case 0 : OutputToMemberTable(database.GetMemberList());
-            break;
-        case 1 : OutputExecutivesToMemberTable(database.GetMemberList());
-            break;
-        case 2 : OutputRegularsToMemberTable(database.GetMemberList());
-            break;
-    }
-}
 // Returns member from memberList vector at given index
 const Member MainProgram::GetMember(QVector<Member*> memberList, int index)
 {
@@ -59,6 +28,79 @@ const TransactionNode MainProgram::GetTransaction(QVector<TransactionNode> Trans
 {
     return TransactionList[index];
 }
+//Cannot refactor causes errors this is the loading members input file.
+//Does NOT append to the list.
+void MainProgram::on_pushButton_3_clicked()
+{
+    QString fileDirectory = QFileDialog::getOpenFileName(this,
+                                                        tr("Open Member Info File"),
+                                                        "C://",
+                                                        "All files(*x*);;Text File(*.txt)");
+    database.LoadMember(fileDirectory);
+
+    ui->MemberListError->setText(QString::number(database.memberListSize()));
+    RefreshMemberTable(ui->DisplayOption->currentIndex());
+}
+//WIP - outputs to txt file
+void MainProgram::on_GenerateReport_clicked()
+{
+    Date salesReportdate;
+    salesReportdate.Set(ui->DateInput->text());
+}
+void MainProgram::on_DisplayOption_activated(int index)
+{
+    RefreshMemberTable(index);
+}
+void MainProgram::RefreshMemberTable(int index)
+{
+    ui->MemberTable->clearContents();
+    ui->MemberTable->setRowCount(0);
+    ui->MemberTable->setColumnCount(MEMBER_TABLE_COL_SIZE);
+    switch(index)
+    {
+        case 0 : OutputToMemberTable(database.GetMemberList());
+            break;
+        case 1 : OutputExecutivesToMemberTable(database.GetMemberList());
+            break;
+        case 2 : OutputRegularsToMemberTable(database.GetMemberList());
+            break;
+    }
+}
+
+void MainProgram::RefreshTransactionTable()
+{
+    ui->TransactionTable->clearContents();
+    ui->TransactionTable->setRowCount(0);
+    ui->TransactionTable->setColumnCount(MEMBER_TABLE_COL_SIZE);
+    for (int row = 0; row < database.GetTransactionList().size(); row++)
+    {
+        ui->TransactionTable->insertRow(row);
+        for (int col = 0; col < MEMBER_TABLE_COL_SIZE; col++)
+        {
+            switch(col)
+            {
+                         // Creates and outputs QTableWidgetItem Date of purchase
+                case 0 : ui->TransactionTable->setItem(row,col,new QTableWidgetItem(
+                                                            database.GetTransactionList()[row].purchaseDate.DateSimple()));
+                    break;
+                         // Creates and outputs QTableWidgetItem ID of member
+                case 1 : ui->TransactionTable->setItem(row,col,new QTableWidgetItem(QString::number(database.GetTransactionList()[row].iD)));
+                    break;
+                         // Creates and outputs QTableWidgetItem Name of the item purchasedr
+                case 2 : ui->TransactionTable->setItem(row,col,new QTableWidgetItem(database.GetTransactionList()[row].productName));
+                    break;
+                         // Creates and outputs QTableWidgetItem Quantity of product bought
+                case 3 : ui->TransactionTable->setItem(row,col,new QTableWidgetItem(QString::number(database.GetTransactionList()[row].quantity)));
+                    break;
+                         // Creates and outputs QTableWidgetItem Cost of the product
+                case 4 : ui->TransactionTable->setItem(row,col,new QTableWidgetItem("$"+QString::number(database.GetTransactionList()[row].price,'f',2)));
+                    break;
+            }
+        }
+    }
+
+}
+
 void MainProgram::OutputToMemberTable(QVector<Member*> memberList)
 {
     for (int row = 0; row < memberList.size(); row++)
@@ -166,7 +208,7 @@ void MainProgram::OutputToItemsTable(QVector<itemStruct> itemList)
                 case 0 : ui->ItemStatstable->setItem(row,col,new QTableWidgetItem(itemList[row].itemName));
                     break;
                          // Creates and outputs QTableWidgetItem Price of item
-                case 1 : ui->ItemStatstable->setItem(row,col,new QTableWidgetItem("$"+QString::number(itemList[row].cost)));
+                case 1 : ui->ItemStatstable->setItem(row,col,new QTableWidgetItem("$"+QString::number(itemList[row].cost,'f',2)));
                     break;
                          // Creates and outputs QTableWidgetItem Quantity of item sold
                 case 2 : ui->ItemStatstable->setItem(row,col,new QTableWidgetItem(QString::number(itemList[row].quanSold)));
@@ -288,6 +330,8 @@ void MainProgram::on_ReportFileContents_clicked()
     ui->ItemStatstable->setRowCount(0);
     ui->ItemStatstable->setColumnCount(ITEM_TABLE_COL_SIZE);
     OutputToItemsTable(database.GetItemList());
+    RefreshMemberTable(ui->DisplayOption->currentIndex());
+    RefreshTransactionTable();
 }
 void MainProgram::on_Filebrowser_clicked()
 {
@@ -304,10 +348,6 @@ void MainProgram::on_RefreshItemSales_clicked()
     ui->ItemStatstable->setColumnCount(ITEM_TABLE_COL_SIZE);
     OutputToItemsTable(database.GetItemList());
 }
-void MainProgram::on_Exit_clicked()
-{
-    QApplication::quit();
-}
 void MainProgram::on_SearchOption_activated(int index)
 {
     searchOption = index;
@@ -318,4 +358,8 @@ void MainProgram::on_MemberSearchInput_returnPressed()
     ui->MemberDataTable->setRowCount(MEMBER_SEARCH_TABLE_ROW_SIZE);
     ui->MemberDataTable->setColumnCount(MEMBER_SEARCH_TABLE_COL_SIZE);
     OutputSearchedMemberToTable();
+}
+void MainProgram::on_Exit_clicked()
+{
+    QApplication::quit();
 }

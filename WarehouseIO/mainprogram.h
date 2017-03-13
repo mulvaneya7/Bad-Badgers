@@ -6,6 +6,7 @@
 #include <QFileDialog>
 #include <QLabel>
 #include "date.h"
+#include "member.h"
 namespace Ui {
 class MainProgram;
 }
@@ -17,22 +18,6 @@ class MainProgram : public QDialog
 public:
     explicit MainProgram(QWidget *parent = 0);
     ~MainProgram();
-    // Returns member from memberList vector at given index
-    const Member GetMember(QVector<Member*> memberList, int index);
-    // Returns itemStruct from itemList vector at given index
-    const itemStruct GetItem(QVector<itemStruct> itemList, int index);
-    // Returns TransactionNode from transactionList vector at given index
-    const TransactionNode GetTransaction(QVector<TransactionNode> TransactionList, int index);
-    // Prints the entire memberList vector into the QTableWidget
-    void OutputToMemberTable(QVector<Member*> memberList);
-    // Prints the executives of the memberList vector into the QTableWidget
-    void OutputExecutivesToMemberTable(QVector<Member*> memberList);
-    // Prints the regulars of the memberList vector into the QTableWidget
-    void OutputRegularsToMemberTable(QVector<Member*> memberList);
-    // Prints the items of the itemList vector into the QTableWidget
-    void OutputToItemsTable(QVector<itemStruct> itemList);
-    // Prints the member of the memberList vector into the QTableWidget
-    void OutputSearchedMemberToTable();
 
 private slots:
 
@@ -55,6 +40,7 @@ private slots:
     void on_MemberSearchInput_returnPressed();
 
 private:
+    //Private datamembers
     Ui::MainProgram *ui;
     Warehouse database;
     // Constant used for outputing to the member table
@@ -66,6 +52,32 @@ private:
     const int ITEM_TABLE_COL_SIZE = 5;
     // Search option from member specific search combo box
     int searchOption;
+
+
+
+    /*
+     * HELPER FUNCTIONS
+     */
+    // Returns member from memberList vector at given index
+    const Member GetMember(QVector<Member*> memberList, int index);
+    // Returns itemStruct from itemList vector at given index
+    const itemStruct GetItem(QVector<itemStruct> itemList, int index);
+    // Returns TransactionNode from transactionList vector at given index
+    const TransactionNode GetTransaction(QVector<TransactionNode> TransactionList, int index);
+    //Refreshes the lists usually called based when you input from file or
+    //append to the lists
+    void RefreshMemberTable(int index);
+    void RefreshTransactionTable();
+    // Prints the entire memberList vector into the QTableWidget
+    void OutputToMemberTable(QVector<Member*> memberList);
+    // Prints the executives of the memberList vector into the QTableWidget
+    void OutputExecutivesToMemberTable(QVector<Member*> memberList);
+    // Prints the regulars of the memberList vector into the QTableWidget
+    void OutputRegularsToMemberTable(QVector<Member*> memberList);
+    // Prints the items of the itemList vector into the QTableWidget
+    void OutputToItemsTable(QVector<itemStruct> itemList);
+    // Prints the member of the memberList vector into the QTableWidget
+    void OutputSearchedMemberToTable();
 
 };
 

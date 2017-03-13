@@ -261,7 +261,7 @@ void Warehouse::loadSalesReport(QString fileName)
 
         //if we have time implement error checking if not code continues below;
         // Construct the transactionHistory node
-        tempTransaction.date.Set(tempDate);
+        tempTransaction.purchaseDate.Set(tempDate);
         tempTransaction.iD = id;
         tempTransaction.productName = itemName;
         tempTransaction.price = cost;
@@ -279,6 +279,8 @@ void Warehouse::loadSalesReport(QString fileName)
         //we only have to update the quantity sold
         if(this->isItem(itemName))
         {
+            qDebug()<< itemName;
+            qDebug()<< "Already Exists in the list Appending\n";
             itemList[ItemIndex(itemName)].forSale=true;
             itemList[ItemIndex(itemName)].quanSold+= amtSold;
         }

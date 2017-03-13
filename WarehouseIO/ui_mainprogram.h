@@ -48,6 +48,7 @@ public:
     QTableWidget *ItemStatstable;
     QLabel *ItemSalesStats;
     QPushButton *RefreshItemSales;
+    QFrame *line_6;
     QWidget *SearchMember;
     QLineEdit *MemberSearchInput;
     QTableWidget *MemberDataTable;
@@ -173,13 +174,18 @@ public:
         QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
         ItemStatstable->setHorizontalHeaderItem(4, __qtablewidgetitem14);
         ItemStatstable->setObjectName(QStringLiteral("ItemStatstable"));
-        ItemStatstable->setGeometry(QRect(30, 40, 501, 411));
+        ItemStatstable->setGeometry(QRect(80, 40, 531, 231));
         ItemSalesStats = new QLabel(ItemInfo);
         ItemSalesStats->setObjectName(QStringLiteral("ItemSalesStats"));
         ItemSalesStats->setGeometry(QRect(30, 10, 101, 16));
         RefreshItemSales = new QPushButton(ItemInfo);
         RefreshItemSales->setObjectName(QStringLiteral("RefreshItemSales"));
-        RefreshItemSales->setGeometry(QRect(130, 10, 75, 23));
+        RefreshItemSales->setGeometry(QRect(140, 10, 75, 23));
+        line_6 = new QFrame(ItemInfo);
+        line_6->setObjectName(QStringLiteral("line_6"));
+        line_6->setGeometry(QRect(0, 290, 731, 16));
+        line_6->setFrameShape(QFrame::HLine);
+        line_6->setFrameShadow(QFrame::Sunken);
         TabMenu->addTab(ItemInfo, QString());
         SearchMember = new QWidget();
         SearchMember->setObjectName(QStringLiteral("SearchMember"));
@@ -326,7 +332,7 @@ public:
 
         retranslateUi(MainProgram);
 
-        TabMenu->setCurrentIndex(2);
+        TabMenu->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainProgram);
