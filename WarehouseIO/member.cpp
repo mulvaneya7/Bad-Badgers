@@ -124,7 +124,14 @@ MemType Member::getMembership()
 }
 QString Member::getMembershipQString() // Returns QString of enum type
 {
-    return MemNames[int(membership)];
+    if(MemNames[int(membership)] == "Executive")
+    {
+        return MemNames[int(membership)];
+    }
+    else
+    {
+        return MemNames[0];
+    }
 }
 float Member::getRebate()
 {

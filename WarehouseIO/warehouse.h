@@ -80,6 +80,9 @@ public:
     QVector<itemStruct> GetItemList();
     QVector<TransactionNode> GetTransactionList();
 
+    // Searchs the memberList for an instance of member
+    Member SearchID(int id);
+    Member SearchName(QString name);
     // Sorts the memberList by membership number;
     void sortMembers();
     // Sorts the itemList by item name;
@@ -92,9 +95,6 @@ private:
     // Sorts Quantity and Revenue by item name
     void sortQR();
     void sortRebate(int id);
-    // Searchs the memberList for an instance of member
-    Member SearchID(int id);
-    Member SearchName(QString name);
     void upDateMemberlist();
     // Pointers to members
     QVector<Member*> memberList;

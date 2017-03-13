@@ -77,7 +77,7 @@ void MainProgram::OutputToMemberTable(QVector<Member*> memberList)
                 case 2 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[row]->getMembershipQString()));
                     break;
                          // Creates and outputs QTableWidgetItem Rebate of member
-                case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[row]->getRebateQString()));
+                case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem("$"+memberList[row]->getRebateQString()));
                     break;
                          // Creates and outputs QTableWidgetItem Expiration Date of member
                 case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[row]->getDate()));
@@ -108,7 +108,7 @@ void MainProgram::OutputExecutivesToMemberTable(QVector<Member*> memberList)
                     case 2 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getMembershipQString()));
                         break;
                              // Creates and outputs QTableWidgetItem Rebate of member
-                    case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getRebateQString()));
+                    case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem("$"+memberList[i]->getRebateQString()));
                         break;
                              // Creates and outputs QTableWidgetItem Expiration Date of member
                     case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getDate()));
@@ -141,7 +141,7 @@ void MainProgram::OutputRegularsToMemberTable(QVector<Member*> memberList)
                     case 2 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getMembershipQString()));
                         break;
                              // Creates and outputs QTableWidgetItem Rebate of member
-                    case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getRebateQString()));
+                    case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem("$"+memberList[i]->getRebateQString()));
                         break;
                              // Creates and outputs QTableWidgetItem Expiration Date of member
                     case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getDate()));
@@ -151,27 +151,6 @@ void MainProgram::OutputRegularsToMemberTable(QVector<Member*> memberList)
             row++;
         }
     }
-}
-void MainProgram::on_ReportFileContents_clicked()
-{
-    QString fileDirectory = ui->FileDiectoryReportSales->text();
-    database.loadSalesReport(fileDirectory);
-    ui->FileDiectoryReportSales->clear();
-}
-void MainProgram::on_Filebrowser_clicked()
-{
-    QString fileDirectory = QFileDialog::getOpenFileName(this,
-                                                         tr("Open Member Info File"),
-                                                         "C://",
-                                                         "All files(*x*);;Text File(*.txt)");
-    ui->FileDiectoryReportSales->setText(fileDirectory);
-}
-void MainProgram::on_RefreshItemSales_clicked()
-{
-    ui->ItemStatstable->clearContents();
-    ui->ItemStatstable->setRowCount(0);
-    ui->ItemStatstable->setColumnCount(ITEM_TABLE_COL_SIZE);
-    OutputToItemsTable(database.GetItemList());
 }
 void MainProgram::OutputToItemsTable(QVector<itemStruct> itemList)
 {
@@ -208,8 +187,130 @@ void MainProgram::OutputToItemsTable(QVector<itemStruct> itemList)
         }
     }
 }
-
+void MainProgram::OutputSearchedMemberToTable()
+{
+    bool valid;
+    Member tempMember;
+    QString tempString = ui->MemberSearchInput->text();
+    int tempInt = tempString.toInt(&valid,10);
+    if (valid == 0)
+    {
+        tempMember = database.SearchName(tempString);
+        if (tempMember.getName() == tempString)
+        {
+            for (int row = 0; row < MEMBER_SEARCH_TABLE_ROW_SIZE; row++)
+            {
+                switch(row)
+                {
+                             // Creates and outputs QTableWidgetItem Name of member
+                    case 0 : ui->MemberDataTable->setItem(row,1,new QTableWidgetItem(tempMember.getName()));
+                        break;
+                             // Creates and outputs QTableWidgetItem ID of member
+                    case 1 : ui->MemberDataTable->setItem(row,1,new QTableWidgetItem(QString::number(tempMember.getId())));
+                        break;
+                             // Creates and outputs QTableWidgetItem Total Spent of member
+                    case 2 : ui->MemberDataTable->setItem(row,1,new QTableWidgetItem("$"+QString::number(tempMember.getTotalSpent)));
+                        break;
+                             // Creates and outputs QTableWidgetItem Membership Type of member
+                    case 3 : ui->MemberDataTable->setItem(row,1,new QTableWidgetItem(tempMember.getMembershipQString()));
+                        break;
+                             // Creates and outputs QTableWidgetItem Rebate of member
+                    case 4 : ui->MemberDataTable->setItem(row,1,new QTableWidgetItem("$"+tempMember.getRebateQString()));
+                        break;
+                             // Creates and outputs QTableWidgetItem Whether or not the member should convert to regular or executive
+                    case 5 : if (tempMember.getRebate() > 10)
+                             {
+                                 ui->MemberDataTable->setItem(row,1,new QTableWidgetItem("Executive"));
+                             }
+                             else
+                             {
+                                 ui->MemberDataTable->setItem(row,1,new QTableWidgetItem("Regular"));
+                             }
+                        break;
+                }
+            }
+        }
+        else
+        {
+            ui->MemberDataTable->setItem(0,1,new QTableWidgetItem("Not Found"));
+        }
+    }
+    else if (valid == 1)
+    {
+        tempMember = database.SearchID(tempInt);
+        if (tempMember.getId() == tempInt)
+        {
+            for (int row = 0; row < MEMBER_SEARCH_TABLE_ROW_SIZE; row++)
+            {
+                switch(row)
+                {
+                             // Creates and outputs QTableWidgetItem Name of member
+                    case 0 : ui->MemberDataTable->setItem(row,1,new QTableWidgetItem(tempMember.getName()));
+                        break;
+                             // Creates and outputs QTableWidgetItem ID of member
+                    case 1 : ui->MemberDataTable->setItem(row,1,new QTableWidgetItem(QString::number(tempMember.getId())));
+                        break;
+                             // Creates and outputs QTableWidgetItem Total Spent of member
+                    case 2 : ui->MemberDataTable->setItem(row,1,new QTableWidgetItem("$"+QString::number(tempMember.getTotalSpent)));
+                        break;
+                             // Creates and outputs QTableWidgetItem Membership Type of member
+                    case 3 : ui->MemberDataTable->setItem(row,1,new QTableWidgetItem(tempMember.getMembershipQString()));
+                        break;
+                             // Creates and outputs QTableWidgetItem Rebate of member
+                    case 4 : ui->MemberDataTable->setItem(row,1,new QTableWidgetItem("$"+tempMember.getRebateQString()));
+                        break;
+                             // Creates and outputs QTableWidgetItem Whether or not the member should convert to regular or executive
+                    case 5 : if (tempMember.getRebate() > 10)
+                             {
+                                 ui->MemberDataTable->setItem(row,1,new QTableWidgetItem("Executive"));
+                             }
+                             else
+                             {
+                                 ui->MemberDataTable->setItem(row,1,new QTableWidgetItem("Regular"));
+                             }
+                        break;
+                }
+            }
+        }
+        else
+        {
+            ui->MemberDataTable->setItem(0,1,new QTableWidgetItem("Not Found"));
+        }
+    }
+}
+void MainProgram::on_ReportFileContents_clicked()
+{
+    QString fileDirectory = ui->FileDiectoryReportSales->text();
+    database.loadSalesReport(fileDirectory);
+    ui->FileDiectoryReportSales->clear();
+}
+void MainProgram::on_Filebrowser_clicked()
+{
+    QString fileDirectory = QFileDialog::getOpenFileName(this,
+                                                         tr("Open Member Info File"),
+                                                         "C://",
+                                                         "All files(*x*);;Text File(*.txt)");
+    ui->FileDiectoryReportSales->setText(fileDirectory);
+}
+void MainProgram::on_RefreshItemSales_clicked()
+{
+    ui->ItemStatstable->clearContents();
+    ui->ItemStatstable->setRowCount(0);
+    ui->ItemStatstable->setColumnCount(ITEM_TABLE_COL_SIZE);
+    OutputToItemsTable(database.GetItemList());
+}
 void MainProgram::on_Exit_clicked()
 {
     QApplication::quit();
+}
+void MainProgram::on_SearchOption_activated(int index)
+{
+    searchOption = index;
+}
+void MainProgram::on_MemberSearchInput_returnPressed()
+{
+    ui->MemberDataTable->clearContents();
+    ui->MemberDataTable->setRowCount(MEMBER_SEARCH_TABLE_ROW_SIZE);
+    ui->MemberDataTable->setColumnCount(MEMBER_SEARCH_TABLE_COL_SIZE);
+    OutputSearchedMemberToTable();
 }

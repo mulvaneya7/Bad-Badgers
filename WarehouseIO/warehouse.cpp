@@ -93,7 +93,7 @@ void Warehouse::sortItems()
         }
     }
 }
-Member Warehouse::SearchID(int inputID)
+Member Warehouse::SearchID(int id)
 {
     int i = 0;
     bool found = false;
@@ -110,13 +110,13 @@ Member Warehouse::SearchID(int inputID)
     }
         return *memberList[i]; // Returns a member at the iterator of the found name member or returns the last iterator if not found. Must be error checked in main.
 }
-Member Warehouse::SearchName(QString inputName)
+Member Warehouse::SearchName(QString name)
 {
     int i = 0;
     bool found = false;
     while (i < memberList.size() && found == false)
     {
-        if (memberList[i]->getName() == inputName)
+        if (memberList[i]->getName() == name)
         {
             found = true;
         }

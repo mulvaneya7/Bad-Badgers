@@ -31,6 +31,8 @@ public:
     void OutputRegularsToMemberTable(QVector<Member*> memberList);
     // Prints the items of the itemList vector into the QTableWidget
     void OutputToItemsTable(QVector<itemStruct> itemList);
+    // Prints the member of the memberList vector into the QTableWidget
+    void OutputSearchedMemberToTable();
 
 private slots:
 
@@ -46,14 +48,24 @@ private slots:
 
     void on_RefreshItemSales_clicked();
 
+    void on_Exit_clicked();
+
+    void on_SearchOption_activated(int index);
+
+    void on_MemberSearchInput_returnPressed();
 
 private:
     Ui::MainProgram *ui;
     Warehouse database;
     // Constant used for outputing to the member table
     const int MEMBER_TABLE_COL_SIZE = 5;
+    // Constants used for outputing to the member specific search table
+    const int MEMBER_SEARCH_TABLE_ROW_SIZE = 6;
+    const int MEMBER_SEARCH_TABLE_COL_SIZE = 2;
     // Constant used for outputing to the item table
     const int ITEM_TABLE_COL_SIZE = 5;
+    // Search option from member specific search combo box
+    int searchOption;
 
 };
 
