@@ -111,7 +111,8 @@ public:
         QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
         TransactionTable->setHorizontalHeaderItem(4, __qtablewidgetitem4);
         TransactionTable->setObjectName(QStringLiteral("TransactionTable"));
-        TransactionTable->setGeometry(QRect(50, 20, 641, 351));
+        TransactionTable->setGeometry(QRect(50, 20, 642, 351));
+        TransactionTable->horizontalHeader()->setDefaultSectionSize(128);
         DateInput = new QDateEdit(Transaction);
         DateInput->setObjectName(QStringLiteral("DateInput"));
         DateInput->setGeometry(QRect(500, 400, 110, 22));
@@ -320,7 +321,7 @@ public:
 
         retranslateUi(MainProgram);
 
-        TabMenu->setCurrentIndex(4);
+        TabMenu->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainProgram);

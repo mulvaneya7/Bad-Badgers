@@ -41,6 +41,8 @@ private slots:
 
     void on_ChangeMemberShip_clicked();
 
+    void on_AddMember_clicked();
+
 private:
     //Private datamembers
     Ui::MainProgram *ui;

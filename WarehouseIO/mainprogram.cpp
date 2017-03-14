@@ -413,3 +413,24 @@ void MainProgram::on_ChangeMemberShip_clicked()
         OutputToMemberTable(database.GetMemberList());
     }
 }
+
+void MainProgram::on_AddMember_clicked()
+{
+    Member* tempMember;
+    if(database.isMember(ui->addNameEdit->text()) == 1 &&
+       database.isMember(ui->addIdEdit->text()) == 1)
+    {
+        ui->addMemberError->setText("Member name/ID already exists!");
+        ui->addNameEdit->clear();
+        ui->addIdEdit->clear();
+        ui->addDateEdit->clear();
+        ui->addMemberEdit->clear();
+    }
+    else if(database.isMember(ui->addNameEdit->text()) == 0 &&
+            database.isMember(ui->addIdEdit->text()) == 0)
+    {
+
+    }
+
+
+}
