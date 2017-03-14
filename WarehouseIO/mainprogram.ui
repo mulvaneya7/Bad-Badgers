@@ -26,7 +26,7 @@
     <enum>Qt::PreventContextMenu</enum>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="Transaction">
     <attribute name="title">
@@ -37,10 +37,13 @@
       <rect>
        <x>50</x>
        <y>20</y>
-       <width>641</width>
+       <width>642</width>
        <height>351</height>
       </rect>
      </property>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>128</number>
+     </attribute>
      <column>
       <property name="text">
        <string>Date Purchased</string>
