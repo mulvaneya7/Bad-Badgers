@@ -62,6 +62,11 @@ void Warehouse::SaveMembers(QString fileName)
         }
     }
 }
+void Warehouse::AddMember(Member newMember)
+{
+    memberList.push_back(&newMember);
+}
+
 int Warehouse::memberListSize()
 {
     return memberList.size();

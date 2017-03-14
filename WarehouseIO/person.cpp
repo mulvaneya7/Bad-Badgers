@@ -1,5 +1,4 @@
 #include "person.h"
-
 Person::Person()
 {
     name = "";

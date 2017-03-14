@@ -35,8 +35,6 @@ private slots:
 
     void on_Exit_clicked();
 
-    void on_SearchOption_activated(int index);
-
     void on_MemberSearchInput_returnPressed();
 
     void on_ChangeMemberShip_clicked();
@@ -54,8 +52,6 @@ private:
     const int MEMBER_SEARCH_TABLE_COL_SIZE = 1;
     // Constant used for outputing to the item table
     const int ITEM_TABLE_COL_SIZE = 5;
-    // Search option from member specific search combo box
-    int searchOption;
 
 
 

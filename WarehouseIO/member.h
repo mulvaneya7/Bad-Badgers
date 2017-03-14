@@ -55,6 +55,7 @@ QString getRebateQString();
 //MUTATORS
 void setName(QString newName);
 void setId(int newId);
+void setDate(Date tempDate);
 void setMemberShip(QString newMembership);
 void setExpiration(QString newExp);
 void addTotalSpend(float addSpend);

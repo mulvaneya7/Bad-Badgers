@@ -103,6 +103,9 @@ void MainProgram::RefreshTransactionTable()
 
 void MainProgram::OutputToMemberTable(QVector<Member*> memberList)
 {
+    ui->MemberTable->clearContents();
+    ui->MemberTable->setRowCount(0);
+    ui->MemberTable->setColumnCount(MEMBER_TABLE_COL_SIZE);
     for (int row = 0; row < memberList.size(); row++)
     {
         ui->MemberTable->insertRow(row);
@@ -131,6 +134,9 @@ void MainProgram::OutputToMemberTable(QVector<Member*> memberList)
 }
 void MainProgram::OutputExecutivesToMemberTable(QVector<Member*> memberList)
 {
+    ui->MemberTable->clearContents();
+    ui->MemberTable->setRowCount(0);
+    ui->MemberTable->setColumnCount(MEMBER_TABLE_COL_SIZE);
     int row = 0;
     for (int i = 0; i < memberList.size(); i++)
     {
@@ -164,6 +170,9 @@ void MainProgram::OutputExecutivesToMemberTable(QVector<Member*> memberList)
 }
 void MainProgram::OutputRegularsToMemberTable(QVector<Member*> memberList)
 {
+    ui->MemberTable->clearContents();
+    ui->MemberTable->setRowCount(0);
+    ui->MemberTable->setColumnCount(MEMBER_TABLE_COL_SIZE);
     int row = 0;
     for (int i = 0; i < memberList.size(); i++)
     {
@@ -238,38 +247,41 @@ void MainProgram::OutputSearchedMemberToTable()
     int tempInt = tempString.toInt(&valid,10);
     if (valid == 0)
     {
-        tempMember = database.SearchName(tempString);
-        if (tempMember.getName() == tempString)
+        if (database.isMember(tempString) == 1)
         {
-            for (int row = 0; row < MEMBER_SEARCH_TABLE_ROW_SIZE; row++)
+            tempMember = database.SearchName(tempString);
+            if (tempMember.getName() == tempString)
             {
-                switch(row)
+                for (int row = 0; row < MEMBER_SEARCH_TABLE_ROW_SIZE; row++)
                 {
-                             // Creates and outputs QTableWidgetItem Name of member
-                    case 0 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem(tempMember.getName()));
-                        break;
-                             // Creates and outputs QTableWidgetItem ID of member
-                    case 1 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem(QString::number(tempMember.getId())));
-                        break;
-                             // Creates and outputs QTableWidgetItem Total Spent of member
-                    case 2 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("$"+QString::number(tempMember.getTotalSpent())));
-                        break;
-                             // Creates and outputs QTableWidgetItem Membership Type of member
-                    case 3 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem(tempMember.getMembershipQString()));
-                        break;
-                             // Creates and outputs QTableWidgetItem Rebate of member
-                    case 4 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("$"+tempMember.getRebateQString()));
-                        break;
-                             // Creates and outputs QTableWidgetItem Whether or not the member should convert to regular or executive
-                    case 5 : if (tempMember.getRebate() > 10)
-                             {
-                                 ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("Executive"));
-                             }
-                             else
-                             {
-                                 ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("Regular"));
-                             }
-                        break;
+                    switch(row)
+                    {
+                                 // Creates and outputs QTableWidgetItem Name of member
+                        case 0 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem(tempMember.getName()));
+                            break;
+                                 // Creates and outputs QTableWidgetItem ID of member
+                        case 1 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem(QString::number(tempMember.getId())));
+                            break;
+                                 // Creates and outputs QTableWidgetItem Total Spent of member
+                        case 2 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("$"+QString::number(tempMember.getTotalSpent())));
+                            break;
+                                 // Creates and outputs QTableWidgetItem Membership Type of member
+                        case 3 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem(tempMember.getMembershipQString()));
+                            break;
+                                 // Creates and outputs QTableWidgetItem Rebate of member
+                        case 4 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("$"+tempMember.getRebateQString()));
+                            break;
+                                 // Creates and outputs QTableWidgetItem Whether or not the member should convert to regular or executive
+                        case 5 : if (tempMember.getRebate() > 10)
+                                 {
+                                     ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("Executive"));
+                                 }
+                                 else
+                                 {
+                                     ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("Regular"));
+                                 }
+                            break;
+                    }
                 }
             }
         }
@@ -280,38 +292,41 @@ void MainProgram::OutputSearchedMemberToTable()
     }
     else if (valid == 1)
     {
-        tempMember = database.SearchID(tempInt);
-        if (tempMember.getId() == tempInt)
+        if (database.isMember(tempInt) == 1)
         {
-            for (int row = 0; row < MEMBER_SEARCH_TABLE_ROW_SIZE; row++)
+            tempMember = database.SearchID(tempInt);
+            if (tempMember.getId() == tempInt)
             {
-                switch(row)
+                for (int row = 0; row < MEMBER_SEARCH_TABLE_ROW_SIZE; row++)
                 {
-                             // Creates and outputs QTableWidgetItem Name of member
-                    case 0 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem(tempMember.getName()));
-                        break;
-                             // Creates and outputs QTableWidgetItem ID of member
-                    case 1 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem(QString::number(tempMember.getId())));
-                        break;
-                             // Creates and outputs QTableWidgetItem Total Spent of member
-                    case 2 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("$"+QString::number(tempMember.getTotalSpent())));
-                        break;
-                             // Creates and outputs QTableWidgetItem Membership Type of member
-                    case 3 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem(tempMember.getMembershipQString()));
-                        break;
-                             // Creates and outputs QTableWidgetItem Rebate of member
-                    case 4 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("$"+tempMember.getRebateQString()));
-                        break;
-                             // Creates and outputs QTableWidgetItem Whether or not the member should convert to regular or executive
-                    case 5 : if (tempMember.getRebate() > 10)
-                             {
-                                 ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("Executive"));
-                             }
-                             else
-                             {
-                                 ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("Regular"));
-                             }
-                        break;
+                    switch(row)
+                    {
+                                 // Creates and outputs QTableWidgetItem Name of member
+                        case 0 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem(tempMember.getName()));
+                            break;
+                                 // Creates and outputs QTableWidgetItem ID of member
+                        case 1 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem(QString::number(tempMember.getId())));
+                            break;
+                                 // Creates and outputs QTableWidgetItem Total Spent of member
+                        case 2 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("$"+QString::number(tempMember.getTotalSpent())));
+                            break;
+                                 // Creates and outputs QTableWidgetItem Membership Type of member
+                        case 3 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem(tempMember.getMembershipQString()));
+                            break;
+                                 // Creates and outputs QTableWidgetItem Rebate of member
+                        case 4 : ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("$"+tempMember.getRebateQString()));
+                            break;
+                                 // Creates and outputs QTableWidgetItem Whether or not the member should convert to regular or executive
+                        case 5 : if (tempMember.getRebate() > 10)
+                                 {
+                                     ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("Executive"));
+                                 }
+                                 else
+                                 {
+                                     ui->MemberDataTable->setItem(row,0,new QTableWidgetItem("Regular"));
+                                 }
+                            break;
+                    }
                 }
             }
         }
@@ -347,10 +362,6 @@ void MainProgram::on_RefreshItemSales_clicked()
     ui->ItemStatstable->setRowCount(0);
     ui->ItemStatstable->setColumnCount(ITEM_TABLE_COL_SIZE);
     OutputToItemsTable(database.GetItemList());
-}
-void MainProgram::on_SearchOption_activated(int index)
-{
-    searchOption = index;
 }
 void MainProgram::on_MemberSearchInput_returnPressed()
 {
@@ -416,7 +427,8 @@ void MainProgram::on_ChangeMemberShip_clicked()
 
 void MainProgram::on_AddMember_clicked()
 {
-    Member* tempMember;
+    Member tempMember;
+    Date tempDate;
     if(database.isMember(ui->addNameEdit->text()) == 1 &&
        database.isMember(ui->addIdEdit->text()) == 1)
     {
@@ -429,8 +441,20 @@ void MainProgram::on_AddMember_clicked()
     else if(database.isMember(ui->addNameEdit->text()) == 0 &&
             database.isMember(ui->addIdEdit->text()) == 0)
     {
-
+        // Set date QString to tempDate class
+        tempDate.Set(ui->addDateEdit->text());
+        // Set member info
+        tempMember.setName(ui->addNameEdit->text());
+        tempMember.setId((ui->addIdEdit->text()).toInt());
+        tempMember.setDate(tempDate);
+        tempMember.setMemberShip(ui->addMemberEdit->text());
+        // Pushback member to vector
+        database.AddMember(tempMember);
+        // Sort memberList
+        database.sortMembers();
+        // Refresh Table
+        OutputToMemberTable(database.GetMemberList());
+        // Label update
+        ui->addMemberError->setText(ui->addNameEdit->text()+" has been added!");
     }
-
-
 }

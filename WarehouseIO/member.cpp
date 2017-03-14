@@ -14,12 +14,13 @@ Member::Member()
 
 //CONSTRUCTOR (alternate)
 Member::Member(QString mName, int mID, QString mDate, QString mMembership)
-        :name(mName), id(mID), exDate(mDate)
+        :exDate(mDate)
 {
+  setName(mName);
+  setId(mID);
   //in the case of unconformed input, will handle
   //uppercasing the first letter of the inputted string
   //ie. "executive" to "Executive"
-
   mMembership[0] = mMembership[0].toUpper();
   if(mMembership == "Inactive")
   {
@@ -64,6 +65,10 @@ void Member::setName(QString newName)
 void Member::setId(int newId)
 {
   id = newId;
+}
+void Member::setDate(Date tempDate)
+{
+    exDate = tempDate;
 }
 void Member::setMemberShip(QString mMembership)
 {
