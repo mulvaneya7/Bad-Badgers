@@ -67,6 +67,10 @@ public:
     Date(Month initMonth, int initDay, int initYear);
     Date(QString dateString);
 
+    int GetIntMonth();
+    int GetDay();
+    int GetYear();
+
     //Change the date stored in the object. Error checks input and only assigns
     //if valid. Returns if input is valid
     bool Set(Month newMonth, int newDay, int newYear);
@@ -83,6 +87,8 @@ public:
     //Formats the date into a string with format Month day, Year
     QString DateFull() const;
     Date operator +=(int addingYears);
+    bool operator <(const Date& Date2);
+    void operator =(const Date& Date2);
 
 private:
     Month   month; //Month of the year

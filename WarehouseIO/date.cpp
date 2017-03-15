@@ -33,7 +33,18 @@ Date::Date(Month initMonth,	//Initial month to build with
         year = 1900;
     }
 }
-
+int Date::GetIntMonth()
+{
+    return int(month) + 1;
+}
+int Date::GetDay()
+{
+    return day;
+}
+int Date::GetYear()
+{
+    return year;
+}
 /**************************************************************************
  * Set
  * _______________________________________________________________________
@@ -175,4 +186,25 @@ Date Date::operator +=(int addingYears)
     Date addDate = *this;
     addDate.year = addDate.year + addingYears;
     return addDate;
+}
+bool Date::operator <(const Date& Date2)
+{
+    bool lessThan = false;
+    if (int(month) < int(Date2.month))
+    {
+        if (day < Date2.day)
+        {
+            if (year < Date2.year)
+            {
+                lessThan = true;
+            }
+        }
+    }
+    return lessThan;
+}
+void Date::operator =(const Date& Date2)
+{
+    month = Date2.month;
+    day = Date2.day;
+    year = Date2.year;
 }
