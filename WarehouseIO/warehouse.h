@@ -20,6 +20,7 @@ struct TransactionNode
     int iD;
     int quantity;
     float price;
+    QString Print();
 };
 struct itemStruct
 {
@@ -38,6 +39,8 @@ public:
     // Vector Creation through external file
     void LoadMember(QString fileName);
     void SaveMembers(QString fileName);
+    void LoadMasterSalesReport(QString fileName);
+    void SaveMasterSalesReport(QString fileName);
     void loadSalesReport(QString fileName);
     // Automatic Appending Memberlist
     void AddMember(QString tmpName, int tmpId, QString tmpDate,QString tmpMembership);
