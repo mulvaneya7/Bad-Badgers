@@ -459,3 +459,22 @@ void MainProgram::on_AddMember_clicked()
         ui->addMemberError->setText(ui->addNameEdit->text()+" has been added!");
     }
 }
+
+void MainProgram::on_SaveMasterFile_clicked()
+{
+    QString fileDirectory = QFileDialog::getOpenFileName(this,
+                                                         tr("Open Master Sales Report"),
+                                                         "C://",
+                                                         "All files(*x*);;Text File(*.txt)");
+    database.SaveMasterSalesReport(fileDirectory);
+}
+
+void MainProgram::on_LoadMasterFile_clicked()
+{
+    QString fileDirectory = QFileDialog::getOpenFileName(this,
+                                                         tr("Open Master Sales Report"),
+                                                         "C://",
+                                                         "All files(*x*);;Text File(*.txt)");
+    database.LoadMasterSalesReport(fileDirectory);
+    RefreshTransactionTable();
+}
