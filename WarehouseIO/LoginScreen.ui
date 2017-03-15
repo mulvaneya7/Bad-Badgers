@@ -27,8 +27,8 @@
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:26pt;&quot;&gt;Warehouse Manager1998&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.Lucida Grande UI'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:26pt;&quot;&gt;Warehouse Manager1998&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="UsernameInput">
@@ -39,6 +39,9 @@ p, li { white-space: pre-wrap; }
       <width>361</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>Dave</string>
     </property>
    </widget>
    <widget class="QLabel" name="UserNameLabel">
@@ -62,6 +65,9 @@ p, li { white-space: pre-wrap; }
       <width>361</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>Done</string>
     </property>
    </widget>
    <widget class="QLabel" name="PasswordLabel">
@@ -155,7 +161,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../badger - Clip 1.png</pixmap>
+     <pixmap resource="resource.qrc">:/Images/Badger.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -184,6 +190,8 @@ p, li { white-space: pre-wrap; }
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

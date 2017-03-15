@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/SaveFiles">
+        <file>Inventory.txt</file>
+        <file>Members.txt</file>
+        <file>Sales.txt</file>
+    </qresource>
+    <qresource prefix="/Images">
+        <file>Badger.png</file>
+    </qresource>
+</RCC>
