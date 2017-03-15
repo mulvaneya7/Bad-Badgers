@@ -12,45 +12,6 @@ QString TransactionNode::Print()
     return output;
 }
 
-QString itemStruct::Print()
-{
-    QString output;
-
-    output  = itemName + '\n';
-    output += QString::number(quanSold) + ' ' + QString::number(cost) + '\n';
-    output += forSaleString();
-
-    return output;
-}
-
-QString itemStruct::forSaleString()
-{
-    QString output;
-
-    if (forSale)
-    {
-        output = "Yes";
-    }
-    else
-    {
-        output = "No";
-    }
-
-    return output;
-}
-
-void itemStruct::StrToforSale(QString saleString)
-{
-    if (saleString == "Yes")
-    {
-        forSale = true;
-    }
-    else if (saleString == "No")
-    {
-        forSale = false;
-    }
-}
-
 Warehouse::Warehouse()
 {
 
@@ -442,72 +403,6 @@ void Warehouse::LoadMasterSalesReport(QString fileName)
 
         TransactionList.push_back(tempNode);
     }
-}
-
-void Warehouse::SaveMasterInventory(QString fileName)
-{
-    QFile outFile(fileName);
-    outFile.remove();
-    outFile.open(QFile::WriteOnly);
-    QTextStream output(&outFile);
-
-    for (int i = 0; i < itemList.size(); i++)
-    {
-        output << itemList[i].Print();
-        if (i != itemList.size() - 1)
-        {
-            output << endl;
-        }
-    }
-}
-
-void Warehouse::LoadMasterInventory(QString fileName)
-{
-    QFile inFile(fileName);
-    inFile.open(QFile::ReadOnly);
-    QTextStream input(&inFile);
-    itemStruct tempItem;
-
-    itemList.clear();
-
-    while(!input.atEnd())
-    {
-        tempItem.itemName = input.readLine();
-        input >> tempItem.quanSold >> tempItem.cost;
-        input.readLine();
-        tempItem.StrToforSale(input.readLine());
-
-        itemList.push_back(tempItem);
-    }
-}
-
-void Warehouse::AutosaveMembers()
-{
-    SaveMembers(":/SaveFiles/Members.txt");
-}
-
-void Warehouse::AutosaveSales()
-{
-    SaveMasterSalesReport(":/SaveFiles/Sales.txt");
-}
-
-void Warehouse::AutosaveInventory()
-{
-    SaveMasterInventory(":/SaveFiles/Inventory.txt");
-}
-
-void Warehouse::Autosave()
-{
-    AutosaveInventory();
-    AutosaveMembers();
-    AutosaveSales();
-}
-
-void Warehouse::Autoload()
-{
-    LoadMasterInventory(":/SaveFiles/Inventory.txt");
-    LoadMasterSalesReport(":/SaveFiles/Sales.txt");
-    LoadMember(":/SaveFiles/Members.txt");
 }
 
 //void Warehouse::SortQR()

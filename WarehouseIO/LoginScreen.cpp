@@ -1,7 +1,6 @@
 #include "LoginScreen.h"
 #include "ui_LoginScreen.h"
 
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -21,6 +20,7 @@ void MainWindow::on_LoginButton_clicked()
     {
         this->close();
         mainUI.show();
+
     }
     else
     {

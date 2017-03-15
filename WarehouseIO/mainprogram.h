@@ -53,12 +53,6 @@ private slots:
 
     void on_manualReportButton_clicked();
 
-    void on_SaveButton_clicked();
-
-    void on_SaveInventory_clicked();
-
-    void on_LoadInventory_clicked();
-
 private:
     //Private datamembers
     Ui::MainProgram *ui;

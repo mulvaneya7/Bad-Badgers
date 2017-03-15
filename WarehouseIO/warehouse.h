@@ -28,9 +28,6 @@ struct itemStruct
     float cost;
     int quanSold;
     bool forSale;
-    QString Print();
-    QString forSaleString();
-    void StrToforSale(QString saleString);
 };
 
 class Warehouse
@@ -44,14 +41,7 @@ public:
     void SaveMembers(QString fileName);
     void LoadMasterSalesReport(QString fileName);
     void SaveMasterSalesReport(QString fileName);
-    void LoadMasterInventory(QString fileName);
-    void SaveMasterInventory(QString fileName);
     void loadSalesReport(QString fileName);
-    void Autosave();
-    void AutosaveMembers();
-    void AutosaveSales();
-    void AutosaveInventory();
-    void Autoload();
     // Automatic Appending Memberlist
     void AddMember(QString tmpName, int tmpId, QString tmpDate,QString tmpMembership);
     // Adds an itemStruct node to the itemList vector

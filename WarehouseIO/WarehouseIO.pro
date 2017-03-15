@@ -34,6 +34,3 @@ FORMS    += \
     createuser.ui \
     mainprogram.ui \
     LoginScreen.ui
-
-RESOURCES += \
-    resources.qrc

@@ -35,7 +35,35 @@ Date::Date(Month initMonth,	//Initial month to build with
 }
 int Date::GetIntMonth()
 {
-    return int(month) + 1;
+    int date;
+    switch (month)
+    {
+        case JANUARY : date = 1;
+            break;
+        case FEBRUARY : date = 2;
+            break;
+        case MARCH : date = 3;
+            break;
+        case APRIL : date = 4;
+            break;
+        case MAY : date = 5;
+            break;
+        case JUNE : date = 6;
+            break;
+        case JULY : date = 7;
+            break;
+        case AUGUST : date = 8;
+            break;
+        case SEPTEMBER : date = 9;
+            break;
+        case OCTOBER : date = 10;
+            break;
+        case NOVEMBER : date = 11;
+            break;
+        case DECEMBER : date = 12;
+            break;
+    }
+    return date;
 }
 int Date::GetDay()
 {
