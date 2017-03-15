@@ -306,6 +306,47 @@ void Warehouse::loadSalesReport(QString fileName)
     }
     sortItems();
 }
+
+void Warehouse::SaveMasterSalesReport(QString fileName)
+{
+    QFile outFile(fileName);
+    outFile.remove();
+    outFile.open(QFile::WriteOnly);
+    QTextStream out(&outFile);
+
+    for (int i = 0; i < TransactionList.size(); i++)
+    {
+        out << TransactionList[i].Print();
+        if ( i != TransactionList.size() - 1)
+        {
+            out << endl;
+        }
+    }
+}
+
+void Warehouse::LoadMasterSalesReport(QString fileName)
+{
+    QFile inFile(fileName);
+    inFile.open(QFile::ReadOnly|QFile::Text);
+    QTextStream in(&inFile);
+    TransactionNode tempNode;
+
+    TransactionList.clear();
+
+    while (!in.atEnd())
+    {
+        tempNode.purchaseDate.Set(in.readLine());
+        in >> tempNode.iD;
+        in.readLine();
+        tempNode.productName = in.readLine();
+        in >> tempNode.price;
+        in >> tempNode.quantity;
+        in.readLine();
+
+        TransactionList.push_back(tempNode);
+    }
+}
+
 //void Warehouse::SortQR()
 //{
 //    sort(itemList.begin(), itemList.end(), itemList.name);
