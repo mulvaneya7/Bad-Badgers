@@ -1,5 +1,17 @@
 #include "warehouse.h"
 
+QString TransactionNode::Print()
+{
+    QString output;
+
+    output  = purchaseDate.DateSimple() + '\n';
+    output += QString::number(iD) + '\n';
+    output += productName + '\n';
+    output += QString::number(price) + ' ' + QString::number(quantity);
+
+    return output;
+}
+
 Warehouse::Warehouse()
 {
 
