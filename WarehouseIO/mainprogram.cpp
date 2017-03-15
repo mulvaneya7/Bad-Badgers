@@ -428,7 +428,7 @@ void MainProgram::on_ChangeMemberShip_clicked()
 void MainProgram::on_AddMember_clicked()
 {
     Member tempMember;
-    if(database.isMember(ui->addNameEdit->text()) == 1 &&
+    if(database.isMember(ui->addNameEdit->text()) == 1 ||
        database.isMember(ui->addIdEdit->text()) == 1)
     {
         ui->addMemberError->setText("Member name/ID already exists!");
