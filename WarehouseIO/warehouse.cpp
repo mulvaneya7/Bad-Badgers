@@ -107,6 +107,15 @@ void Warehouse::ChangeItemAvailability(int index)
         itemList[index].forSale = 0;
     }
 }
+void Warehouse::ChangeItemQuantity(int index, int change)
+{
+    itemList[index].quanSold += change;
+}
+void Warehouse::ChangeMemberTotalSpent(int tempID, float change)
+{
+    int index = SearchIDindex(tempID);
+    memberList[index]->addTotalSpend(change);
+}
 bool Warehouse::getItemForSale(int index)
 {
     return itemList[index].forSale;

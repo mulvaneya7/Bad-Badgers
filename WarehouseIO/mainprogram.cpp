@@ -557,21 +557,25 @@ void MainProgram::on_manualReportButton_clicked()
         {
             Date tempDate;
             valid = tempDate.Set(ui->manualReportDate->text());
-            if (valid == 0)
+            if (valid == 1)
             {
+                float tempPrice = database.getItemPrice(index);
+                float tempSpent = tempPrice*tempQuantity;
                 TransactionNode tempNode;
                 tempNode.productName = tempName;
                 tempNode.purchaseDate = tempDate;
                 tempNode.iD = tempID;
-                tempNode.price = database.getItemPrice(index);
+                tempNode.price = tempPrice;
                 tempNode.quantity = tempQuantity;
                 database.AddTransactionNode(tempNode);
+                database.ChangeMemberTotalSpent(tempID,tempSpent);
+                database.ChangeItemQuantity(index,tempQuantity);
                 RefreshTransactionTable();
                 OutputToItemsTable(database.GetItemList());
                 OutputToMemberTable(database.GetMemberList());
                 ui->manualReportError->setText("Report has been added.");
             }
-            else if (valid == 1)
+            else if (valid == 0)
             {
                 ui->manualReportError->setText("Error, invalid date.");
             }

@@ -62,6 +62,10 @@ public:
     void ChangeMemberShip(int index, QString newMembership);
     // Changes the items's availability
     void ChangeItemAvailability(int index);
+    // Adds to the quantity of the item sold
+    void ChangeItemQuantity(int index, int change);
+    // Adds to the total spent of the member
+    void ChangeMemberTotalSpent(int tempID, float change);
     // Deleting the member from the memberList
     void DeleteMember(int id);
     void DeleteMember(QString name);
