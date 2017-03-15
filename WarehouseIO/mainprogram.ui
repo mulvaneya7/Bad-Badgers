@@ -454,19 +454,6 @@
       <string>Changed Membership to:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>410</x>
-       <y>0</y>
-       <width>261</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>WIP for Alex. Will learn qt through this widget</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="addName">
      <property name="geometry">
       <rect>
