@@ -127,7 +127,14 @@ void MainProgram::OutputToMemberTable(QVector<Member*> memberList)
                 case 2 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[row]->getMembershipQString()));
                     break;
                          // Creates and outputs QTableWidgetItem Rebate of member
-                case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem("$"+memberList[row]->getRebateQString()));
+                case 3 : if (memberList[row]->getMembershipQString() == "Executive")
+                         {
+                             ui->MemberTable->setItem(row,col,new QTableWidgetItem("$"+memberList[row]->getRebateQString()));
+                         }
+                         else if (memberList[row]->getMembershipQString() == "Regular")
+                         {
+                             ui->MemberTable->setItem(row,col,new QTableWidgetItem("$0.00"));
+                         }
                     break;
                          // Creates and outputs QTableWidgetItem Expiration Date of member
                 case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[row]->getExperation().DateSimple()));
@@ -197,7 +204,7 @@ void MainProgram::OutputRegularsToMemberTable(QVector<Member*> memberList)
                     case 2 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getMembershipQString()));
                         break;
                              // Creates and outputs QTableWidgetItem Rebate of member
-                    case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem("$"+memberList[i]->getRebateQString()));
+                    case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem("$0.00"));
                         break;
                              // Creates and outputs QTableWidgetItem Expiration Date of member
                     case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getExperation().DateSimple()));
@@ -548,18 +555,26 @@ void MainProgram::on_manualReportButton_clicked()
         valid = database.isMember(tempID);
         if (valid == 1)
         {
-            Date tempDate(ui->manualReportDate->text());
-            TransactionNode tempNode;
-            tempNode.productName = tempName;
-            tempNode.purchaseDate = tempDate;
-            tempNode.iD = tempID;
-            tempNode.price = database.getItemPrice(index);
-            tempNode.quantity = tempQuantity;
-            database.AddTransactionNode(tempNode);
-            RefreshTransactionTable();
-            OutputToItemsTable(database.GetItemList());
-            OutputToMemberTable(database.GetMemberList());
-            ui->manualReportError->setText("Report has been added.");
+            Date tempDate;
+            valid = tempDate.Set(ui->manualReportDate->text());
+            if (valid == 0)
+            {
+                TransactionNode tempNode;
+                tempNode.productName = tempName;
+                tempNode.purchaseDate = tempDate;
+                tempNode.iD = tempID;
+                tempNode.price = database.getItemPrice(index);
+                tempNode.quantity = tempQuantity;
+                database.AddTransactionNode(tempNode);
+                RefreshTransactionTable();
+                OutputToItemsTable(database.GetItemList());
+                OutputToMemberTable(database.GetMemberList());
+                ui->manualReportError->setText("Report has been added.");
+            }
+            else if (valid == 1)
+            {
+                ui->manualReportError->setText("Error, invalid date.");
+            }
         }
         else if (valid == 0)
         {

@@ -26,7 +26,11 @@
     <enum>Qt::PreventContextMenu</enum>
    </property>
    <property name="currentIndex">
+<<<<<<< HEAD
     <number>0</number>
+=======
+    <number>1</number>
+>>>>>>> origin/master
    </property>
    <widget class="QWidget" name="Transaction">
     <attribute name="title">
