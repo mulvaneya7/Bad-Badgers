@@ -451,8 +451,6 @@ void MainProgram::on_AddMember_clicked()
 //        tempMember.setMemberShip(ui->addMemberEdit->text());
 //        // Pushback member to vector
 //        database.AddMember(tempMember);
-//        // Sort memberList
-        database.sortMembers();
         // Refresh Table
         OutputToMemberTable(database.GetMemberList());
         // Label update
@@ -477,4 +475,72 @@ void MainProgram::on_LoadMasterFile_clicked()
                                                          "All files(*x*);;Text File(*.txt)");
     database.LoadMasterSalesReport(fileDirectory);
     RefreshTransactionTable();
+}
+void MainProgram::on_deleteMember_clicked()
+{
+
+}
+void MainProgram::on_ToggleAvailability_clicked()
+{
+    bool forSale;
+    QString tempString = ui->ItemSearchinput->text();
+    int index = database.ItemIndex(tempString);
+    if (index == -1)
+    {
+        ui->itemAvailabilitLabel->setText("Error, "+tempString+" does not exist.");
+    }
+    else
+    {
+        database.ChangeItemAvailability(index);
+        forSale = database.getItemForSale(index);
+        if (forSale == 1)
+        {
+            ui->itemAvailabilitLabel->setText(tempString+" is now for sale.");
+        }
+        else if (forSale == 0)
+        {
+            ui->itemAvailabilitLabel->setText(tempString+" is now not for sale.");
+        }
+        ui->ItemStatstable->clearContents();
+        ui->ItemStatstable->setRowCount(0);
+        ui->ItemStatstable->setColumnCount(ITEM_TABLE_COL_SIZE);
+        OutputToItemsTable(database.GetItemList());
+    }
+}
+
+void MainProgram::on_SubmitNewItem_clicked()
+{
+    QString tempName = ui->newItemNameInput->text();
+    bool exists = database.isItem(tempName);
+    if (exists == 0)
+    {
+        float tempFloat = (ui->newItemPriceInput->text()).toFloat();
+        itemStruct tempItem;
+        tempItem.itemName = tempName;
+        tempItem.cost = tempFloat;
+        tempItem.quanSold = 0;
+        tempItem.forSale = 1;
+        database.AddItem(tempItem);
+        ui->addItemCheckLabel->setText(tempName+" has been added.");
+        ui->ItemStatstable->clearContents();
+        ui->ItemStatstable->setRowCount(0);
+        ui->ItemStatstable->setColumnCount(ITEM_TABLE_COL_SIZE);
+        OutputToItemsTable(database.GetItemList());
+    }
+    else if (exists == 1)
+    {
+        ui->addItemCheckLabel->setText("Error, "+tempName+" already exists.");
+    }
+}
+void MainProgram::on_manualReportButton_clicked()
+{
+    /*
+    bool valid;
+    QString tempName = ui->ManualProductName->text();
+    float tempPrice = ui->manualReportCost->text().toFloat();
+    int tempQuantity = ui->manualReportQuantity->text().toInt(valid,10);
+    int tempID = ui->manualReportID->text().toInt(valid,10);
+    Qstring tempDate = ui->manualReportDate->text();
+    TransactionNode tempNode;
+    */
 }

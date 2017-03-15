@@ -48,6 +48,8 @@ public:
     void AddItem(itemStruct input);
     // Changes the member's membership at index passed
     void ChangeMemberShip(int index, QString newMembership);
+    // Changes the items's availability
+    void ChangeItemAvailability(int index);
     // Deleting the member from the memberList
     void DeleteMember(int id);
     void DeleteMember(QString name);
@@ -62,6 +64,8 @@ public:
     QString CheckExpiration(Date dateClass);
     // Reports the Sales Report for any givin day.
     QString getSalesReport(Date dateClass);
+    // Returns the forsale boolean at a given index of the itemList
+    bool getItemForSale(int index);
     // Reports the Quantity and total revanue of the items sold. Sorted by item name.(alphabetical)
     QString reportItemSales();
     // Reports the Member's total spending at the warehouse by Id number

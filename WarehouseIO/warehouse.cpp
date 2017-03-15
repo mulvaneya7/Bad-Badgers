@@ -57,6 +57,21 @@ void Warehouse::ChangeMemberShip(int index, QString newMembership)
 {
     memberList[index]->setMemberShip(newMembership);
 }
+void Warehouse::ChangeItemAvailability(int index)
+{
+    if (itemList[index].forSale == 0)
+    {
+        itemList[index].forSale = 1;
+    }
+    else if (itemList[index].forSale == 1)
+    {
+        itemList[index].forSale = 0;
+    }
+}
+bool Warehouse::getItemForSale(int index)
+{
+    return itemList[index].forSale;
+}
 void Warehouse::SaveMembers(QString fileName)
 {
     QFile outFile(fileName);
@@ -78,6 +93,7 @@ void Warehouse::AddMember(QString tmpName, int tmpId, QString tmpDate,QString tm
 {
     memberList.push_back(NULL);
     memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpMembership);
+    sortItems();
 }
 
 int Warehouse::memberListSize()

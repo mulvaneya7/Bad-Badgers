@@ -45,6 +45,14 @@ private slots:
 
     void on_LoadMasterFile_clicked();
 
+    void on_deleteMember_clicked();
+
+    void on_ToggleAvailability_clicked();
+
+    void on_SubmitNewItem_clicked();
+
+    void on_manualReportButton_clicked();
+
 private:
     //Private datamembers
     Ui::MainProgram *ui;

@@ -318,6 +318,140 @@
       <string>Change item Avaliability</string>
      </property>
     </widget>
+    <widget class="QLabel" name="newItemName">
+     <property name="geometry">
+      <rect>
+       <x>507</x>
+       <y>380</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Item Name</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="SubmitNewItem">
+     <property name="geometry">
+      <rect>
+       <x>597</x>
+       <y>440</y>
+       <width>111</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Submit</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="ItemSearchinput">
+     <property name="geometry">
+      <rect>
+       <x>27</x>
+       <y>380</y>
+       <width>201</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="addItemLabel">
+     <property name="geometry">
+      <rect>
+       <x>377</x>
+       <y>360</y>
+       <width>191</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add item to inventory</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="newItemNameInput">
+     <property name="geometry">
+      <rect>
+       <x>377</x>
+       <y>380</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="newItemPriceInput">
+     <property name="geometry">
+      <rect>
+       <x>377</x>
+       <y>410</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="newItemPrice">
+     <property name="geometry">
+      <rect>
+       <x>507</x>
+       <y>410</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Item Price</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ToggleAvailability">
+     <property name="geometry">
+      <rect>
+       <x>241</x>
+       <y>380</y>
+       <width>101</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Toggle Availability</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line_7">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>350</y>
+       <width>20</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="itemAvailabilitLabel">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>410</y>
+       <width>171</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Item changed to:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="addItemCheckLabel">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>440</y>
+       <width>151</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Item added: </string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="SearchMember">
     <attribute name="title">
@@ -565,12 +699,48 @@
       <string>To be added...</string>
      </property>
     </widget>
+    <widget class="QLineEdit" name="deleteMemberInput">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>290</y>
+       <width>161</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="deleteMember">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>290</y>
+       <width>111</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Delete Member</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="deletedMemberLabel">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>320</y>
+       <width>141</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Member Deleted: </string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="ReportSales">
     <attribute name="title">
      <string>Report Sales</string>
     </attribute>
-    <widget class="QLineEdit" name="ManualProductName">
+    <widget class="QLineEdit" name="manualProductName">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -619,7 +789,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="ManualReportLalel">
+    <widget class="QLabel" name="manualReportLabel">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -658,7 +828,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="Productsold">
+    <widget class="QLabel" name="ProductSoldLabel">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -684,7 +854,7 @@
       <string>Cost of Product</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="CostProdcutInpit">
+    <widget class="QLineEdit" name="manualReportCost">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -707,7 +877,7 @@
       <string># of Product Sold</string>
      </property>
     </widget>
-    <widget class="QSpinBox" name="spinBox">
+    <widget class="QSpinBox" name="manualReportQuantity">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -717,7 +887,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="IDofBuyer">
+    <widget class="QLineEdit" name="manualReportID">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -740,7 +910,7 @@
       <string>ID of Buyer</string>
      </property>
     </widget>
-    <widget class="QDateEdit" name="Manualreportbutton">
+    <widget class="QDateEdit" name="manualReportDate">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -789,7 +959,7 @@
       <string>File Name:</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="manualReportButton">
      <property name="geometry">
       <rect>
        <x>174</x>
@@ -828,7 +998,7 @@
       <string>Browse:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="ManualReportError">
+    <widget class="QLabel" name="manualReportError">
      <property name="geometry">
       <rect>
        <x>180</x>
