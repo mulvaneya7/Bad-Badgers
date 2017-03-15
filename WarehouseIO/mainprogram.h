@@ -41,6 +41,10 @@ private slots:
 
     void on_AddMember_clicked();
 
+    void on_SaveMasterFile_clicked();
+
+    void on_LoadMasterFile_clicked();
+
 private:
     //Private datamembers
     Ui::MainProgram *ui;
