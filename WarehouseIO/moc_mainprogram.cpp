@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainProgram_t {
-    QByteArrayData data[15];
-    char stringdata0[329];
+    QByteArrayData data[22];
+    char stringdata0[510];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,7 +45,14 @@ QT_MOC_LITERAL(10, 193, 34), // "on_MemberSearchInput_returnPr..."
 QT_MOC_LITERAL(11, 228, 27), // "on_ChangeMemberShip_clicked"
 QT_MOC_LITERAL(12, 256, 20), // "on_AddMember_clicked"
 QT_MOC_LITERAL(13, 277, 25), // "on_SaveMasterFile_clicked"
-QT_MOC_LITERAL(14, 303, 25) // "on_LoadMasterFile_clicked"
+QT_MOC_LITERAL(14, 303, 25), // "on_LoadMasterFile_clicked"
+QT_MOC_LITERAL(15, 329, 23), // "on_deleteMember_clicked"
+QT_MOC_LITERAL(16, 353, 29), // "on_ToggleAvailability_clicked"
+QT_MOC_LITERAL(17, 383, 24), // "on_SubmitNewItem_clicked"
+QT_MOC_LITERAL(18, 408, 29), // "on_manualReportButton_clicked"
+QT_MOC_LITERAL(19, 438, 21), // "on_SaveButton_clicked"
+QT_MOC_LITERAL(20, 460, 24), // "on_SaveInventory_clicked"
+QT_MOC_LITERAL(21, 485, 24) // "on_LoadInventory_clicked"
 
     },
     "MainProgram\0on_pushButton_3_clicked\0"
@@ -57,7 +64,13 @@ QT_MOC_LITERAL(14, 303, 25) // "on_LoadMasterFile_clicked"
     "on_MemberSearchInput_returnPressed\0"
     "on_ChangeMemberShip_clicked\0"
     "on_AddMember_clicked\0on_SaveMasterFile_clicked\0"
-    "on_LoadMasterFile_clicked"
+    "on_LoadMasterFile_clicked\0"
+    "on_deleteMember_clicked\0"
+    "on_ToggleAvailability_clicked\0"
+    "on_SubmitNewItem_clicked\0"
+    "on_manualReportButton_clicked\0"
+    "on_SaveButton_clicked\0on_SaveInventory_clicked\0"
+    "on_LoadInventory_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -67,7 +80,7 @@ static const uint qt_meta_data_MainProgram[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      19,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -75,23 +88,37 @@ static const uint qt_meta_data_MainProgram[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   74,    2, 0x08 /* Private */,
-       3,    0,   75,    2, 0x08 /* Private */,
-       4,    1,   76,    2, 0x08 /* Private */,
-       6,    0,   79,    2, 0x08 /* Private */,
-       7,    0,   80,    2, 0x08 /* Private */,
-       8,    0,   81,    2, 0x08 /* Private */,
-       9,    0,   82,    2, 0x08 /* Private */,
-      10,    0,   83,    2, 0x08 /* Private */,
-      11,    0,   84,    2, 0x08 /* Private */,
-      12,    0,   85,    2, 0x08 /* Private */,
-      13,    0,   86,    2, 0x08 /* Private */,
-      14,    0,   87,    2, 0x08 /* Private */,
+       1,    0,  109,    2, 0x08 /* Private */,
+       3,    0,  110,    2, 0x08 /* Private */,
+       4,    1,  111,    2, 0x08 /* Private */,
+       6,    0,  114,    2, 0x08 /* Private */,
+       7,    0,  115,    2, 0x08 /* Private */,
+       8,    0,  116,    2, 0x08 /* Private */,
+       9,    0,  117,    2, 0x08 /* Private */,
+      10,    0,  118,    2, 0x08 /* Private */,
+      11,    0,  119,    2, 0x08 /* Private */,
+      12,    0,  120,    2, 0x08 /* Private */,
+      13,    0,  121,    2, 0x08 /* Private */,
+      14,    0,  122,    2, 0x08 /* Private */,
+      15,    0,  123,    2, 0x08 /* Private */,
+      16,    0,  124,    2, 0x08 /* Private */,
+      17,    0,  125,    2, 0x08 /* Private */,
+      18,    0,  126,    2, 0x08 /* Private */,
+      19,    0,  127,    2, 0x08 /* Private */,
+      20,    0,  128,    2, 0x08 /* Private */,
+      21,    0,  129,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    5,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -123,6 +150,13 @@ void MainProgram::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 9: _t->on_AddMember_clicked(); break;
         case 10: _t->on_SaveMasterFile_clicked(); break;
         case 11: _t->on_LoadMasterFile_clicked(); break;
+        case 12: _t->on_deleteMember_clicked(); break;
+        case 13: _t->on_ToggleAvailability_clicked(); break;
+        case 14: _t->on_SubmitNewItem_clicked(); break;
+        case 15: _t->on_manualReportButton_clicked(); break;
+        case 16: _t->on_SaveButton_clicked(); break;
+        case 17: _t->on_SaveInventory_clicked(); break;
+        case 18: _t->on_LoadInventory_clicked(); break;
         default: ;
         }
     }
@@ -153,13 +187,13 @@ int MainProgram::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 19;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 19)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 12;
+        _id -= 19;
     }
     return _id;
 }

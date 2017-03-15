@@ -7,6 +7,9 @@ MainProgram::MainProgram(QWidget *parent) :
     ui(new Ui::MainProgram)
 {
     ui->setupUi(this);
+    database.Autoload();
+    OutputToItemsTable(database.GetItemList());
+    OutputToMemberTable(database.GetMemberList());
 }
 
 MainProgram::~MainProgram()
@@ -460,10 +463,10 @@ void MainProgram::on_AddMember_clicked()
 
 void MainProgram::on_SaveMasterFile_clicked()
 {
-    QString fileDirectory = QFileDialog::getOpenFileName(this,
+    QString fileDirectory = QFileDialog::getSaveFileName(this,
                                                          tr("Open Master Sales Report"),
                                                          "C://",
-                                                         "All files(*x*);;Text File(*.txt)");
+                                                         "Text File(*.txt)");
     database.SaveMasterSalesReport(fileDirectory);
 }
 
@@ -472,7 +475,7 @@ void MainProgram::on_LoadMasterFile_clicked()
     QString fileDirectory = QFileDialog::getOpenFileName(this,
                                                          tr("Open Master Sales Report"),
                                                          "C://",
-                                                         "All files(*x*);;Text File(*.txt)");
+                                                         "Text File(*.txt)");
     database.LoadMasterSalesReport(fileDirectory);
     RefreshTransactionTable();
 }
@@ -543,4 +546,32 @@ void MainProgram::on_manualReportButton_clicked()
     Qstring tempDate = ui->manualReportDate->text();
     TransactionNode tempNode;
     */
+}
+
+void MainProgram::on_SaveButton_clicked()
+{
+    QString fileDirectory = QFileDialog::getSaveFileName(this,
+                                                         tr("Open Member Save File"),
+                                                         "C://",
+                                                         "Text File(*.txt)");
+    database.SaveMembers(fileDirectory);
+}
+
+void MainProgram::on_SaveInventory_clicked()
+{
+    QString fileDirectory = QFileDialog::getSaveFileName(this,
+                                                         tr("Open Inventory Save File"),
+                                                         "C://",
+                                                         "Text File(*.txt)");
+    database.SaveMasterInventory(fileDirectory);
+}
+
+void MainProgram::on_LoadInventory_clicked()
+{
+    QString fileDirectory = QFileDialog::getOpenFileName(this,
+                                                         tr("Open Inventory Save File"),
+                                                         "C://",
+                                                         "Text File(*.txt)");
+    database.LoadMasterInventory(fileDirectory);
+    OutputToItemsTable(database.GetItemList());
 }

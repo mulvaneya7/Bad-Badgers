@@ -1,0 +1,150 @@
+1 gallon milk
+111 6.49
+Yes
+1.5 dozen eggs
+3 1.29
+Yes
+A Bug's Life
+1 9.95
+Yes
+All Laundry Detergent
+23 7.99
+Yes
+Assorted Muffins
+15 5.89
+Yes
+Bkfst Cereal Variety Pack
+4 7.29
+Yes
+Brie (Made in U.S.)
+2 7.25
+Yes
+Coffee Creamer
+5 5.75
+Yes
+Coke
+9 6.79
+Yes
+Crest Toothpaste
+6 7.59
+Yes
+Diet Coke
+26 6.79
+Yes
+Disney DVD Collection
+1 49.95
+Yes
+Disney DVD Collection 2
+2 59.99
+Yes
+EPSON Printer
+20 59.99
+Yes
+EPSON Printer Cart.
+5 32.5
+Yes
+Envelops
+5 2.99
+Yes
+Farberware Cookware Set
+20 289.99
+Yes
+Foster Farms Whole Chicken
+1 10.75
+Yes
+Fresh Mozzarella
+2 8.65
+Yes
+Grosse Pointe Blank DVD
+5 16.99
+Yes
+Ground Beef
+1 6.86
+Yes
+Hamburger
+1 7.25
+Yes
+Home On The Range
+1 19.98
+Yes
+Instant Coffee
+5 6.75
+Yes
+Legal Pads
+10 6.25
+Yes
+Levi 501's
+14 21.5
+Yes
+Most Basic DVD Player
+1 59.99
+Yes
+Paper Shredder
+1 199.99
+Yes
+Pepsi
+8 6.75
+Yes
+Ponds Lotion
+1 5.79
+Yes
+Pork Tenderloin
+90 17.25
+Yes
+Pringles
+8 6.99
+Yes
+Propel Fitness Water
+3 12.5
+Yes
+Rack of Lamb
+4 14.79
+Yes
+Roasted Garlic Bread
+2 7.29
+Yes
+Runaway Jury
+2 18.95
+Yes
+Rye Bread
+90 5.79
+Yes
+Seinfeld Collection
+50 39.95
+Yes
+Serendipity
+4 16.95
+Yes
+Shrek 2
+1 19.95
+Yes
+Spiderman 2
+1 19.95
+Yes
+Sprite
+20 6.75
+Yes
+The Alamo
+6 19.95
+Yes
+The Bourne Supremacy
+1 19.95
+Yes
+The Princess Bride
+16 17.75
+Yes
+Toilet Paper
+1 11.75
+Yes
+VCR/DVD Player
+1 89.99
+Yes
+Vine Ripe Tomatoes
+2 6.99
+Yes
+While You Were Sleeping
+1 17.75
+Yes
+Wonder Bread
+6 1.29
+Yes
