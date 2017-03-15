@@ -169,3 +169,10 @@ QString Date::DateFull() const
     oString << MONTH_NAMES[int(month)] << ' ' << day << ", " << year;
     return QString::fromStdString(oString.str());
 }
+
+Date Date::operator +=(int addingYears)
+{
+    Date addDate = *this;
+    addDate.year = addDate.year + addingYears;
+    return addDate;
+}

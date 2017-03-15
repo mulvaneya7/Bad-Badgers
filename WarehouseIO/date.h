@@ -82,6 +82,7 @@ public:
     QString DateSimple() const;
     //Formats the date into a string with format Month day, Year
     QString DateFull() const;
+    Date operator +=(int addingYears);
 
 private:
     Month   month; //Month of the year

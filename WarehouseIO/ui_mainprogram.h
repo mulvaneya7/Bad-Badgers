@@ -59,7 +59,6 @@ public:
     QFrame *line_4;
     QFrame *line_5;
     QLabel *ChangeMembershipLabel;
-    QLabel *label_2;
     QLabel *addName;
     QLabel *addId;
     QLabel *addDate;
@@ -242,9 +241,6 @@ public:
         ChangeMembershipLabel = new QLabel(SearchMember);
         ChangeMembershipLabel->setObjectName(QStringLiteral("ChangeMembershipLabel"));
         ChangeMembershipLabel->setGeometry(QRect(50, 390, 261, 20));
-        label_2 = new QLabel(SearchMember);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(410, 0, 261, 20));
         addName = new QLabel(SearchMember);
         addName->setObjectName(QStringLiteral("addName"));
         addName->setGeometry(QRect(380, 40, 47, 13));
@@ -376,6 +372,7 @@ public:
         ___qtablewidgetitem3->setText(QApplication::translate("MainProgram", "Quantity", 0));
         QTableWidgetItem *___qtablewidgetitem4 = TransactionTable->horizontalHeaderItem(4);
         ___qtablewidgetitem4->setText(QApplication::translate("MainProgram", "Product Price", 0));
+        DateInput->setDisplayFormat(QApplication::translate("MainProgram", "MM/dd/yyyy", 0));
         GenerateReport->setText(QApplication::translate("MainProgram", "Generate", 0));
         reportPrompt->setText(QApplication::translate("MainProgram", "Generate Sales Report", 0));
         TabMenu->setTabText(TabMenu->indexOf(Transaction), QApplication::translate("MainProgram", "Transaction History", 0));
@@ -431,11 +428,11 @@ public:
         SpecificLabel->setText(QApplication::translate("MainProgram", "Specific Member Search", 0));
         ChangeMemberShip->setText(QApplication::translate("MainProgram", "Change Membership Status", 0));
         ChangeMembershipLabel->setText(QApplication::translate("MainProgram", "Changed Membership to:", 0));
-        label_2->setText(QApplication::translate("MainProgram", "WIP for Alex. Will learn qt through this widget", 0));
         addName->setText(QApplication::translate("MainProgram", "Name:", 0));
         addId->setText(QApplication::translate("MainProgram", "ID:", 0));
         addDate->setText(QApplication::translate("MainProgram", "Entry date:", 0));
         addMember->setText(QApplication::translate("MainProgram", "Membership:", 0));
+        addDateEdit->setDisplayFormat(QApplication::translate("MainProgram", "MM/dd/yyyy", 0));
         addMemberError->setText(QApplication::translate("MainProgram", "To be added...", 0));
         TabMenu->setTabText(TabMenu->indexOf(SearchMember), QApplication::translate("MainProgram", "Search Members", 0));
         ReportTransactionsLabel->setText(QApplication::translate("MainProgram", "Report Transactions", 0));

@@ -62,9 +62,10 @@ void Warehouse::SaveMembers(QString fileName)
         }
     }
 }
-void Warehouse::AddMember(Member newMember)
+void Warehouse::AddMember(QString tmpName, int tmpId, QString tmpDate,QString tmpMembership)
 {
-    memberList.push_back(&newMember);
+    memberList.push_back(NULL);
+    memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpMembership);
 }
 
 int Warehouse::memberListSize()

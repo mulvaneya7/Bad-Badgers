@@ -51,6 +51,7 @@ float getRebate();
 QString getDate();
 Date getDateClass();
 QString getRebateQString();
+Date getExperation();
 
 //MUTATORS
 void setName(QString newName);

@@ -40,7 +40,7 @@ public:
     void SaveMembers(QString fileName);
     void loadSalesReport(QString fileName);
     // Automatic Appending Memberlist
-    void AddMember(Member newMember);
+    void AddMember(QString tmpName, int tmpId, QString tmpDate,QString tmpMembership);
     // Adds an itemStruct node to the itemList vector
     void AddItem(itemStruct input);
     // Changes the member's membership at index passed

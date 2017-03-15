@@ -126,7 +126,7 @@ void MainProgram::OutputToMemberTable(QVector<Member*> memberList)
                 case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem("$"+memberList[row]->getRebateQString()));
                     break;
                          // Creates and outputs QTableWidgetItem Expiration Date of member
-                case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[row]->getDate()));
+                case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[row]->getExperation().DateSimple()));
                     break;
             }
         }
@@ -160,7 +160,7 @@ void MainProgram::OutputExecutivesToMemberTable(QVector<Member*> memberList)
                     case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem("$"+memberList[i]->getRebateQString()));
                         break;
                              // Creates and outputs QTableWidgetItem Expiration Date of member
-                    case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getDate()));
+                    case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getExperation().DateSimple()));
                         break;
                 }
             }
@@ -196,7 +196,7 @@ void MainProgram::OutputRegularsToMemberTable(QVector<Member*> memberList)
                     case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem("$"+memberList[i]->getRebateQString()));
                         break;
                              // Creates and outputs QTableWidgetItem Expiration Date of member
-                    case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getDate()));
+                    case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getExperation().DateSimple()));
                         break;
                 }
             }
@@ -428,7 +428,6 @@ void MainProgram::on_ChangeMemberShip_clicked()
 void MainProgram::on_AddMember_clicked()
 {
     Member tempMember;
-    Date tempDate;
     if(database.isMember(ui->addNameEdit->text()) == 1 &&
        database.isMember(ui->addIdEdit->text()) == 1)
     {
@@ -441,16 +440,18 @@ void MainProgram::on_AddMember_clicked()
     else if(database.isMember(ui->addNameEdit->text()) == 0 &&
             database.isMember(ui->addIdEdit->text()) == 0)
     {
-        // Set date QString to tempDate class
-        tempDate.Set(ui->addDateEdit->text());
-        // Set member info
-        tempMember.setName(ui->addNameEdit->text());
-        tempMember.setId((ui->addIdEdit->text()).toInt());
-        tempMember.setDate(tempDate);
-        tempMember.setMemberShip(ui->addMemberEdit->text());
-        // Pushback member to vector
-        database.AddMember(tempMember);
-        // Sort memberList
+        database.AddMember(ui->addNameEdit->text(),(ui->addIdEdit->text()).toInt(),
+                           ui->addDateEdit->text(),ui->addMemberEdit->text());
+//        // Set date QString to tempDate class
+//        tempDate.Set(ui->addDateEdit->text());
+//        // Set member info
+//        tempMember.setName(ui->addNameEdit->text());
+//        tempMember.setId((ui->addIdEdit->text()).toInt());
+//        tempMember.setDate(tempDate);
+//        tempMember.setMemberShip(ui->addMemberEdit->text());
+//        // Pushback member to vector
+//        database.AddMember(tempMember);
+//        // Sort memberList
         database.sortMembers();
         // Refresh Table
         OutputToMemberTable(database.GetMemberList());

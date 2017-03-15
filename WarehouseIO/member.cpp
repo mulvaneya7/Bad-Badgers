@@ -159,3 +159,8 @@ void Member::operator=(const Member& member)
     exDate = member.exDate;
     membership = member.membership;
 }
+Date Member::getExperation()
+{
+    Date experation = exDate;
+    return experation+=1;
+}

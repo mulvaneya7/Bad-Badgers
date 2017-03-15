@@ -79,6 +79,9 @@
        <height>22</height>
       </rect>
      </property>
+     <property name="displayFormat">
+      <string>MM/dd/yyyy</string>
+     </property>
     </widget>
     <widget class="QPushButton" name="GenerateReport">
      <property name="geometry">
@@ -514,6 +517,9 @@
        <width>110</width>
        <height>22</height>
       </rect>
+     </property>
+     <property name="displayFormat">
+      <string>MM/dd/yyyy</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="addNameEdit">
