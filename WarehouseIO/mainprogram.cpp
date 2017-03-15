@@ -124,7 +124,14 @@ void MainProgram::OutputToMemberTable(QVector<Member*> memberList)
                 case 2 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[row]->getMembershipQString()));
                     break;
                          // Creates and outputs QTableWidgetItem Rebate of member
-                case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem("$"+memberList[row]->getRebateQString()));
+                case 3 : if (memberList[row]->getMembershipQString() == "Executive")
+                         {
+                             ui->MemberTable->setItem(row,col,new QTableWidgetItem("$"+memberList[row]->getRebateQString()));
+                         }
+                         else if (memberList[row]->getMembershipQString() == "Regular")
+                         {
+                             ui->MemberTable->setItem(row,col,new QTableWidgetItem("$0.00"));
+                         }
                     break;
                          // Creates and outputs QTableWidgetItem Expiration Date of member
                 case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[row]->getExperation().DateSimple()));
@@ -194,7 +201,7 @@ void MainProgram::OutputRegularsToMemberTable(QVector<Member*> memberList)
                     case 2 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getMembershipQString()));
                         break;
                              // Creates and outputs QTableWidgetItem Rebate of member
-                    case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem("$"+memberList[i]->getRebateQString()));
+                    case 3 : ui->MemberTable->setItem(row,col,new QTableWidgetItem("$0.00"));
                         break;
                              // Creates and outputs QTableWidgetItem Expiration Date of member
                     case 4 : ui->MemberTable->setItem(row,col,new QTableWidgetItem(memberList[i]->getExperation().DateSimple()));
