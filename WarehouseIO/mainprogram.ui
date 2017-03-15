@@ -978,10 +978,10 @@
     <widget class="QLabel" name="manualReportError">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>10</x>
        <y>410</y>
-       <width>151</width>
-       <height>16</height>
+       <width>321</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">

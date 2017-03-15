@@ -69,6 +69,7 @@ void MainProgram::RefreshMemberTable(int index)
 
 void MainProgram::RefreshTransactionTable()
 {
+    database.sortTransactionList();
     ui->TransactionTable->clearContents();
     ui->TransactionTable->setRowCount(0);
     ui->TransactionTable->setColumnCount(MEMBER_TABLE_COL_SIZE);
@@ -534,13 +535,36 @@ void MainProgram::on_SubmitNewItem_clicked()
 }
 void MainProgram::on_manualReportButton_clicked()
 {
-    /*
     bool valid;
-    QString tempName = ui->ManualProductName->text();
-    float tempPrice = ui->manualReportCost->text().toFloat();
-    int tempQuantity = ui->manualReportQuantity->text().toInt(valid,10);
-    int tempID = ui->manualReportID->text().toInt(valid,10);
-    Qstring tempDate = ui->manualReportDate->text();
-    TransactionNode tempNode;
-    */
+    QString tempName = ui->manualProductName->text();
+    int index = database.ItemIndex(tempName);
+    if (index != -1)
+    {
+        int tempQuantity = ui->manualReportQuantity->text().toInt();
+        int tempID = ui->manualReportID->text().toInt();
+        valid = database.isMember(tempID);
+        if (valid == 1)
+        {
+            Date tempDate(ui->manualReportDate->text());
+            TransactionNode tempNode;
+            tempNode.productName = tempName;
+            tempNode.purchaseDate = tempDate;
+            tempNode.iD = tempID;
+            tempNode.price = database.getItemPrice(index);
+            tempNode.quantity = tempQuantity;
+            database.AddTransactionNode(tempNode);
+            RefreshTransactionTable();
+            OutputToItemsTable(database.GetItemList());
+            OutputToMemberTable(database.GetMemberList());
+            ui->manualReportError->setText("Report has been added.");
+        }
+        else if (valid == 0)
+        {
+            ui->manualReportError->setText("Error, invalid quantity.");
+        }
+    }
+    else if (index == -1)
+    {
+        ui->manualReportError->setText("Error, the item "+tempName+" does not exist.");
+    }
 }

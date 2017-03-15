@@ -46,6 +46,8 @@ public:
     void AddMember(QString tmpName, int tmpId, QString tmpDate,QString tmpMembership);
     // Adds an itemStruct node to the itemList vector
     void AddItem(itemStruct input);
+    // Adds a node to the TransactionList vector
+    void AddTransactionNode(TransactionNode tempNode);
     // Changes the member's membership at index passed
     void ChangeMemberShip(int index, QString newMembership);
     // Changes the items's availability
@@ -66,6 +68,8 @@ public:
     QString getSalesReport(Date dateClass);
     // Returns the forsale boolean at a given index of the itemList
     bool getItemForSale(int index);
+    // Returns the price of an item at a given index
+    float getItemPrice(int index);
     // Reports the Quantity and total revanue of the items sold. Sorted by item name.(alphabetical)
     QString reportItemSales();
     // Reports the Member's total spending at the warehouse by Id number
@@ -96,14 +100,11 @@ public:
     void sortMembers();
     // Sorts the itemList by item name;
     void sortItems();
+    // Sorts TransactionList by date via DateClass
+    void sortTransactionList();
 
 private:
     // Helper Functions
-    // Sorts TransactionList by date via DateClass
-    void sortTransactionList();
-    // Sorts Quantity and Revenue by item name
-    void sortQR();
-    void sortRebate(int id);
     void upDateMemberlist();
     // Pointers to members
     QVector<Member*> memberList;

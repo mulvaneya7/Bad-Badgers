@@ -72,6 +72,10 @@ bool Warehouse::getItemForSale(int index)
 {
     return itemList[index].forSale;
 }
+float Warehouse::getItemPrice(int index)
+{
+    return itemList[index].cost;
+}
 void Warehouse::SaveMembers(QString fileName)
 {
     QFile outFile(fileName);
@@ -94,6 +98,17 @@ void Warehouse::AddMember(QString tmpName, int tmpId, QString tmpDate,QString tm
     memberList.push_back(NULL);
     memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpMembership);
     sortItems();
+}
+//ADDING ITEM TO ITEM STRUCT VECTOR
+void Warehouse::AddItem(itemStruct input)
+{
+    itemList.push_back(input);
+    sortItems();
+}
+void Warehouse::AddTransactionNode(TransactionNode tempNode)
+{
+    TransactionList.push_back(tempNode);
+    sortTransactionList();
 }
 
 int Warehouse::memberListSize()
@@ -122,6 +137,21 @@ void Warehouse::sortItems()
         for(int y=0; y<itemList.size()-1; y++)
         {
             if(itemList[y].itemName > itemList[y+1].itemName)
+            {
+                itemStruct temp = itemList[y+1];
+                itemList[y+1] = itemList[y];
+                itemList[y] = temp;
+            }
+        }
+    }
+}
+void Warehouse::sortTransactionList()
+{
+    for(int x=0; x<TransactionList.size(); x++)
+    {
+        for(int y=0; y<TransactionList.size()-1; y++)
+        {
+            if(TransactionList[y].purchaseDate < TransactionList[y+1].purchaseDate)
             {
                 itemStruct temp = itemList[y+1];
                 itemList[y+1] = itemList[y];
@@ -408,10 +438,4 @@ void Warehouse::DeleteMember(QString name)
      int index = SearchNameindex(name);
      memberList[index]->setMemberShip("Inactive");
     }
-}
-//ADDING ITEM TO ITEM STRUCT VECTOR
-void Warehouse::AddItem(itemStruct input)
-{
-    itemList.push_back(input);
-    sortItems();
 }

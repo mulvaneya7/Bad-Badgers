@@ -394,7 +394,7 @@ public:
         Filebrowser->setGeometry(QRect(600, 150, 101, 23));
         manualReportError = new QLabel(ReportSales);
         manualReportError->setObjectName(QStringLiteral("manualReportError"));
-        manualReportError->setGeometry(QRect(180, 410, 151, 16));
+        manualReportError->setGeometry(QRect(10, 410, 321, 20));
         SaveMasterFile = new QPushButton(ReportSales);
         SaveMasterFile->setObjectName(QStringLiteral("SaveMasterFile"));
         SaveMasterFile->setGeometry(QRect(582, 10, 151, 32));
