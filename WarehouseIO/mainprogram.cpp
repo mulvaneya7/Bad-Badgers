@@ -552,18 +552,26 @@ void MainProgram::on_manualReportButton_clicked()
         valid = database.isMember(tempID);
         if (valid == 1)
         {
-            Date tempDate(ui->manualReportDate->text());
-            TransactionNode tempNode;
-            tempNode.productName = tempName;
-            tempNode.purchaseDate = tempDate;
-            tempNode.iD = tempID;
-            tempNode.price = database.getItemPrice(index);
-            tempNode.quantity = tempQuantity;
-            database.AddTransactionNode(tempNode);
-            RefreshTransactionTable();
-            OutputToItemsTable(database.GetItemList());
-            OutputToMemberTable(database.GetMemberList());
-            ui->manualReportError->setText("Report has been added.");
+            Date tempDate;
+            valid = tempDate.Set(ui->manualReportDate->text());
+            if (valid == 0)
+            {
+                TransactionNode tempNode;
+                tempNode.productName = tempName;
+                tempNode.purchaseDate = tempDate;
+                tempNode.iD = tempID;
+                tempNode.price = database.getItemPrice(index);
+                tempNode.quantity = tempQuantity;
+                database.AddTransactionNode(tempNode);
+                RefreshTransactionTable();
+                OutputToItemsTable(database.GetItemList());
+                OutputToMemberTable(database.GetMemberList());
+                ui->manualReportError->setText("Report has been added.");
+            }
+            else if (valid == 1)
+            {
+                ui->manualReportError->setText("Error, invalid date.");
+            }
         }
         else if (valid == 0)
         {
