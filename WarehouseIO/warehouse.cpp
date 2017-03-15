@@ -68,6 +68,7 @@ void Warehouse::LoadMember(QString fileName)
     int tmpId;
     QString tmpType;
     QString tmpDate;
+    float tmpSpent;
     //Deletes the list before we reinitialize it
     while(!memberList.empty())
     {
@@ -79,16 +80,13 @@ void Warehouse::LoadMember(QString fileName)
     while(!(in.atEnd()))
     {
         tmpName = in.readLine();
-       
         in >> tmpId;
-        
         in >>tmpType;
-        
         in >>tmpDate;
-        
+        in >> tmpSpent;
         in.readLine();
         memberList.push_back(NULL);
-        memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpType);
+        memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpType, tmpSpent);
     }
     sortMembers();
 }

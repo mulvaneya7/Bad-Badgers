@@ -1,48 +1,60 @@
-Fred Frugal
-67899
-Executive
-12/15/2015
-Betty Buysalot
-12899
-Executive
-09/22/2015
-Larry Largefamily
-88888
-Regular
-10/01/2015
-Sally Shopper
-12345
-Regular
-11/01/2015
-Linda Livesalone
-35647
-Regular
-12/15/2015
-Sam Single
-31311
-Executive
-12/05/2015
-Mary IsHappy
-96309
-Executive
-12/05/2015
 Kathy Havealotsofkids
 12121
 Regular
 12/30/2015
-Vern Video 
-77777
+226.75 0.0325
+Sally Shopper
+12345
+Regular
+11/01/2015
+10322.1 0.0325
+Betty Buysalot
+12899
 Executive
-11/15/2015
+09/22/2015
+315.3 0.0325
 Benjamin Business
 16161
 Regular
 11/20/2015
-Tasha the Cat
-61616
+0 0.0325
+Sam Single
+31311
+Executive
+12/05/2015
+19.95 0.0325
+Linda Livesalone
+35647
 Regular
-03/20/2015
+12/15/2015
+63.17 0.0325
 Sue Shoparound
 56723
 Executive
 03/21/2015
+14.95 0.0325
+Tasha the Cat
+61616
+Regular
+03/20/2015
+2090.69 0.0325
+Fred Frugal
+67899
+Executive
+12/15/2015
+769.49 0.0325
+Vern Video 
+77777
+Executive
+11/15/2015
+563.37 0.0325
+Larry Largefamily
+88888
+Regular
+10/01/2015
+270.98 0.0325
+Mary IsHappy
+96309
+Executive
+12/05/2015
+0 0.0325

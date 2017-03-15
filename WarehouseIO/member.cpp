@@ -37,6 +37,30 @@ Member::Member(QString mName, int mID, QString mDate, QString mMembership)
   totalSpent = 0.0;
 }
 
+Member::Member(QString mName, int mID, QString mDate, QString mMembership, float spent)
+        :exDate(mDate)
+{
+  setName(mName);
+  setId(mID);
+  //in the case of unconformed input, will handle
+  //uppercasing the first letter of the inputted string
+  //ie. "executive" to "Executive"
+  mMembership[0] = mMembership[0].toUpper();
+  if(mMembership == "Inactive")
+  {
+    membership =MemType::INACTIVE;
+  }
+  else if(mMembership == "Regular")
+  {
+    membership = MemType::REGULAR;
+  }
+  else if(mMembership == "Executive")
+  {
+    membership = MemType::EXECUTIVE;
+  }
+  totalSpent = spent;
+}
+
 //COPY CONSTRUCTOR
 Member::Member(Member & Instance)
 {
@@ -103,9 +127,10 @@ QString Member::printMember()
     output.clear();
 
     output = name + '\n';
-    output += id + '\n';
+    output += QString::number(id) + '\n';
     output += MemNames[int(membership)] + '\n';
-    output += exDate.DateSimple();
+    output += exDate.DateSimple() + '\n';
+    output += QString::number(totalSpent) + ' ' + QString::number(rebate);
     return output;
 }
 

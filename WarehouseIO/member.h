@@ -29,6 +29,7 @@ public:
 //CONSTRUCTOR
 Member();
 Member(QString mName, int mID, QString date, QString mMembership);
+Member(QString mName, int mID, QString date, QString mMembership, float spent);
 Member(Member & Instance);
 
 //DESTRUCTOR
