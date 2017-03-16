@@ -69,6 +69,9 @@ p, li { white-space: pre-wrap; }
     <property name="text">
      <string>Done</string>
     </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
    </widget>
    <widget class="QLabel" name="PasswordLabel">
     <property name="geometry">
@@ -125,9 +128,9 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="CreateNewBadger">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>330</x>
       <y>300</y>
-      <width>111</width>
+      <width>151</width>
       <height>23</height>
      </rect>
     </property>
@@ -145,7 +148,7 @@ p, li { white-space: pre-wrap; }
      </rect>
     </property>
     <property name="text">
-     <string>Placeholder</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="BadgerPicLogin">

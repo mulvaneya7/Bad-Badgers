@@ -62,6 +62,7 @@ public:
         PasswordInput = new QLineEdit(centralWidget);
         PasswordInput->setObjectName(QStringLiteral("PasswordInput"));
         PasswordInput->setGeometry(QRect(200, 260, 361, 20));
+        PasswordInput->setEchoMode(QLineEdit::Password);
         PasswordLabel = new QLabel(centralWidget);
         PasswordLabel->setObjectName(QStringLiteral("PasswordLabel"));
         PasswordLabel->setGeometry(QRect(200, 240, 141, 16));
@@ -76,7 +77,7 @@ public:
         Exit->setGeometry(QRect(670, 460, 75, 23));
         CreateNewBadger = new QPushButton(centralWidget);
         CreateNewBadger->setObjectName(QStringLiteral("CreateNewBadger"));
-        CreateNewBadger->setGeometry(QRect(350, 300, 111, 23));
+        CreateNewBadger->setGeometry(QRect(330, 300, 151, 23));
         ErrorLabel = new QLabel(centralWidget);
         ErrorLabel->setObjectName(QStringLiteral("ErrorLabel"));
         ErrorLabel->setGeometry(QRect(200, 340, 361, 31));
@@ -125,7 +126,7 @@ public:
         HelpButton->setText(QApplication::translate("MainWindow", "Help", Q_NULLPTR));
         Exit->setText(QApplication::translate("MainWindow", "Exit", Q_NULLPTR));
         CreateNewBadger->setText(QApplication::translate("MainWindow", "Create New Badger", Q_NULLPTR));
-        ErrorLabel->setText(QApplication::translate("MainWindow", "Placeholder", Q_NULLPTR));
+        ErrorLabel->setText(QString());
         BadgerPicLogin->setText(QString());
     } // retranslateUi
 

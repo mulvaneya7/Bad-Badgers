@@ -26,7 +26,7 @@
     <enum>Qt::PreventContextMenu</enum>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="Transaction">
     <attribute name="title">
@@ -40,6 +40,12 @@
        <width>651</width>
        <height>341</height>
       </rect>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::NoSelection</enum>
      </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>128</number>
@@ -88,7 +94,7 @@
       <rect>
        <x>620</x>
        <y>390</y>
-       <width>75</width>
+       <width>91</width>
        <height>23</height>
       </rect>
      </property>
@@ -130,6 +136,12 @@
        <width>451</width>
        <height>71</height>
       </rect>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::NoSelection</enum>
      </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>105</number>
@@ -185,6 +197,12 @@
        <height>371</height>
       </rect>
      </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::NoSelection</enum>
+     </property>
      <column>
       <property name="text">
        <string>Member Name</string>
@@ -216,7 +234,7 @@
       <rect>
        <x>20</x>
        <y>20</y>
-       <width>91</width>
+       <width>121</width>
        <height>21</height>
       </rect>
      </property>
@@ -227,7 +245,7 @@
     <widget class="QComboBox" name="DisplayOption">
      <property name="geometry">
       <rect>
-       <x>110</x>
+       <x>140</x>
        <y>20</y>
        <width>111</width>
        <height>22</height>
@@ -302,6 +320,12 @@
        <height>261</height>
       </rect>
      </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::NoSelection</enum>
+     </property>
      <column>
       <property name="text">
        <string>Item</string>
@@ -333,7 +357,7 @@
       <rect>
        <x>30</x>
        <y>10</y>
-       <width>101</width>
+       <width>131</width>
        <height>16</height>
       </rect>
      </property>
@@ -344,7 +368,7 @@
     <widget class="QPushButton" name="RefreshItemSales">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>160</x>
        <y>10</y>
        <width>75</width>
        <height>23</height>
@@ -409,8 +433,8 @@
     <widget class="QLineEdit" name="ItemSearchinput">
      <property name="geometry">
       <rect>
-       <x>27</x>
-       <y>380</y>
+       <x>10</x>
+       <y>383</y>
        <width>201</width>
        <height>20</height>
       </rect>
@@ -465,10 +489,10 @@
     <widget class="QPushButton" name="ToggleAvailability">
      <property name="geometry">
       <rect>
-       <x>241</x>
+       <x>210</x>
        <y>380</y>
-       <width>101</width>
-       <height>23</height>
+       <width>151</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -557,6 +581,9 @@
      <property name="text">
       <string>Enter member</string>
      </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Normal</enum>
+     </property>
     </widget>
     <widget class="QTableWidget" name="MemberDataTable">
      <property name="geometry">
@@ -566,6 +593,12 @@
        <width>341</width>
        <height>182</height>
       </rect>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::NoSelection</enum>
      </property>
      <row>
       <property name="text">
@@ -619,7 +652,7 @@
       <rect>
        <x>30</x>
        <y>80</y>
-       <width>131</width>
+       <width>161</width>
        <height>16</height>
       </rect>
      </property>
@@ -723,7 +756,7 @@
       <rect>
        <x>380</x>
        <y>150</y>
-       <width>71</width>
+       <width>91</width>
        <height>16</height>
       </rect>
      </property>
@@ -734,7 +767,7 @@
     <widget class="QDateEdit" name="addDateEdit">
      <property name="geometry">
       <rect>
-       <x>460</x>
+       <x>470</x>
        <y>110</y>
        <width>110</width>
        <height>22</height>
@@ -747,7 +780,7 @@
     <widget class="QLineEdit" name="addNameEdit">
      <property name="geometry">
       <rect>
-       <x>450</x>
+       <x>470</x>
        <y>40</y>
        <width>171</width>
        <height>20</height>
@@ -757,7 +790,7 @@
     <widget class="QLineEdit" name="addIdEdit">
      <property name="geometry">
       <rect>
-       <x>450</x>
+       <x>470</x>
        <y>80</y>
        <width>171</width>
        <height>20</height>
@@ -767,7 +800,7 @@
     <widget class="QLineEdit" name="addMemberEdit">
      <property name="geometry">
       <rect>
-       <x>450</x>
+       <x>470</x>
        <y>150</y>
        <width>171</width>
        <height>20</height>
@@ -802,7 +835,7 @@
       <rect>
        <x>570</x>
        <y>290</y>
-       <width>111</width>
+       <width>131</width>
        <height>23</height>
       </rect>
      </property>
@@ -895,12 +928,12 @@
       <rect>
        <x>380</x>
        <y>60</y>
-       <width>151</width>
+       <width>171</width>
        <height>16</height>
       </rect>
      </property>
      <property name="text">
-      <string>Report via transaction File</string>
+      <string>Load New Transaction FIle</string>
      </property>
     </widget>
     <widget class="Line" name="line_3">
@@ -1027,9 +1060,9 @@
     <widget class="QPushButton" name="manualReportButton">
      <property name="geometry">
       <rect>
-       <x>174</x>
+       <x>134</x>
        <y>430</y>
-       <width>151</width>
+       <width>191</width>
        <height>23</height>
       </rect>
      </property>

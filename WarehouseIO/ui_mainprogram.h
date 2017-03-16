@@ -140,13 +140,15 @@ public:
         TransactionTable->setHorizontalHeaderItem(4, __qtablewidgetitem4);
         TransactionTable->setObjectName(QStringLiteral("TransactionTable"));
         TransactionTable->setGeometry(QRect(41, 20, 651, 341));
+        TransactionTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        TransactionTable->setSelectionMode(QAbstractItemView::NoSelection);
         TransactionTable->horizontalHeader()->setDefaultSectionSize(128);
         DateInput = new QDateEdit(Transaction);
         DateInput->setObjectName(QStringLiteral("DateInput"));
         DateInput->setGeometry(QRect(500, 390, 110, 22));
         GenerateReport = new QPushButton(Transaction);
         GenerateReport->setObjectName(QStringLiteral("GenerateReport"));
-        GenerateReport->setGeometry(QRect(620, 390, 75, 23));
+        GenerateReport->setGeometry(QRect(620, 390, 91, 23));
         reportPrompt = new QLabel(Transaction);
         reportPrompt->setObjectName(QStringLiteral("reportPrompt"));
         reportPrompt->setGeometry(QRect(500, 370, 141, 16));
@@ -166,6 +168,8 @@ public:
         Expirationoutput->setHorizontalHeaderItem(3, __qtablewidgetitem8);
         Expirationoutput->setObjectName(QStringLiteral("Expirationoutput"));
         Expirationoutput->setGeometry(QRect(40, 380, 451, 71));
+        Expirationoutput->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        Expirationoutput->setSelectionMode(QAbstractItemView::NoSelection);
         Expirationoutput->horizontalHeader()->setDefaultSectionSize(105);
         Expirationoutput->verticalHeader()->setDefaultSectionSize(30);
         label = new QLabel(Transaction);
@@ -189,12 +193,14 @@ public:
         MemberTable->setHorizontalHeaderItem(4, __qtablewidgetitem13);
         MemberTable->setObjectName(QStringLiteral("MemberTable"));
         MemberTable->setGeometry(QRect(50, 50, 631, 371));
+        MemberTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        MemberTable->setSelectionMode(QAbstractItemView::NoSelection);
         DisplayLabel = new QLabel(MemberList);
         DisplayLabel->setObjectName(QStringLiteral("DisplayLabel"));
-        DisplayLabel->setGeometry(QRect(20, 20, 91, 21));
+        DisplayLabel->setGeometry(QRect(20, 20, 121, 21));
         DisplayOption = new QComboBox(MemberList);
         DisplayOption->setObjectName(QStringLiteral("DisplayOption"));
-        DisplayOption->setGeometry(QRect(110, 20, 111, 22));
+        DisplayOption->setGeometry(QRect(140, 20, 111, 22));
         pushButton_3 = new QPushButton(MemberList);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         pushButton_3->setGeometry(QRect(430, 430, 171, 23));
@@ -222,12 +228,14 @@ public:
         ItemStatstable->setHorizontalHeaderItem(4, __qtablewidgetitem18);
         ItemStatstable->setObjectName(QStringLiteral("ItemStatstable"));
         ItemStatstable->setGeometry(QRect(100, 40, 541, 261));
+        ItemStatstable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        ItemStatstable->setSelectionMode(QAbstractItemView::NoSelection);
         ItemSalesStats = new QLabel(ItemInfo);
         ItemSalesStats->setObjectName(QStringLiteral("ItemSalesStats"));
-        ItemSalesStats->setGeometry(QRect(30, 10, 101, 16));
+        ItemSalesStats->setGeometry(QRect(30, 10, 131, 16));
         RefreshItemSales = new QPushButton(ItemInfo);
         RefreshItemSales->setObjectName(QStringLiteral("RefreshItemSales"));
-        RefreshItemSales->setGeometry(QRect(140, 10, 75, 23));
+        RefreshItemSales->setGeometry(QRect(160, 10, 75, 23));
         line_6 = new QFrame(ItemInfo);
         line_6->setObjectName(QStringLiteral("line_6"));
         line_6->setGeometry(QRect(0, 340, 731, 16));
@@ -244,7 +252,7 @@ public:
         SubmitNewItem->setGeometry(QRect(597, 440, 111, 23));
         ItemSearchinput = new QLineEdit(ItemInfo);
         ItemSearchinput->setObjectName(QStringLiteral("ItemSearchinput"));
-        ItemSearchinput->setGeometry(QRect(27, 380, 201, 20));
+        ItemSearchinput->setGeometry(QRect(10, 383, 201, 20));
         addItemLabel = new QLabel(ItemInfo);
         addItemLabel->setObjectName(QStringLiteral("addItemLabel"));
         addItemLabel->setGeometry(QRect(377, 360, 191, 16));
@@ -259,7 +267,7 @@ public:
         newItemPrice->setGeometry(QRect(507, 410, 91, 16));
         ToggleAvailability = new QPushButton(ItemInfo);
         ToggleAvailability->setObjectName(QStringLiteral("ToggleAvailability"));
-        ToggleAvailability->setGeometry(QRect(241, 380, 101, 23));
+        ToggleAvailability->setGeometry(QRect(210, 380, 151, 31));
         line_7 = new QFrame(ItemInfo);
         line_7->setObjectName(QStringLiteral("line_7"));
         line_7->setGeometry(QRect(350, 350, 20, 121));
@@ -283,6 +291,7 @@ public:
         MemberSearchInput = new QLineEdit(SearchMember);
         MemberSearchInput->setObjectName(QStringLiteral("MemberSearchInput"));
         MemberSearchInput->setGeometry(QRect(30, 110, 113, 20));
+        MemberSearchInput->setEchoMode(QLineEdit::Normal);
         MemberDataTable = new QTableWidget(SearchMember);
         if (MemberDataTable->rowCount() < 6)
             MemberDataTable->setRowCount(6);
@@ -301,12 +310,14 @@ public:
         MemberDataTable->setVerticalHeaderItem(5, __qtablewidgetitem24);
         MemberDataTable->setObjectName(QStringLiteral("MemberDataTable"));
         MemberDataTable->setGeometry(QRect(10, 150, 341, 182));
+        MemberDataTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        MemberDataTable->setSelectionMode(QAbstractItemView::NoSelection);
         AddMember = new QPushButton(SearchMember);
         AddMember->setObjectName(QStringLiteral("AddMember"));
         AddMember->setGeometry(QRect(540, 220, 151, 23));
         SpecificLabel = new QLabel(SearchMember);
         SpecificLabel->setObjectName(QStringLiteral("SpecificLabel"));
-        SpecificLabel->setGeometry(QRect(30, 80, 131, 16));
+        SpecificLabel->setGeometry(QRect(30, 80, 161, 16));
         ChangeMemberShip = new QPushButton(SearchMember);
         ChangeMemberShip->setObjectName(QStringLiteral("ChangeMemberShip"));
         ChangeMemberShip->setGeometry(QRect(60, 340, 241, 23));
@@ -334,19 +345,19 @@ public:
         addDate->setGeometry(QRect(380, 110, 71, 16));
         addMember = new QLabel(SearchMember);
         addMember->setObjectName(QStringLiteral("addMember"));
-        addMember->setGeometry(QRect(380, 150, 71, 16));
+        addMember->setGeometry(QRect(380, 150, 91, 16));
         addDateEdit = new QDateEdit(SearchMember);
         addDateEdit->setObjectName(QStringLiteral("addDateEdit"));
-        addDateEdit->setGeometry(QRect(460, 110, 110, 22));
+        addDateEdit->setGeometry(QRect(470, 110, 110, 22));
         addNameEdit = new QLineEdit(SearchMember);
         addNameEdit->setObjectName(QStringLiteral("addNameEdit"));
-        addNameEdit->setGeometry(QRect(450, 40, 171, 20));
+        addNameEdit->setGeometry(QRect(470, 40, 171, 20));
         addIdEdit = new QLineEdit(SearchMember);
         addIdEdit->setObjectName(QStringLiteral("addIdEdit"));
-        addIdEdit->setGeometry(QRect(450, 80, 171, 20));
+        addIdEdit->setGeometry(QRect(470, 80, 171, 20));
         addMemberEdit = new QLineEdit(SearchMember);
         addMemberEdit->setObjectName(QStringLiteral("addMemberEdit"));
-        addMemberEdit->setGeometry(QRect(450, 150, 171, 20));
+        addMemberEdit->setGeometry(QRect(470, 150, 171, 20));
         addMemberError = new QLabel(SearchMember);
         addMemberError->setObjectName(QStringLiteral("addMemberError"));
         addMemberError->setGeometry(QRect(380, 195, 231, 21));
@@ -355,7 +366,7 @@ public:
         deleteMemberInput->setGeometry(QRect(400, 290, 161, 20));
         deleteMember = new QPushButton(SearchMember);
         deleteMember->setObjectName(QStringLiteral("deleteMember"));
-        deleteMember->setGeometry(QRect(570, 290, 111, 23));
+        deleteMember->setGeometry(QRect(570, 290, 131, 23));
         deletedMemberLabel = new QLabel(SearchMember);
         deletedMemberLabel->setObjectName(QStringLiteral("deletedMemberLabel"));
         deletedMemberLabel->setGeometry(QRect(410, 320, 141, 16));
@@ -383,7 +394,7 @@ public:
         manualReportLabel->setGeometry(QRect(20, 60, 91, 16));
         RepoerfileFile = new QLabel(ReportSales);
         RepoerfileFile->setObjectName(QStringLiteral("RepoerfileFile"));
-        RepoerfileFile->setGeometry(QRect(380, 60, 151, 16));
+        RepoerfileFile->setGeometry(QRect(380, 60, 171, 16));
         line_3 = new QFrame(ReportSales);
         line_3->setObjectName(QStringLiteral("line_3"));
         line_3->setGeometry(QRect(-3, 80, 731, 20));
@@ -418,7 +429,7 @@ public:
         FileNameInput->setGeometry(QRect(390, 100, 61, 16));
         manualReportButton = new QPushButton(ReportSales);
         manualReportButton->setObjectName(QStringLiteral("manualReportButton"));
-        manualReportButton->setGeometry(QRect(174, 430, 151, 23));
+        manualReportButton->setGeometry(QRect(134, 430, 191, 23));
         ReportFileContents = new QPushButton(ReportSales);
         ReportFileContents->setObjectName(QStringLiteral("ReportFileContents"));
         ReportFileContents->setGeometry(QRect(554, 430, 161, 23));
@@ -447,7 +458,7 @@ public:
 
         retranslateUi(MainProgram);
 
-        TabMenu->setCurrentIndex(3);
+        TabMenu->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainProgram);
@@ -552,7 +563,7 @@ public:
         TabMenu->setTabText(TabMenu->indexOf(SearchMember), QApplication::translate("MainProgram", "Search Members", Q_NULLPTR));
         ReportTransactionsLabel->setText(QApplication::translate("MainProgram", "Report Transactions", Q_NULLPTR));
         manualReportLabel->setText(QApplication::translate("MainProgram", "Manual Report", Q_NULLPTR));
-        RepoerfileFile->setText(QApplication::translate("MainProgram", "Report via transaction File", Q_NULLPTR));
+        RepoerfileFile->setText(QApplication::translate("MainProgram", "Load New Transaction FIle", Q_NULLPTR));
         ProductSoldLabel->setText(QApplication::translate("MainProgram", "Name of Product sold", Q_NULLPTR));
         productSoldLabel->setText(QApplication::translate("MainProgram", "# of Product Sold", Q_NULLPTR));
         IDInputReportSales->setText(QApplication::translate("MainProgram", "ID of Buyer", Q_NULLPTR));
