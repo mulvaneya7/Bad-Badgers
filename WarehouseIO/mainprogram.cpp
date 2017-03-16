@@ -489,7 +489,41 @@ void MainProgram::on_LoadMasterFile_clicked()
 }
 void MainProgram::on_deleteMember_clicked()
 {
-
+   bool valid;
+        //takes the input from the input box and saves into string
+        QString memberSearched = ui->deleteMemberInput->text();
+        //checks to see if string is convertable to an int
+        int convertInt = memberSearched.toInt(&valid);
+        //if not we then search via the name that was inputted
+        if (valid == 0)
+        {
+            if(database.isMember(memberSearched) == 1)
+            {
+              int index = database.SearchNameindex(memberSearched);
+              database.ChangeMemberShip(index, "Inactive");
+              ui->deletedMemberLabel->setText("Member deleted: " + memberSearched);
+              RefreshMemberTable(ui->DisplayOption->currentIndex());
+            }
+            else
+            {
+              ui->deletedMemberLabel->setText("Member not found!");
+            }
+        }
+        //if it was convertible then we search via the inputted ID
+        else
+        {
+            if(database.isMember(convertInt) == 1)
+            {
+                int index = database.SearchIDindex(convertInt);
+                database.ChangeMemberShip(index, "Inactive");
+                ui->deletedMemberLabel->setText("ID deleted: " + memberSearched);
+                RefreshMemberTable(ui->DisplayOption->currentIndex());
+            }
+            else
+            {
+              ui->deletedMemberLabel->setText("Member not found!");
+            }
+        }
 }
 void MainProgram::on_ToggleAvailability_clicked()
 {
