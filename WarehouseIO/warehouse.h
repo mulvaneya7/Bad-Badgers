@@ -13,6 +13,7 @@
 #include "member.h"
 #include <iostream>
 #include<QTextStream>
+#include <QDir>
 struct TransactionNode
 {
     QString productName;

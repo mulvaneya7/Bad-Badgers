@@ -130,7 +130,7 @@ QString Member::printMember()
     output += QString::number(id) + '\n';
     output += MemNames[int(membership)] + '\n';
     output += exDate.DateSimple() + '\n';
-    output += QString::number(totalSpent) + ' ' + QString::number(rebate);
+    output += QString::number(totalSpent);
     return output;
 }
 

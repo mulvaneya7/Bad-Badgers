@@ -44,6 +44,7 @@ void MainProgram::on_pushButton_3_clicked()
 
 
     RefreshMemberTable(ui->DisplayOption->currentIndex());
+    database.Autosave();
 }
 //WIP - outputs to txt file
 void MainProgram::on_GenerateReport_clicked()
@@ -420,6 +421,7 @@ void MainProgram::on_ReportFileContents_clicked()
     OutputToItemsTable(database.GetItemList());
     RefreshMemberTable(ui->DisplayOption->currentIndex());
     RefreshTransactionTable();
+    database.Autosave();
 }
 void MainProgram::on_Filebrowser_clicked()
 {
@@ -496,6 +498,7 @@ void MainProgram::on_ChangeMemberShip_clicked()
         OutputSearchedMemberToTable();
         OutputToMemberTable(database.GetMemberList());
     }
+    database.Autosave();
 }
 
 void MainProgram::on_AddMember_clicked()
@@ -529,6 +532,7 @@ void MainProgram::on_AddMember_clicked()
         // Label update
         ui->addMemberError->setText(ui->addNameEdit->text()+" has been added!");
     }
+    database.Autosave();
 }
 
 void MainProgram::on_SaveMasterFile_clicked()
@@ -587,6 +591,7 @@ void MainProgram::on_deleteMember_clicked()
               ui->deletedMemberLabel->setText("Member not found!");
             }
         }
+        database.Autosave();
 }
 void MainProgram::on_ToggleAvailability_clicked()
 {
@@ -614,6 +619,7 @@ void MainProgram::on_ToggleAvailability_clicked()
         ui->ItemStatstable->setColumnCount(ITEM_TABLE_COL_SIZE);
         OutputToItemsTable(database.GetItemList());
     }
+    database.Autosave();
 }
 
 void MainProgram::on_SubmitNewItem_clicked()
@@ -639,6 +645,7 @@ void MainProgram::on_SubmitNewItem_clicked()
     {
         ui->addItemCheckLabel->setText("Error, "+tempName+" already exists.");
     }
+    database.Autosave();
 }
 void MainProgram::on_manualReportButton_clicked()
 {
@@ -706,6 +713,7 @@ void MainProgram::on_LoadInventory_clicked()
                                                          "Text File(*.txt)");
     database.LoadMasterInventory(fileDirectory);
     OutputToItemsTable(database.GetItemList());
+    database.Autosave();
 }
 
 void MainProgram::on_SaveButton_clicked()
