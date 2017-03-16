@@ -686,6 +686,7 @@ void MainProgram::on_manualReportButton_clicked()
     {
         ui->manualReportError->setText("Error, the item "+tempName+" does not exist.");
     }
+    database.Autosave();
 }
 
 void MainProgram::on_SaveInventory_clicked()
