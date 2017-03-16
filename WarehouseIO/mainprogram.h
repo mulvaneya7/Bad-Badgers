@@ -63,7 +63,11 @@ private slots:
 
     void on_ClearData_clicked();
 
-    void on_RefreshTransTable_clicked();
+    //void on_RefreshTransTable_clicked();
+
+    void on_PrintTransaction_clicked();
+
+    void on_Help_clicked();
 
 public slots:
     void ValidateClear(QString input);

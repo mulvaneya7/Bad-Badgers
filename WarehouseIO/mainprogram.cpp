@@ -10,6 +10,7 @@ MainProgram::MainProgram(QWidget *parent) :
     database.Autoload();
     OutputToItemsTable(database.GetItemList());
     OutputToMemberTable(database.GetMemberList());
+    RefreshTransactionTable();
 }
 
 MainProgram::~MainProgram()
@@ -744,11 +745,26 @@ void MainProgram::ValidateClear(QString input)
                      this, SLOT(ValidateClear(QString)));
 }
 
-void MainProgram::on_RefreshTransTable_clicked()
+/*void MainProgram::on_RefreshTransTable_clicked()
 {
+    qDebug() << "Hello";
+    database.Autoload();
     RefreshTransactionTable();
     ui->Expirationoutput->clearContents();
     ui->Expirationoutput->setRowCount(0);
     ui->Expirationoutput->setColumnCount(4);
 
+}*/
+
+void MainProgram::on_PrintTransaction_clicked()
+{
+    RefreshTransactionTable();
+    ui->Expirationoutput->clearContents();
+    ui->Expirationoutput->setRowCount(0);
+    ui->Expirationoutput->setColumnCount(4);
+}
+
+void MainProgram::on_Help_clicked()
+{
+    QApplication::quit();
 }

@@ -37,9 +37,9 @@ public:
     QDateEdit *DateInput;
     QPushButton *GenerateReport;
     QLabel *reportPrompt;
-    QPushButton *RefreshTransTable;
     QTableWidget *Expirationoutput;
     QLabel *label;
+    QPushButton *PrintTransaction;
     QWidget *MemberList;
     QTableWidget *MemberTable;
     QLabel *DisplayLabel;
@@ -149,12 +149,10 @@ public:
         GenerateReport = new QPushButton(Transaction);
         GenerateReport->setObjectName(QStringLiteral("GenerateReport"));
         GenerateReport->setGeometry(QRect(620, 390, 91, 23));
+        GenerateReport->setAutoDefault(false);
         reportPrompt = new QLabel(Transaction);
         reportPrompt->setObjectName(QStringLiteral("reportPrompt"));
         reportPrompt->setGeometry(QRect(500, 370, 141, 16));
-        RefreshTransTable = new QPushButton(Transaction);
-        RefreshTransTable->setObjectName(QStringLiteral("RefreshTransTable"));
-        RefreshTransTable->setGeometry(QRect(504, 430, 201, 23));
         Expirationoutput = new QTableWidget(Transaction);
         if (Expirationoutput->columnCount() < 4)
             Expirationoutput->setColumnCount(4);
@@ -175,6 +173,9 @@ public:
         label = new QLabel(Transaction);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(40, 360, 211, 16));
+        PrintTransaction = new QPushButton(Transaction);
+        PrintTransaction->setObjectName(QStringLiteral("PrintTransaction"));
+        PrintTransaction->setGeometry(QRect(520, 430, 181, 32));
         TabMenu->addTab(Transaction, QString());
         MemberList = new QWidget();
         MemberList->setObjectName(QStringLiteral("MemberList"));
@@ -480,7 +481,6 @@ public:
         DateInput->setDisplayFormat(QApplication::translate("MainProgram", "MM/dd/yyyy", Q_NULLPTR));
         GenerateReport->setText(QApplication::translate("MainProgram", "Generate", Q_NULLPTR));
         reportPrompt->setText(QApplication::translate("MainProgram", "Generate Sales Report", Q_NULLPTR));
-        RefreshTransTable->setText(QApplication::translate("MainProgram", "Show Entire Hsitory", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem5 = Expirationoutput->horizontalHeaderItem(0);
         ___qtablewidgetitem5->setText(QApplication::translate("MainProgram", "Name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem6 = Expirationoutput->horizontalHeaderItem(1);
@@ -490,6 +490,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem8 = Expirationoutput->horizontalHeaderItem(3);
         ___qtablewidgetitem8->setText(QApplication::translate("MainProgram", "Renewal Cost", Q_NULLPTR));
         label->setText(QApplication::translate("MainProgram", "Expiring Members this month", Q_NULLPTR));
+        PrintTransaction->setText(QApplication::translate("MainProgram", "Display All Transactions", Q_NULLPTR));
         TabMenu->setTabText(TabMenu->indexOf(Transaction), QApplication::translate("MainProgram", "Transaction History", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem9 = MemberTable->horizontalHeaderItem(0);
         ___qtablewidgetitem9->setText(QApplication::translate("MainProgram", "Member Name", Q_NULLPTR));
@@ -567,6 +568,7 @@ public:
         ProductSoldLabel->setText(QApplication::translate("MainProgram", "Name of Product sold", Q_NULLPTR));
         productSoldLabel->setText(QApplication::translate("MainProgram", "# of Product Sold", Q_NULLPTR));
         IDInputReportSales->setText(QApplication::translate("MainProgram", "ID of Buyer", Q_NULLPTR));
+        manualReportDate->setDisplayFormat(QApplication::translate("MainProgram", "MM/dd/yyyy", Q_NULLPTR));
         DateBoughtLabel->setText(QApplication::translate("MainProgram", "Date Bought", Q_NULLPTR));
         FileDiectoryReportSales->setText(QString());
         FileNameInput->setText(QApplication::translate("MainProgram", "File Name:", Q_NULLPTR));
