@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'createuser.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -83,16 +83,16 @@ public:
 
     void retranslateUi(QDialog *CreateUser)
     {
-        CreateUser->setWindowTitle(QApplication::translate("CreateUser", "Dialog", 0));
-        label->setText(QApplication::translate("CreateUser", "BadgerName", 0));
-        label_2->setText(QApplication::translate("CreateUser", "Password", 0));
-        label_3->setText(QApplication::translate("CreateUser", "Re-enter Password", 0));
-        label_4->setText(QApplication::translate("CreateUser", "Manager Authentication Number", 0));
+        CreateUser->setWindowTitle(QApplication::translate("CreateUser", "Dialog", Q_NULLPTR));
+        label->setText(QApplication::translate("CreateUser", "BadgerName", Q_NULLPTR));
+        label_2->setText(QApplication::translate("CreateUser", "Password", Q_NULLPTR));
+        label_3->setText(QApplication::translate("CreateUser", "Re-enter Password", Q_NULLPTR));
+        label_4->setText(QApplication::translate("CreateUser", "Manager Authentication Number", Q_NULLPTR));
         textBrowser->setHtml(QApplication::translate("CreateUser", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:28pt;\">Create New User</span></p></body></html>", 0));
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:28pt;\">Create New User</span></p></body></html>", Q_NULLPTR));
     } // retranslateUi
 
 };

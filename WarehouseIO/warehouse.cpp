@@ -96,7 +96,7 @@ void Warehouse::LoadMember(QString fileName)
         in >>tmpType;
         in >>tmpDate;
         in >> tmpSpent;
-        in.readLine();
+//        in.readLine();
         memberList.push_back(NULL);
         memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpType, tmpSpent);
     }
@@ -121,6 +121,32 @@ void Warehouse::ChangeItemQuantity(int index, int change)
 {
     itemList[index].quanSold += change;
 }
+QVector<TransactionNode> Warehouse::getDailySalesReport(Date salesReportdate)
+{
+    QVector<TransactionNode> outputList;
+    for(int i =0; i<TransactionList.size();i++)
+    {
+        if(TransactionList[i].purchaseDate.DateSimple()==salesReportdate.DateSimple())
+        {
+            outputList.push_back(TransactionList[i]);
+        }
+    }
+    return outputList;
+}
+QVector<Member*> Warehouse::CheckExpiration(Date dateClass)
+{
+    QVector<Member*> outputList;
+    for(int i =0; i<memberList.size();i++)
+    {
+        if(memberList[i]->getExperation().GetIntMonth()==dateClass.GetIntMonth()
+           &&memberList[i]->getExperation().GetYear()==dateClass.GetYear())
+        {
+            outputList.push_back(memberList[i]);
+        }
+    }
+    return outputList;
+}
+
 void Warehouse::ChangeMemberTotalSpent(int tempID, float change)
 {
     int index = SearchIDindex(tempID);
@@ -150,7 +176,6 @@ void Warehouse::SaveMembers(QString fileName)
             out << endl;
         }
     }
-    outFile.close();
 }
 void Warehouse::AddMember(QString tmpName, int tmpId, QString tmpDate,QString tmpMembership)
 {
@@ -439,7 +464,6 @@ void Warehouse::SaveMasterSalesReport(QString fileName)
             out << endl;
         }
     }
-    outFile.close();
 }
 
 void Warehouse::LoadMasterSalesReport(QString fileName)
@@ -480,7 +504,6 @@ void Warehouse::SaveMasterInventory(QString fileName)
             output << endl;
         }
     }
-    outFile.close();
 }
 
 void Warehouse::LoadMasterInventory(QString fileName)
@@ -498,24 +521,23 @@ void Warehouse::LoadMasterInventory(QString fileName)
         input >> tempItem.quanSold >> tempItem.cost;
         input.readLine();
         tempItem.StrToforSale(input.readLine());
-
         itemList.push_back(tempItem);
     }
 }
 
 void Warehouse::AutosaveMembers()
 {
-    SaveMembers(QDir::currentPath() + "/SaveFiles/Members.txt");
+    SaveMembers(":/SaveFiles/Members.txt");
 }
 
 void Warehouse::AutosaveSales()
 {
-    SaveMasterSalesReport(QDir::currentPath() + "/SaveFiles/Sales.txt");
+    SaveMasterSalesReport(":/SaveFiles/Sales.txt");
 }
 
 void Warehouse::AutosaveInventory()
 {
-    SaveMasterInventory(QDir::currentPath() + "/SaveFiles/Inventory.txt");
+    SaveMasterInventory(":/SaveFiles/Inventory.txt");
 }
 
 void Warehouse::Autosave()
@@ -527,9 +549,10 @@ void Warehouse::Autosave()
 
 void Warehouse::Autoload()
 {
-    LoadMasterInventory(QDir::currentPath() + "/SaveFiles/Inventory.txt");
-    LoadMasterSalesReport(QDir::currentPath() + "/SaveFiles/Sales.txt");
-    LoadMember(QDir::currentPath() + "/SaveFiles/Members.txt");
+    LoadMember(":/SaveFiles/Members.txt");
+    LoadMasterInventory(":/SaveFiles/Inventory.txt");
+    LoadMasterSalesReport(":/SaveFiles/Sales.txt");
+
 }
 
 //void Warehouse::SortQR()

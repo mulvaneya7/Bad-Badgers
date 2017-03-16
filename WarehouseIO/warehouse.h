@@ -12,8 +12,7 @@
 #include <QRegExp>
 #include "member.h"
 #include <iostream>
-#include <QTextStream>
-#include <QDir>
+#include<QTextStream>
 struct TransactionNode
 {
     QString productName;
@@ -79,9 +78,9 @@ public:
     // This method will report all of the purchases sorted by member ID
     QString ReportPurchases();
     // Reports all of the members that will expire within the month of the date Class
-    QString CheckExpiration(Date dateClass);
+    QVector<Member*> CheckExpiration(Date dateClass);
     // Reports the Sales Report for any givin day.
-    QString getSalesReport(Date dateClass);
+    QVector<TransactionNode> getDailySalesReport(Date salesReportdate);
     // Returns the forsale boolean at a given index of the itemList
     bool getItemForSale(int index);
     // Returns the price of an item at a given index

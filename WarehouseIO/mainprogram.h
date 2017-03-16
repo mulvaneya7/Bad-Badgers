@@ -5,6 +5,7 @@
 #include "warehouse.h"
 #include <QFileDialog>
 #include <QLabel>
+#include <QDebug>
 #include "date.h"
 #include "member.h"
 #include "confirmclear.h"
@@ -61,6 +62,8 @@ private slots:
     void on_SaveButton_clicked();
 
     void on_ClearData_clicked();
+
+    void on_RefreshTransTable_clicked();
 
 public slots:
     void ValidateClear(QString input);
