@@ -150,6 +150,7 @@ void Warehouse::SaveMembers(QString fileName)
             out << endl;
         }
     }
+    outFile.close();
 }
 void Warehouse::AddMember(QString tmpName, int tmpId, QString tmpDate,QString tmpMembership)
 {
@@ -438,6 +439,7 @@ void Warehouse::SaveMasterSalesReport(QString fileName)
             out << endl;
         }
     }
+    outFile.close();
 }
 
 void Warehouse::LoadMasterSalesReport(QString fileName)
@@ -478,6 +480,7 @@ void Warehouse::SaveMasterInventory(QString fileName)
             output << endl;
         }
     }
+    outFile.close();
 }
 
 void Warehouse::LoadMasterInventory(QString fileName)
@@ -502,17 +505,17 @@ void Warehouse::LoadMasterInventory(QString fileName)
 
 void Warehouse::AutosaveMembers()
 {
-    SaveMembers(":/SaveFiles/Members.txt");
+    SaveMembers(QDir::currentPath() + "/SaveFiles/Members.txt");
 }
 
 void Warehouse::AutosaveSales()
 {
-    SaveMasterSalesReport(":/SaveFiles/Sales.txt");
+    SaveMasterSalesReport(QDir::currentPath() + "/SaveFiles/Sales.txt");
 }
 
 void Warehouse::AutosaveInventory()
 {
-    SaveMasterInventory(":/SaveFiles/Inventory.txt");
+    SaveMasterInventory(QDir::currentPath() + "/SaveFiles/Inventory.txt");
 }
 
 void Warehouse::Autosave()
@@ -524,9 +527,9 @@ void Warehouse::Autosave()
 
 void Warehouse::Autoload()
 {
-    LoadMasterInventory(":/SaveFiles/Inventory.txt");
-    LoadMasterSalesReport(":/SaveFiles/Sales.txt");
-    LoadMember(":/SaveFiles/Members.txt");
+    LoadMasterInventory(QDir::currentPath() + "/SaveFiles/Inventory.txt");
+    LoadMasterSalesReport(QDir::currentPath() + "/SaveFiles/Sales.txt");
+    LoadMember(QDir::currentPath() + "/SaveFiles/Members.txt");
 }
 
 //void Warehouse::SortQR()

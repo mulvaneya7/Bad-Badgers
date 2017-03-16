@@ -38,11 +38,12 @@ void MainProgram::on_pushButton_3_clicked()
     QString fileDirectory = QFileDialog::getOpenFileName(this,
                                                         tr("Open Member Info File"),
                                                         "C://",
-                                                        "All files(*x*);;Text File(*.txt)");
+                                                        "Text File(*.txt)");
     database.LoadMember(fileDirectory);
 
     ui->MemberListError->setText(QString::number(database.memberListSize()));
     RefreshMemberTable(ui->DisplayOption->currentIndex());
+    database.Autosave();
 }
 //WIP - outputs to txt file
 void MainProgram::on_GenerateReport_clicked()
@@ -358,14 +359,16 @@ void MainProgram::on_ReportFileContents_clicked()
     OutputToItemsTable(database.GetItemList());
     RefreshMemberTable(ui->DisplayOption->currentIndex());
     RefreshTransactionTable();
+    database.Autosave();
 }
 void MainProgram::on_Filebrowser_clicked()
 {
     QString fileDirectory = QFileDialog::getOpenFileName(this,
                                                          tr("Open Member Info File"),
                                                          "C://",
-                                                         "All files(*x*);;Text File(*.txt)");
+                                                         "Text File(*.txt)");
     ui->FileDiectoryReportSales->setText(fileDirectory);
+    database.Autosave();
 }
 void MainProgram::on_RefreshItemSales_clicked()
 {
@@ -434,6 +437,7 @@ void MainProgram::on_ChangeMemberShip_clicked()
         OutputSearchedMemberToTable();
         OutputToMemberTable(database.GetMemberList());
     }
+    database.Autosave();
 }
 
 void MainProgram::on_AddMember_clicked()
@@ -467,6 +471,7 @@ void MainProgram::on_AddMember_clicked()
         // Label update
         ui->addMemberError->setText(ui->addNameEdit->text()+" has been added!");
     }
+    database.Autosave();
 }
 
 void MainProgram::on_SaveMasterFile_clicked()
@@ -524,6 +529,7 @@ void MainProgram::on_deleteMember_clicked()
               ui->deletedMemberLabel->setText("Member not found!");
             }
         }
+        database.Autosave();
 }
 void MainProgram::on_ToggleAvailability_clicked()
 {
@@ -551,6 +557,7 @@ void MainProgram::on_ToggleAvailability_clicked()
         ui->ItemStatstable->setColumnCount(ITEM_TABLE_COL_SIZE);
         OutputToItemsTable(database.GetItemList());
     }
+    database.Autosave();
 }
 
 void MainProgram::on_SubmitNewItem_clicked()
@@ -576,6 +583,7 @@ void MainProgram::on_SubmitNewItem_clicked()
     {
         ui->addItemCheckLabel->setText("Error, "+tempName+" already exists.");
     }
+    database.Autosave();
 }
 void MainProgram::on_manualReportButton_clicked()
 {
@@ -623,6 +631,7 @@ void MainProgram::on_manualReportButton_clicked()
     {
         ui->manualReportError->setText("Error, the item "+tempName+" does not exist.");
     }
+    database.Autosave();
 }
 
 void MainProgram::on_SaveInventory_clicked()
@@ -676,6 +685,7 @@ void MainProgram::ValidateClear(QString input)
         database.clear();
         on_RefreshItemSales_clicked();
         OutputToMemberTable(database.GetMemberList());
+        database.Autosave();
     }
     QObject::disconnect(&ClearWindow, SIGNAL(ReturnText(QString)),
                      this, SLOT(ValidateClear(QString)));
