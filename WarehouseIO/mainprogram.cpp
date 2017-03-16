@@ -652,3 +652,31 @@ void MainProgram::on_SaveButton_clicked()
                                                          "Text File(*.txt)");
     database.SaveMembers(fileDirectory);
 }
+
+void MainProgram::on_ClearData_clicked()
+{
+    QObject::connect(&ClearWindow, SIGNAL(ReturnText(QString)),
+                     this, SLOT(ValidateClear(QString)));
+    ClearWindow.show();
+}
+
+void MainProgram::ValidateClear(QString input)
+{
+    if (input != "Cancel")
+    {
+        if (input == "Save")
+        {
+            QString fileDirectory = QFileDialog::getExistingDirectory(this,
+                                                                      tr("Open Save Folder"),
+                                                                      "C://", QFileDialog::ShowDirsOnly);
+            database.SaveMasterInventory(fileDirectory + "/Inventory.txt");
+            database.SaveMasterSalesReport(fileDirectory + "/Sales.txt");
+            database.SaveMembers(fileDirectory + "/Members.txt");
+        }
+        database.clear();
+        on_RefreshItemSales_clicked();
+        OutputToMemberTable(database.GetMemberList());
+    }
+    QObject::disconnect(&ClearWindow, SIGNAL(ReturnText(QString)),
+                     this, SLOT(ValidateClear(QString)));
+}

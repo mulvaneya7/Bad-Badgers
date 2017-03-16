@@ -40,6 +40,7 @@ public:
     // Member initialization "literally"
     ~Warehouse();
     // Vector Creation through external file
+    void clear();
     void LoadMember(QString fileName);
     void SaveMembers(QString fileName);
     void LoadMasterSalesReport(QString fileName);

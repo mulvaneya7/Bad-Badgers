@@ -55,10 +55,12 @@ SOURCES       = main.cpp \
 		date.cpp \
 		member.cpp \
 		LoginScreen.cpp \
-		person.cpp qrc_resource.cpp \
+		person.cpp \
+		confirmclear.cpp qrc_resource.cpp \
 		moc_createuser.cpp \
 		moc_mainprogram.cpp \
-		moc_LoginScreen.cpp
+		moc_LoginScreen.cpp \
+		moc_confirmclear.cpp
 OBJECTS       = main.o \
 		createuser.o \
 		mainprogram.o \
@@ -67,10 +69,12 @@ OBJECTS       = main.o \
 		member.o \
 		LoginScreen.o \
 		person.o \
+		confirmclear.o \
 		qrc_resource.o \
 		moc_createuser.o \
 		moc_mainprogram.o \
-		moc_LoginScreen.o
+		moc_LoginScreen.o \
+		moc_confirmclear.o
 DIST          = ../../Qt/5.8/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.8/clang_64/mkspecs/qdevice.pri \
 		../../Qt/5.8/clang_64/mkspecs/features/device_config.prf \
@@ -253,14 +257,16 @@ DIST          = ../../Qt/5.8/clang_64/mkspecs/features/spec_pre.prf \
 		date.h \
 		member.h \
 		LoginScreen.h \
-		person.h main.cpp \
+		person.h \
+		confirmclear.h main.cpp \
 		createuser.cpp \
 		mainprogram.cpp \
 		warehouse.cpp \
 		date.cpp \
 		member.cpp \
 		LoginScreen.cpp \
-		person.cpp
+		person.cpp \
+		confirmclear.cpp
 QMAKE_TARGET  = WarehouseIO
 DESTDIR       = 
 TARGET        = WarehouseIO.app/Contents/MacOS/WarehouseIO
@@ -269,7 +275,7 @@ TARGET        = WarehouseIO.app/Contents/MacOS/WarehouseIO
 first: all
 ####### Build rules
 
-$(TARGET): ui_createuser.h ui_mainprogram.h ui_LoginScreen.h $(OBJECTS)  
+$(TARGET): ui_createuser.h ui_mainprogram.h ui_LoginScreen.h ui_confirmclear.h $(OBJECTS)  
 	@test -d WarehouseIO.app/Contents/MacOS/ || mkdir -p WarehouseIO.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -667,9 +673,9 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resource.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Qt/5.8/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents createuser.h mainprogram.h warehouse.h date.h member.h LoginScreen.h person.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp createuser.cpp mainprogram.cpp warehouse.cpp date.cpp member.cpp LoginScreen.cpp person.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents createuser.ui mainprogram.ui LoginScreen.ui $(DISTDIR)/
+	$(COPY_FILE) --parents createuser.h mainprogram.h warehouse.h date.h member.h LoginScreen.h person.h confirmclear.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp createuser.cpp mainprogram.cpp warehouse.cpp date.cpp member.cpp LoginScreen.cpp person.cpp confirmclear.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents createuser.ui mainprogram.ui LoginScreen.ui confirmclear.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -710,9 +716,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../Qt/5.8/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -mmacosx-version-min=10.9 $(EXPORT_QMAKE_XARCH_CFLAGS) -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h ../../Qt/5.8/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_createuser.cpp moc_mainprogram.cpp moc_LoginScreen.cpp
+compiler_moc_header_make_all: moc_createuser.cpp moc_mainprogram.cpp moc_LoginScreen.cpp moc_confirmclear.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_createuser.cpp moc_mainprogram.cpp moc_LoginScreen.cpp
+	-$(DEL_FILE) moc_createuser.cpp moc_mainprogram.cpp moc_LoginScreen.cpp moc_confirmclear.cpp
 moc_createuser.cpp: ../../Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		createuser.h \
@@ -784,11 +790,18 @@ moc_LoginScreen.cpp: ../../Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QMain
 		../../Qt/5.8/clang_64/bin/moc
 	/Users/agadbois/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/agadbois/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/agadbois/Bad-Badgers/WarehouseIO -I/Users/agadbois/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/agadbois/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/agadbois/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include -F/Users/agadbois/Qt/5.8/clang_64/lib LoginScreen.h -o moc_LoginScreen.cpp
 
+moc_confirmclear.cpp: ../../Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		confirmclear.h \
+		moc_predefs.h \
+		../../Qt/5.8/clang_64/bin/moc
+	/Users/agadbois/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/agadbois/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/agadbois/Bad-Badgers/WarehouseIO -I/Users/agadbois/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/agadbois/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/agadbois/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include -F/Users/agadbois/Qt/5.8/clang_64/lib confirmclear.h -o moc_confirmclear.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_createuser.h ui_mainprogram.h ui_LoginScreen.h
+compiler_uic_make_all: ui_createuser.h ui_mainprogram.h ui_LoginScreen.h ui_confirmclear.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_createuser.h ui_mainprogram.h ui_LoginScreen.h
+	-$(DEL_FILE) ui_createuser.h ui_mainprogram.h ui_LoginScreen.h ui_confirmclear.h
 ui_createuser.h: createuser.ui \
 		../../Qt/5.8/clang_64/bin/uic
 	/Users/agadbois/Qt/5.8/clang_64/bin/uic createuser.ui -o ui_createuser.h
@@ -800,6 +813,10 @@ ui_mainprogram.h: mainprogram.ui \
 ui_LoginScreen.h: LoginScreen.ui \
 		../../Qt/5.8/clang_64/bin/uic
 	/Users/agadbois/Qt/5.8/clang_64/bin/uic LoginScreen.ui -o ui_LoginScreen.h
+
+ui_confirmclear.h: confirmclear.ui \
+		../../Qt/5.8/clang_64/bin/uic
+	/Users/agadbois/Qt/5.8/clang_64/bin/uic confirmclear.ui -o ui_confirmclear.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -957,6 +974,12 @@ person.o: person.cpp person.h \
 		../../Qt/5.8/clang_64/lib/QtCore.framework/Headers/qvector.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o person.o person.cpp
 
+confirmclear.o: confirmclear.cpp confirmclear.h \
+		../../Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_confirmclear.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o confirmclear.o confirmclear.cpp
+
 qrc_resource.o: qrc_resource.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resource.o qrc_resource.cpp
 
@@ -968,6 +991,9 @@ moc_mainprogram.o: moc_mainprogram.cpp
 
 moc_LoginScreen.o: moc_LoginScreen.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_LoginScreen.o moc_LoginScreen.cpp
+
+moc_confirmclear.o: moc_confirmclear.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_confirmclear.o moc_confirmclear.cpp
 
 ####### Install
 

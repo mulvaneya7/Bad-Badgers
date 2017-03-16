@@ -7,6 +7,7 @@
 #include <QLabel>
 #include "date.h"
 #include "member.h"
+#include "confirmclear.h"
 namespace Ui {
 class MainProgram;
 }
@@ -59,9 +60,15 @@ private slots:
 
     void on_SaveButton_clicked();
 
+    void on_ClearData_clicked();
+
+public slots:
+    void ValidateClear(QString input);
+
 private:
     //Private datamembers
     Ui::MainProgram *ui;
+    ConfirmClear ClearWindow;
     Warehouse database;
     // Constant used for outputing to the member table
     const int MEMBER_TABLE_COL_SIZE = 5;

@@ -59,6 +59,18 @@ Warehouse::~Warehouse()
 {
 
 }
+
+void Warehouse::clear()
+{
+    while(!memberList.empty())
+    {
+        delete memberList.back();
+        memberList.pop_back();
+    }
+    TransactionList.clear();
+    itemList.clear();
+}
+
 void Warehouse::LoadMember(QString fileName)
 {
     QFile inFile(fileName);

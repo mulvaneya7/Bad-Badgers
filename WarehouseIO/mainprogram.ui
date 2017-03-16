@@ -1068,6 +1068,19 @@
     <string>Exit</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="ClearData">
+   <property name="geometry">
+    <rect>
+     <x>12</x>
+     <y>530</y>
+     <width>101</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clear Data</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
