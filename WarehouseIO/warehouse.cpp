@@ -96,7 +96,7 @@ void Warehouse::LoadMember(QString fileName)
         in >>tmpType;
         in >>tmpDate;
         in >> tmpSpent;
-//        in.readLine();
+        in.readLine();
         memberList.push_back(NULL);
         memberList.back() = new Member(tmpName, tmpId, tmpDate, tmpType, tmpSpent);
     }

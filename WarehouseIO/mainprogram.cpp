@@ -463,12 +463,12 @@ void MainProgram::on_ChangeMemberShip_clicked()
             tempMember = database.SearchName(tempString);
             ui->ChangeMembershipLabel->setText("Test1");
             i = database.SearchNameindex(tempString);
-            if (tempMember.getMembershipQString() == "Executive")
+            if (tempMember.getMembershipQString() != "Regular")
             {
                 database.ChangeMemberShip(i,"Regular");
                 ui->ChangeMembershipLabel->setText("Changed "+tempString+" Membership to: Regular");
             }
-            else if (tempMember.getMembershipQString() == "Regular")
+            else
             {
                 database.ChangeMemberShip(i,"Executive");
                 ui->ChangeMembershipLabel->setText("Changed "+tempString+" Membership to: Executive");
