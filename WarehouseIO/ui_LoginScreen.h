@@ -118,9 +118,9 @@ public:
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'.Lucida Grande UI'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:26pt;\">Warehouse Manager1998</span></p></body></html>", Q_NULLPTR));
-        UsernameInput->setText(QApplication::translate("MainWindow", "Dave", Q_NULLPTR));
+        UsernameInput->setText(QString());
         UserNameLabel->setText(QApplication::translate("MainWindow", "Badgername", Q_NULLPTR));
-        PasswordInput->setText(QApplication::translate("MainWindow", "Done", Q_NULLPTR));
+        PasswordInput->setText(QString());
         PasswordLabel->setText(QApplication::translate("MainWindow", "Badger Password", Q_NULLPTR));
         LoginButton->setText(QApplication::translate("MainWindow", "Login", Q_NULLPTR));
         HelpButton->setText(QApplication::translate("MainWindow", "Help", Q_NULLPTR));
