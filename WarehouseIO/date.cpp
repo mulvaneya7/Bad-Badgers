@@ -189,15 +189,20 @@ Date Date::operator +=(int addingYears)
 }
 bool Date::operator <(const Date& Date2)
 {
-    bool lessThan = false;
-    if (int(month) < int(Date2.month))
+    bool lessThan = true;
+    if (year > Date2.year)
     {
-        if (day < Date2.day)
+        lessThan = false;
+    }
+    else if (year == Date2.year)
+    {
+        if(int(month) > int(Date2.month))
         {
-            if (year < Date2.year)
-            {
-                lessThan = true;
-            }
+            lessThan = false;
+        }
+        else if (int(month) == int(Date2.month))
+        {
+            lessThan = day < Date2.day;
         }
     }
     return lessThan;

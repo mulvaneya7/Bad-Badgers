@@ -69,6 +69,8 @@ private slots:
 
     void on_Help_clicked();
 
+    void on_ItemStatstable_cellClicked(int row, int column);
+
 public slots:
     void ValidateClear(QString input);
 

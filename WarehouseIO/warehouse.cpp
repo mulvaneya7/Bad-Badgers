@@ -191,7 +191,7 @@ void Warehouse::AddItem(itemStruct input)
 }
 void Warehouse::AddTransactionNode(TransactionNode tempNode)
 {
-    TransactionList.push_back(tempNode);
+    InsertTransaction(tempNode);
     sortTransactionList();
 }
 
@@ -235,7 +235,7 @@ void Warehouse::sortTransactionList()
     {
         for(int y=0; y<TransactionList.size()-1; y++)
         {
-            if(TransactionList[y].purchaseDate < TransactionList[y+1].purchaseDate)
+            if((TransactionList[y].purchaseDate < TransactionList[y+1].purchaseDate))
             {
                 itemStruct temp = itemList[y+1];
                 itemList[y+1] = itemList[y];
@@ -244,6 +244,29 @@ void Warehouse::sortTransactionList()
         }
     }
 }
+
+void Warehouse::InsertTransaction(TransactionNode newNode)
+{
+    bool found = false;
+    int i = 0;
+    while(i < TransactionList.size() && !found)
+    {
+        found = newNode.purchaseDate < TransactionList[i].purchaseDate;
+        if(found && i < TransactionList.size())
+        {
+            TransactionList.insert(i,newNode);
+        }
+        else
+        {
+            i++;
+        }
+    }
+    if (!found)
+    {
+        TransactionList.push_back(newNode);
+    }
+}
+
 Member Warehouse::SearchID(int id)
 {
     int i = 0;
@@ -418,7 +441,7 @@ void Warehouse::loadSalesReport(QString fileName)
         tempTransaction.productName = itemName;
         tempTransaction.price = cost;
         tempTransaction.quantity = amtSold;
-        TransactionList.push_back(tempTransaction);
+        InsertTransaction(tempTransaction);
         //updates members running totals
         if(this->isMember(id))
         {
@@ -485,7 +508,7 @@ void Warehouse::LoadMasterSalesReport(QString fileName)
         in >> tempNode.quantity;
         in.readLine();
 
-        TransactionList.push_back(tempNode);
+        InsertTransaction(tempNode);
     }
 }
 

@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainProgram_t {
-    QByteArrayData data[27];
-    char stringdata0[595];
+    QByteArrayData data[30];
+    char stringdata0[636];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -56,8 +56,11 @@ QT_MOC_LITERAL(21, 488, 21), // "on_SaveButton_clicked"
 QT_MOC_LITERAL(22, 510, 20), // "on_ClearData_clicked"
 QT_MOC_LITERAL(23, 531, 27), // "on_PrintTransaction_clicked"
 QT_MOC_LITERAL(24, 559, 15), // "on_Help_clicked"
-QT_MOC_LITERAL(25, 575, 13), // "ValidateClear"
-QT_MOC_LITERAL(26, 589, 5) // "input"
+QT_MOC_LITERAL(25, 575, 29), // "on_ItemStatstable_cellClicked"
+QT_MOC_LITERAL(26, 605, 3), // "row"
+QT_MOC_LITERAL(27, 609, 6), // "column"
+QT_MOC_LITERAL(28, 616, 13), // "ValidateClear"
+QT_MOC_LITERAL(29, 630, 5) // "input"
 
     },
     "MainProgram\0on_pushButton_3_clicked\0"
@@ -77,7 +80,8 @@ QT_MOC_LITERAL(26, 589, 5) // "input"
     "on_SaveInventory_clicked\0"
     "on_LoadInventory_clicked\0on_SaveButton_clicked\0"
     "on_ClearData_clicked\0on_PrintTransaction_clicked\0"
-    "on_Help_clicked\0ValidateClear\0input"
+    "on_Help_clicked\0on_ItemStatstable_cellClicked\0"
+    "row\0column\0ValidateClear\0input"
 };
 #undef QT_MOC_LITERAL
 
@@ -87,7 +91,7 @@ static const uint qt_meta_data_MainProgram[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      23,   14, // methods
+      24,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -95,29 +99,30 @@ static const uint qt_meta_data_MainProgram[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  129,    2, 0x08 /* Private */,
-       3,    0,  130,    2, 0x08 /* Private */,
-       4,    1,  131,    2, 0x08 /* Private */,
-       6,    0,  134,    2, 0x08 /* Private */,
-       7,    0,  135,    2, 0x08 /* Private */,
-       8,    0,  136,    2, 0x08 /* Private */,
-       9,    0,  137,    2, 0x08 /* Private */,
-      10,    0,  138,    2, 0x08 /* Private */,
-      11,    0,  139,    2, 0x08 /* Private */,
-      12,    0,  140,    2, 0x08 /* Private */,
-      13,    0,  141,    2, 0x08 /* Private */,
-      14,    0,  142,    2, 0x08 /* Private */,
-      15,    0,  143,    2, 0x08 /* Private */,
-      16,    0,  144,    2, 0x08 /* Private */,
-      17,    0,  145,    2, 0x08 /* Private */,
-      18,    0,  146,    2, 0x08 /* Private */,
-      19,    0,  147,    2, 0x08 /* Private */,
-      20,    0,  148,    2, 0x08 /* Private */,
-      21,    0,  149,    2, 0x08 /* Private */,
-      22,    0,  150,    2, 0x08 /* Private */,
-      23,    0,  151,    2, 0x08 /* Private */,
-      24,    0,  152,    2, 0x08 /* Private */,
-      25,    1,  153,    2, 0x0a /* Public */,
+       1,    0,  134,    2, 0x08 /* Private */,
+       3,    0,  135,    2, 0x08 /* Private */,
+       4,    1,  136,    2, 0x08 /* Private */,
+       6,    0,  139,    2, 0x08 /* Private */,
+       7,    0,  140,    2, 0x08 /* Private */,
+       8,    0,  141,    2, 0x08 /* Private */,
+       9,    0,  142,    2, 0x08 /* Private */,
+      10,    0,  143,    2, 0x08 /* Private */,
+      11,    0,  144,    2, 0x08 /* Private */,
+      12,    0,  145,    2, 0x08 /* Private */,
+      13,    0,  146,    2, 0x08 /* Private */,
+      14,    0,  147,    2, 0x08 /* Private */,
+      15,    0,  148,    2, 0x08 /* Private */,
+      16,    0,  149,    2, 0x08 /* Private */,
+      17,    0,  150,    2, 0x08 /* Private */,
+      18,    0,  151,    2, 0x08 /* Private */,
+      19,    0,  152,    2, 0x08 /* Private */,
+      20,    0,  153,    2, 0x08 /* Private */,
+      21,    0,  154,    2, 0x08 /* Private */,
+      22,    0,  155,    2, 0x08 /* Private */,
+      23,    0,  156,    2, 0x08 /* Private */,
+      24,    0,  157,    2, 0x08 /* Private */,
+      25,    2,  158,    2, 0x08 /* Private */,
+      28,    1,  163,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -142,7 +147,8 @@ static const uint qt_meta_data_MainProgram[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   26,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,   26,   27,
+    QMetaType::Void, QMetaType::QString,   29,
 
        0        // eod
 };
@@ -175,7 +181,8 @@ void MainProgram::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 19: _t->on_ClearData_clicked(); break;
         case 20: _t->on_PrintTransaction_clicked(); break;
         case 21: _t->on_Help_clicked(); break;
-        case 22: _t->ValidateClear((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 22: _t->on_ItemStatstable_cellClicked((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 23: _t->ValidateClear((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -206,13 +213,13 @@ int MainProgram::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 23)
+        if (_id < 24)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 23;
+        _id -= 24;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 23)
+        if (_id < 24)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 23;
+        _id -= 24;
     }
     return _id;
 }

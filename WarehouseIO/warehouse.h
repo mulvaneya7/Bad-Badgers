@@ -53,6 +53,7 @@ public:
     void AutosaveSales();
     void AutosaveInventory();
     void Autoload();
+    void InsertTransaction(TransactionNode newNode);
     // Automatic Appending Memberlist
     void AddMember(QString tmpName, int tmpId, QString tmpDate,QString tmpMembership);
     // Adds an itemStruct node to the itemList vector

@@ -230,7 +230,8 @@ public:
         ItemStatstable->setObjectName(QStringLiteral("ItemStatstable"));
         ItemStatstable->setGeometry(QRect(100, 40, 541, 261));
         ItemStatstable->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        ItemStatstable->setSelectionMode(QAbstractItemView::NoSelection);
+        ItemStatstable->setSelectionMode(QAbstractItemView::SingleSelection);
+        ItemStatstable->setSelectionBehavior(QAbstractItemView::SelectRows);
         ItemSalesStats = new QLabel(ItemInfo);
         ItemSalesStats->setObjectName(QStringLiteral("ItemSalesStats"));
         ItemSalesStats->setGeometry(QRect(30, 10, 131, 16));
@@ -459,7 +460,7 @@ public:
 
         retranslateUi(MainProgram);
 
-        TabMenu->setCurrentIndex(0);
+        TabMenu->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MainProgram);

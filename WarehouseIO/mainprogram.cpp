@@ -135,7 +135,6 @@ void MainProgram::RefreshMemberTable(int index)
 
 void MainProgram::RefreshTransactionTable()
 {
-    database.sortTransactionList();
     ui->TransactionTable->clearContents();
     ui->TransactionTable->setRowCount(0);
     ui->TransactionTable->setColumnCount(MEMBER_TABLE_COL_SIZE);
@@ -665,7 +664,7 @@ void MainProgram::on_manualReportButton_clicked()
                 tempNode.iD = tempID;
                 tempNode.price = tempPrice;
                 tempNode.quantity = tempQuantity;
-                database.AddTransactionNode(tempNode);
+                database.InsertTransaction(tempNode);
                 database.ChangeMemberTotalSpent(tempID,tempSpent);
                 database.ChangeItemQuantity(index,tempQuantity);
                 RefreshTransactionTable();
@@ -767,4 +766,9 @@ void MainProgram::on_PrintTransaction_clicked()
 void MainProgram::on_Help_clicked()
 {
     QApplication::quit();
+}
+
+void MainProgram::on_ItemStatstable_cellClicked(int row, int column)
+{
+    ui->ItemSearchinput->setText(ui->ItemStatstable->item(row,0)->text());
 }
