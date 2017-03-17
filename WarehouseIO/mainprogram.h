@@ -9,6 +9,7 @@
 #include "date.h"
 #include "member.h"
 #include "confirmclear.h"
+#include "help.h"
 namespace Ui {
 class MainProgram;
 }
@@ -77,6 +78,7 @@ public slots:
 private:
     //Private datamembers
     Ui::MainProgram *ui;
+    Help helpType;
     ConfirmClear ClearWindow;
     Warehouse database;
     // Constant used for outputing to the member table

@@ -752,18 +752,6 @@ void MainProgram::ValidateClear(QString input)
     QObject::disconnect(&ClearWindow, SIGNAL(ReturnText(QString)),
                      this, SLOT(ValidateClear(QString)));
 }
-
-/*void MainProgram::on_RefreshTransTable_clicked()
-{
-    qDebug() << "Hello";
-    database.Autoload();
-    RefreshTransactionTable();
-    ui->Expirationoutput->clearContents();
-    ui->Expirationoutput->setRowCount(0);
-    ui->Expirationoutput->setColumnCount(4);
-
-}*/
-
 void MainProgram::on_PrintTransaction_clicked()
 {
     RefreshTransactionTable();
@@ -774,7 +762,7 @@ void MainProgram::on_PrintTransaction_clicked()
 
 void MainProgram::on_Help_clicked()
 {
-    QApplication::quit();
+    helpType.open();
 }
 
 void MainProgram::on_ItemStatstable_cellClicked(int row, int column)

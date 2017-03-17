@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     member.cpp \
     LoginScreen.cpp \
     person.cpp \
-    confirmclear.cpp
+    confirmclear.cpp \
+    help.cpp
 
 HEADERS  += \
     createuser.h \
@@ -30,13 +31,15 @@ HEADERS  += \
     member.h \
     LoginScreen.h \
     person.h \
-    confirmclear.h
+    confirmclear.h \
+    help.h
 
 FORMS    += \
     createuser.ui \
     mainprogram.ui \
     LoginScreen.ui \
-    confirmclear.ui
+    confirmclear.ui \
+    help.ui
 
 RESOURCES += \
     resource.qrc
