@@ -133,6 +133,20 @@ QVector<TransactionNode> Warehouse::getDailySalesReport(Date salesReportdate)
     }
     return outputList;
 }
+QVector<TransactionNode> Warehouse::getMemberTransactionHistory(int id)
+{
+    QVector<TransactionNode> output;
+    for(int i=0;i<TransactionList.size();i++)
+    {
+         if(TransactionList[i].iD==id)
+         {
+             output.push_back(TransactionList[i]);
+         }
+    }
+    return output;
+
+}
+
 QVector<Member*> Warehouse::CheckExpiration(Date dateClass)
 {
     QVector<Member*> outputList;
@@ -156,6 +170,20 @@ bool Warehouse::getItemForSale(int index)
 {
     return itemList[index].forSale;
 }
+bool Warehouse::isExecutive(int id)
+{
+    if(isMember(id)&&(memberList[SearchIDindex(id)]->getMembership() ==MemType::EXECUTIVE))
+    {
+
+       return true;
+    }
+    else
+    {
+        return false;
+    }
+
+}
+
 float Warehouse::getItemPrice(int index)
 {
     return itemList[index].cost;

@@ -8,9 +8,11 @@ INPUT(
 ./debug\LoginScreen.o
 ./debug\person.o
 ./debug\confirmclear.o
+./debug\help.o
 ./debug\qrc_resource.o
 ./debug\moc_createuser.o
 ./debug\moc_mainprogram.o
 ./debug\moc_LoginScreen.o
 ./debug\moc_confirmclear.o
+./debug\moc_help.o
 );

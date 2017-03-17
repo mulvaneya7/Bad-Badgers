@@ -8,9 +8,11 @@ INPUT(
 ./release\LoginScreen.o
 ./release\person.o
 ./release\confirmclear.o
+./release\help.o
 ./release\qrc_resource.o
 ./release\moc_createuser.o
 ./release\moc_mainprogram.o
 ./release\moc_LoginScreen.o
 ./release\moc_confirmclear.o
+./release\moc_help.o
 );

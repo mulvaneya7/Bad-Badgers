@@ -55,6 +55,7 @@ public:
     void AutosaveInventory();
     void Autoload();
     void InsertTransaction(TransactionNode newNode);
+
     // Automatic Appending Memberlist
     void AddMember(QString tmpName, int tmpId, QString tmpDate,QString tmpMembership);
     // Adds an itemStruct node to the itemList vector
@@ -83,6 +84,8 @@ public:
     QVector<Member*> CheckExpiration(Date dateClass);
     // Reports the Sales Report for any givin day.
     QVector<TransactionNode> getDailySalesReport(Date salesReportdate);
+    //
+    QVector<TransactionNode> getMemberTransactionHistory(int id);
     // Returns the forsale boolean at a given index of the itemList
     bool getItemForSale(int index);
     // Returns the price of an item at a given index
@@ -101,6 +104,7 @@ public:
     bool isItem(QString searchItem);
     bool isMember(int id);
     bool isMember(QString name);
+    bool isExecutive(int id);
     int ItemIndex(QString searchItem);
     // Checks if member should convert to Executive or an Executive member should convert to regular member
     bool CheckForConvert(Member member);

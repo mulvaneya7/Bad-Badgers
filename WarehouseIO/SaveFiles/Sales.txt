@@ -238,3 +238,7 @@ Coke
 12345
 Propel Fitness Water
 12.5 3
+09/01/2015
+88888
+1 gallon milk
+6.49 2

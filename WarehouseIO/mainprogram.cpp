@@ -57,6 +57,8 @@ void MainProgram::on_GenerateReport_clicked()
     ui->TransactionTable->setRowCount(0);
     ui->TransactionTable->setColumnCount(MEMBER_TABLE_COL_SIZE);
     temp = database.getDailySalesReport(salesReportdate);
+    float runningTotal=0;
+    int totalExec =0;
     //Outputs the Daily sales
     for(int row=0;row<temp.size();row++)
     {
@@ -82,7 +84,15 @@ void MainProgram::on_GenerateReport_clicked()
                     break;
             }
         }
+        if(database.isExecutive(temp[row].iD))
+        {
+            totalExec++;
+        }
+        runningTotal+=(float(temp[row].quantity)*temp[row].price);
     }
+    //output Totals
+    ui->HistoryTotal->setText(QString::number(runningTotal,'f',2));
+    ui->NumExecutiveShop->setText(QString::number(totalExec));
     //Outputs Expiring members
     expiringMembers = database.CheckExpiration(salesReportdate);
     ui->Expirationoutput->clearContents();
@@ -758,6 +768,8 @@ void MainProgram::on_PrintTransaction_clicked()
     ui->Expirationoutput->clearContents();
     ui->Expirationoutput->setRowCount(0);
     ui->Expirationoutput->setColumnCount(4);
+    ui->HistoryTotal->clear();
+    ui->NumExecutiveShop->clear();
 }
 
 void MainProgram::on_Help_clicked()
@@ -768,4 +780,52 @@ void MainProgram::on_Help_clicked()
 void MainProgram::on_ItemStatstable_cellClicked(int row, int column)
 {
     ui->ItemSearchinput->setText(ui->ItemStatstable->item(row,0)->text());
+}
+
+void MainProgram::on_getMemberHistory_clicked()
+{
+    bool valid;
+    //takes the input from the input box and saves into string
+    QString memberSearched = ui->IDmemberSearchin->text();
+    float runningTotal=0;
+    //checks to see if string is convertable to an int
+    int convertInt = memberSearched.toInt(&valid);
+    if(valid&&database.isMember(convertInt))
+    {
+        QVector<TransactionNode> output = database.getMemberTransactionHistory(convertInt);
+        ui->TransactionTable->clearContents();
+        ui->TransactionTable->setRowCount(0);
+        ui->TransactionTable->setColumnCount(MEMBER_TABLE_COL_SIZE);
+        for(int row=0;row< output.size();row++)
+        {
+            ui->TransactionTable->insertRow(row);
+            for (int col = 0; col < MEMBER_TABLE_COL_SIZE; col++)
+            {
+                switch(col)
+                {
+                             // Creates and outputs QTableWidgetItem Date of purchase
+                    case 0 : ui->TransactionTable->setItem(row,col,new QTableWidgetItem(output[row].purchaseDate.DateSimple()));
+                        break;
+                             // Creates and outputs QTableWidgetItem ID of member
+                    case 1 : ui->TransactionTable->setItem(row,col,new QTableWidgetItem(QString::number(output[row].iD)));
+                        break;
+                             // Creates and outputs QTableWidgetItem Name of the item purchasedr
+                    case 2 : ui->TransactionTable->setItem(row,col,new QTableWidgetItem(output[row].productName));
+                        break;
+                             // Creates and outputs QTableWidgetItem Quantity of product bought
+                    case 3 : ui->TransactionTable->setItem(row,col,new QTableWidgetItem(QString::number(output[row].quantity)));
+                        break;
+                             // Creates and outputs QTableWidgetItem Cost of the product
+                    case 4 : ui->TransactionTable->setItem(row,col,new QTableWidgetItem("$"+QString::number(output[row].price,'f',2)));
+                        break;
+                }
+            }
+            runningTotal+=((float)output[row].quantity)*output[row].price;
+        }
+        ui->HistoryTotal->setText(QString::number(runningTotal,'f',2));
+    }
+    else
+    {
+        ui->TransactionListerror->setText("No such Member exists");
+    }
 }

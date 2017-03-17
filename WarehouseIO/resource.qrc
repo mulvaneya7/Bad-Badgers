@@ -6,6 +6,5 @@
     </qresource>
     <qresource prefix="/Images">
         <file>Badger.png</file>
-        <file>Help Gif.gif</file>
     </qresource>
 </RCC>
